@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
-import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import './scss/mainSlider.scss';
 
 const MainSlider = () => {
     const swiperRef = useRef(null);
-    // 메인 슬라이드
     const slides = [
         { id: 1, src: './video/main_slide_01.mp4', tag: 'video', title: "Rei's Bay Clog" },
         {
@@ -79,36 +81,38 @@ const MainSlider = () => {
     };
 
     return (
-        <div className="mian_slider_wrap">
-            <Swiper
-                modules={[Autoplay, Pagination]}
-                autoplay={{ delay: 5000, disableOnInteraction: false }}
-                pagination={pagination}
-                loop
-                onInit={handleInit}
-                onSlideChange={handleSlideChange}
-                className="main_slider"
-            >
-                {slides.map((slide) => (
-                    <SwiperSlide key={slide.id}>
-                        {slide.tag === 'video' ? (
-                            <video
-                                src={slide.src}
-                                muted
-                                playsInline
-                                preload="auto"
-                                className="main_slide_video"
-                            />
-                        ) : (
-                            <img
-                                src={slide.src}
-                                alt={slide.alt || `slide-${slide.id}`}
-                                className="main_slide_image"
-                            />
-                        )}
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+        <div className="main_slider_wrap">
+            <div className="main_slider">
+                <Swiper
+                    modules={[Autoplay, Pagination]}
+                    autoplay={{ delay: 5000, disableOnInteraction: false }}
+                    pagination={pagination}
+                    loop
+                    onInit={handleInit}
+                    onSlideChange={handleSlideChange}
+                    className="main_slider"
+                >
+                    {slides.map((slide) => (
+                        <SwiperSlide key={slide.id}>
+                            {slide.tag === 'video' ? (
+                                <video
+                                    src={slide.src}
+                                    muted
+                                    playsInline
+                                    preload="auto"
+                                    className="main_slide_video"
+                                />
+                            ) : (
+                                <img
+                                    src={slide.src}
+                                    alt={slide.alt || `slide-${slide.id}`}
+                                    className="main_slide_image"
+                                />
+                            )}
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </div>
     );
 };

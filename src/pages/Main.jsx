@@ -1,5 +1,5 @@
 import React from 'react';
-import MainSlider from '../MainSlider';
+import MainSlider from '../components/MainSlider';
 
 const Main = () => {
     return (
