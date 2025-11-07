@@ -1,0 +1,81 @@
+@use '../../App.scss' as g;
+
+.login_wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 40px;
+    // box-shadow: ;
+    text-align: center;
+
+    // .section_title {
+    //     font-size: 5rem;
+    // }
+
+    .login_form {
+        padding-top: 40px;
+        @include g.flex($fd: column);
+        width: 400px;
+        margin: 0 auto;
+
+        > input {
+            width: 400px;
+            height: 40px;
+            border: none;
+            background: #ddd;
+            border-radius: 50px;
+            padding-left: 2rem;
+            text-align: start;
+            font-weight: bold;
+        }
+
+        .checkbox_wrap {
+            width: 100%;
+            height: 5rem;
+            @include g.flex();
+            .checkbox_left {
+                input {
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50px;
+                    border: 1px solid #ddd;
+                }
+            }
+        }
+
+        > button {
+            width: 40rem;
+            height: 5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.6rem;
+        }
+
+        .login_btn {
+            background: g.$subColor;
+            color: #fff;
+        }
+
+        .join_btn {
+            background: g.$mainColor;
+        }
+
+        .sns_login_wrap {
+            @include g.flex();
+
+            button {
+                width: 4rem;
+                height: 4rem;
+                border-radius: 50px;
+                border: none;
+            }
+        }
+    }
+    > p {
+        margin-top: 2rem;
+        a {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+}
