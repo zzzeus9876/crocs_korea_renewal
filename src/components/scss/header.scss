@@ -1,0 +1,76 @@
+@use '../../App.scss' as g;
+
+header {
+    height: 7rem;
+    background: rgba($color: #eee, $alpha: 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+
+    .wide_inner {
+        line-height: 7rem;
+
+        .header_left {
+            @include g.flex();
+
+            .logo {
+                width: 15rem;
+                a {
+                    img {
+                        width: 15rem;
+                    }
+                }
+            }
+
+            nav {
+                .main_menu {
+                    @include g.flex();
+
+                    li {
+                        a {
+                            font-size: 1.8rem;
+                            font-weight: bold;
+                            padding: 1rem 2rem;
+                            height: 8rem;
+                        }
+                    }
+
+                    .collabs {
+                        color: g.$mainColor;
+                    }
+                }
+            }
+        }
+
+        .header_right {
+            .gnb_wrap {
+                @include g.flex();
+                .gnb_left {
+                    @include g.flex();
+                    li {
+                        a {
+                            font-size: 1.8rem;
+                            font-weight: bold;
+                            padding: 1rem 2rem;
+                            height: 8rem;
+                        }
+                    }
+                    .brand {
+                        color: #66de1b;
+                    }
+                }
+
+                .gnb_right {
+                    @include g.flex($gap: 1rem);
+                    li {
+                        a {
+                            height: 8rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
