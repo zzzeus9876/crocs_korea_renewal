@@ -5,12 +5,14 @@ const GnbRight = () => {
     return (
         <ul className="gnb_right">
             <li>
-                <Link to="/search">
-                    <img src="./images/search_icon.svg" alt="search_icon" />
-                </Link>
                 <button>
                     <img src="./images/search_icon.svg" alt="search_icon" />
                 </button>
+            </li>
+            <li>
+                <Link to="/search">
+                    <img src="./images/search_icon.svg" alt="search_icon" />
+                </Link>
             </li>
             <li>
                 <Link to="/login">

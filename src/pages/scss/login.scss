@@ -3,7 +3,6 @@
 .login_wrap {
     max-width: 1200px;
     margin: 0 auto;
-    padding-top: 40px;
     // box-shadow: ;
     text-align: center;
 
@@ -13,7 +12,7 @@
 
     .login_form {
         padding-top: 40px;
-        @include g.flex($fd: column);
+        @include g.flex($fd: column, $gap: 1rem);
         width: 400px;
         margin: 0 auto;
 

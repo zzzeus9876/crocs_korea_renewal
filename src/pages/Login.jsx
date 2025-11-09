@@ -9,7 +9,7 @@ const Login = () => {
         <div className="sub_page">
             <div className="inner">
                 <div className="login_wrap">
-                    <Title title="login" />
+                    <Title title="Login" />
                     <LoginForm />
                     <p>
                         <Link>비회원 주문조회</Link>

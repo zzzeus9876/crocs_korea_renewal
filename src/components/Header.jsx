@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import MainmenuList from './MainmenuList';
 import './scss/header.scss';
@@ -7,27 +7,27 @@ import Depth1 from './Depth1';
 // import Search from './Search';
 
 const Header = () => {
-    const [searchOpen, setSearchOpen] = useState();
-
     return (
-        <header>
-            <div className="wide_inner">
-                <div className="header_left">
-                    <h1 className="logo">
-                        <Link to="/">
-                            <img src="./images/crocs_logo.svg" alt="crocs logo" />
-                        </Link>
-                    </h1>
-                    <nav>
-                        <MainmenuList />
-                        <Depth1 />
-                    </nav>
+        <>
+            <header>
+                <div className="wide_inner">
+                    <div className="header_left">
+                        <h1 className="logo">
+                            <Link to="/">
+                                <img src="./images/crocs_logo.svg" alt="crocs logo" />
+                            </Link>
+                        </h1>
+                        <nav>
+                            <MainmenuList />
+                            <Depth1 />
+                        </nav>
+                    </div>
+                    <div className="header_right">
+                        <GnbWrap />
+                    </div>
                 </div>
-                <div className="header_right">
-                    <GnbWrap />
-                </div>
-            </div>
-        </header>
+            </header>
+        </>
     );
 };
 

@@ -44,7 +44,7 @@ body {
 
 section {
     height: 100vh;
-    padding: 12rem;
+    padding-top: 10rem;
     height: calc(var(--vh, 1vh) * 100);
 }
 
@@ -60,5 +60,5 @@ section {
 }
 
 .sub_page {
-    padding-top: 150px;
+    padding-top: 12rem;
 }

@@ -6,7 +6,7 @@ import SearchLeft from './SearchLeft';
 
 const Search = () => {
     return (
-        <div className="search_wrap inner">
+        <div className="search_wrap">
             <div className="search_top">
                 <SearchInput />
             </div>
