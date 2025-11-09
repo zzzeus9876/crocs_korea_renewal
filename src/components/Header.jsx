@@ -7,6 +7,8 @@ import Depth1 from './Depth1';
 // import Search from './Search';
 
 const Header = () => {
+    const [searchOpen, setSearchOpen] = useState();
+
     return (
         <header>
             <div className="wide_inner">
