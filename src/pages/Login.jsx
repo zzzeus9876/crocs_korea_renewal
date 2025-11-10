@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Title from '../components/Title';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 import './scss/login.scss';
+import { useAuthStore } from '../store/useAuthStore';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const { onLogin } = useAuthStore();
+
+    const navigate = useNavigate();
+
+    // 메서드
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log('전송.');
+        await onLogin(email, password);
+        navigate('/');
+    };
+
     return (
         <div className="sub_page">
             <div className="inner">
                 <div className="login_wrap">
                     <Title title="Login" />
-                    <LoginForm />
+                    <LoginForm
+                        onLoginSubmit={handleSubmit}
+                        email={email}
+                        password={password}
+                        setEmail={setEmail}
+                        setPassword={setPassword}
+                    />
                     <p>
                         <Link>비회원 주문조회</Link>
                     </p>
