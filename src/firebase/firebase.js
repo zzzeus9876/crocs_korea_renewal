@@ -7,6 +7,16 @@ import { getStorage } from 'firebase/storage';
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// const firebaseConfig = {
+//     apiKey: 'AIzaSyC4NSPfbGAiQccEXSlwXsLSBZV6gd0mrzA',
+//     authDomain: 'ezen-test-9bc64.firebaseapp.com',
+//     projectId: 'ezen-test-9bc64',
+//     storageBucket: 'ezen-test-9bc64.firebasestorage.app',
+//     // storageBucket: 'ezen-test-9bc64.appspot.com',
+//     messagingSenderId: '849029273895',
+//     appId: '1:849029273895:web:1b7b6d4469dea57df1f102',
+// };
+
 const firebaseConfig = {
     apiKey: 'AIzaSyC4NSPfbGAiQccEXSlwXsLSBZV6gd0mrzA',
     authDomain: 'ezen-test-9bc64.firebaseapp.com',

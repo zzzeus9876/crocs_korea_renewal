@@ -9,16 +9,24 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { onLogin } = useAuthStore();
+    const { onLogin, onGoogleLogin } = useAuthStore();
 
     const navigate = useNavigate();
 
     // 메서드
+    // 1. 기본 로그인
     const handleSubmit = async (e) => {
         e.preventDefault();
         console.log('전송.');
         await onLogin(email, password);
         navigate('/');
+    };
+
+    // 2. 구글 로그인
+    const handleGoogleLogin = async () => {
+        console.log('구글');
+        await onGoogleLogin();
+        navigate('/userinfo');
     };
 
     return (
@@ -32,6 +40,7 @@ const Login = () => {
                         password={password}
                         setEmail={setEmail}
                         setPassword={setPassword}
+                        onGoogleLogin={handleGoogleLogin}
                     />
                     <p>
                         <Link>비회원 주문조회</Link>

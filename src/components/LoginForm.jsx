@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const LoginForm = ({ onLoginSubmit, email, password, setEmail, setPassword }) => {
+const LoginForm = ({ onLoginSubmit, email, password, setEmail, setPassword, onGoogleLogin }) => {
     return (
         <form className="login_form" onSubmit={onLoginSubmit}>
             <input
@@ -41,13 +41,15 @@ const LoginForm = ({ onLoginSubmit, email, password, setEmail, setPassword }) =>
             <button className="join_btn" type="button">
                 Join
             </button>
+
             <div className="sns_login_wrap">
-                <button className="sns_login google">
-                    <img src="./images/google_icon.svg" alt="google_login" />
-                </button>
                 <button className="sns_login kakao">
                     <img src="./images/kakao_icon.svg" alt="kakao_login" />
                 </button>
+                <button className="sns_login google" onClick={onGoogleLogin}>
+                    <img src="./images/google_icon.svg" alt="google_login" />
+                </button>
+
                 <button className="sns_login naver">
                     <img src="./images/naver_icon.svg" alt="naver_login" />
                 </button>
