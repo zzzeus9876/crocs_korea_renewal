@@ -44,7 +44,8 @@ body {
 
 section {
     height: 100vh;
-    padding: 12rem;
+    // padding-top: 10rem;
+    height: calc(var(--vh, 1vh) * 100);
 }
 
 .section_title {
@@ -54,6 +55,10 @@ section {
 }
 
 .section_sub_title {
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.sub_page {
+    padding-top: 12rem;
 }
