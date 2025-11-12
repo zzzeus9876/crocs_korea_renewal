@@ -9,12 +9,13 @@ import Monthly from '../components/Monthly';
 const Main = () => {
     return (
         <main>
+            <MainSlider />
+            <TopPopup />
             <div className="container">
                 <Link to="/join">join</Link>
                 <JibbitzCollaboSwiper />
             </div>
-            <MainSlider />
-            <TopPopup />
+            
             <div className="container">
                 <Monthly />
             </div>
