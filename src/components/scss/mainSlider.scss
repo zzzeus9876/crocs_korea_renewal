@@ -21,12 +21,14 @@
     }
 
     .swiper-pagination {
-        @include g.flex();
+        @include g.flex($jc: center, $gap: 3rem);
         position: absolute;
         left: 0;
         bottom: 0;
         height: 6rem;
         background: rgba($color: #eee, $alpha: 0.4);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
         padding: 0 24rem;
         margin: 0 auto;
 
