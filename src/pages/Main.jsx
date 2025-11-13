@@ -6,23 +6,21 @@ import MainSlider from '../components/MainSlider';
 import TopPopup from '../components/TopPopup';
 import Monthly from '../components/Monthly';
 import MainCategory from '../components/MainCategory';
-import MainInstagram from '../components/MainInstagram'; 
+import MainInstagram from '../components/MainInstagram';
+import SlideCircle from '../components/SlideCircle';
 
 const Main = () => {
     return (
         <main>
             <MainSlider />
             <TopPopup />
-            <MainCategory />
             <div className="container">
-                <Link to="/join">join</Link>
+                <MainCategory />
+                <SlideCircle />
                 <JibbitzCollaboSwiper />
-            </div>
-            
-            <div className="container">
                 <Monthly />
+                <MainInstagram />
             </div>
-            <MainInstagram />
         </main>
     );
 };

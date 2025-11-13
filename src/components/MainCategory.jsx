@@ -8,42 +8,38 @@ import categoryData from '../data/categoryData.json';
 import promotionData from '../data/promotionData.json';
 
 const MainCategory = () => {
-  // 카테고리 클릭 핸들러
-  const handleCategoryClick = (e, link) => {
-    e.preventDefault();
-    console.log('Navigate to:', link);
-    // React Router 사용 시: navigate(link);
-  };
+    // 카테고리 클릭 핸들러
+    const handleCategoryClick = (e, link) => {
+        e.preventDefault();
+        console.log('Navigate to:', link);
+        // React Router 사용 시: navigate(link);
+    };
 
-  // 프로모션 클릭 핸들러
-  const handlePromotionClick = (e, link) => {
-    e.preventDefault();
-    console.log('Navigate to promotion:', link);
-    // React Router 사용 시: navigate(link);
-  };
+    // 프로모션 클릭 핸들러
+    const handlePromotionClick = (e, link) => {
+        e.preventDefault();
+        console.log('Navigate to promotion:', link);
+        // React Router 사용 시: navigate(link);
+    };
 
-  return (
-    <main>
-      <section className="category">
-        <div className='inner'>
-          <Title
-            title="Shop by Category"
-            subTitle="당신의 스타일에 맞는 완벽한 크록스를 찾아보세요"
-          />
+    return (
+        <main>
+            <section className="category category_wrap">
+                <Title
+                    title="Shop by Category"
+                    subTitle="당신의 스타일에 맞는 완벽한 크록스를 찾아보세요"
+                />
+                <div className="inner">
+                    <CategoryList categories={categoryData} onCategoryClick={handleCategoryClick} />
 
-          <CategoryList
-            categories={categoryData}
-            onCategoryClick={handleCategoryClick}
-          />
-
-          <PromotionList
-            promotions={promotionData}
-            onPromotionClick={handlePromotionClick}
-          />
-        </div>
-      </section>
-    </main>
-  );
+                    <PromotionList
+                        promotions={promotionData}
+                        onPromotionClick={handlePromotionClick}
+                    />
+                </div>
+            </section>
+        </main>
+    );
 };
 
 export default MainCategory;
