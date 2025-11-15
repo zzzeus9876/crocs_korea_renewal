@@ -1,8 +1,8 @@
 import React from 'react';
 import Title from './Title';
-import './scss/crocsClubPopup.scss';
 import CrocsClubOption from './CrocsClubOption';
 import { Link } from 'react-router-dom';
+import './scss/crocsClubPopup.scss';
 
 const CrocsClubPopup = () => {
     return (
