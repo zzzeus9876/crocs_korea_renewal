@@ -2,14 +2,16 @@
 
 .come_as_popup_wrap {
     max-width: 500px;
-    height: 700px;
+    height: fit-content;
     margin: 100px auto;
     border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
+    padding-bottom: 5rem;
     .come_as_wrap {
         @include g.flex($fd: column);
-        // padding-bottom: 50px;
+        // padding: 5rem;
+
         > div {
             flex: 1;
         }
@@ -25,6 +27,7 @@
 
         .text_box {
             @include g.flex($fd: column);
+            padding-top: 2rem;
             h3 {
                 font-size: 2.8rem;
                 font-weight: 900;
