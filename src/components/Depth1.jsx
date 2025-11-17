@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DepthmenuList from './DepthmenuList';
 import SubmenuList from './SubmenuList';
 import { menuList } from '../store/menuList';
+import './scss/depth1.scss';
 
 const Depth1 = () => {
     // 서브메뉴 상태 저장
