@@ -7,6 +7,13 @@
     width: 100%;
     z-index: 1000;
 
+    &.hide {
+        opacity: 0;
+        transform: translateY(-100%);
+        // 또는
+        // display: none;
+    }
+
     &::before {
         content: '';
         position: absolute;
