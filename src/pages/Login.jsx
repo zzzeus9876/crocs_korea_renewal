@@ -1,3 +1,5 @@
+'use no memo';
+
 import React, { useState } from 'react';
 import Title from '../components/Title';
 import { Link, useNavigate } from 'react-router-dom';
@@ -20,7 +22,7 @@ const Login = () => {
         e.preventDefault();
         console.log('전송.');
         await onLogin(email, password);
-        navigate('/');
+        navigate('/userinfo');
     };
 
     // 2. 구글 로그인
