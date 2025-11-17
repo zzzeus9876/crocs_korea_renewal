@@ -1,16 +1,38 @@
 @use '../../App.scss' as g;
 
 .come_as_popup_wrap {
-    max-width: 500px;
-    height: fit-content;
-    margin: 100px auto;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    padding-bottom: 5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); // 배경 어둡게
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
     .come_as_wrap {
         @include g.flex($fd: column);
+        position: relative;
+        max-width: 500px;
+        height: fit-content;
+        margin: 100px auto;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+        padding-bottom: 5rem;
+        background: #fff;
         // padding: 5rem;
+
+        .close_btn {
+            position: absolute;
+            top: 2%;
+            right: 1%;
+            img {
+                width: 3.2rem;
+            }
+        }
 
         > div {
             flex: 1;
@@ -19,7 +41,16 @@
         .img_box {
             // border-radius: 50%;
             width: 500px;
-            background-color: #ddd;
+            // background-color: #ddd;
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f1ffe8+0,a9abf2+48,a9abf2+54,ffffdc+100 */
+            background: linear-gradient(
+                    124deg,
+                    rgba(255, 255, 255, 0.7) 1.58%,
+                    rgba(255, 251, 251, 0.7) 103.42%
+                ),
+                linear-gradient(45deg, #f1ffe8 0%, #a9abf2 48%, #a9abf2 54%, #ffffdc 100%);
+            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            border-radius: 10px 10px 0 0;
             .img {
                 width: 300px;
             }
@@ -37,19 +68,6 @@
                 font-weight: 500;
                 text-align: center;
             }
-        }
-
-        button {
-            display: block;
-            width: 40rem;
-            height: 4rem;
-            border-radius: 50px;
-            border: none;
-            font-weight: bold;
-            font-size: 1.6rem;
-            background: g.$mainColor;
-            // line-height: 4rem;
-            text-align: center;
         }
 
         a {

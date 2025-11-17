@@ -1,6 +1,5 @@
 import React from 'react';
 import SearchInput from './SearchInput';
-import { Link } from 'react-router-dom';
 import './scss/search.scss';
 import SearchLeft from './SearchLeft';
 import { useSearchStore } from '../store/useSearchStore';
