@@ -9,6 +9,7 @@ import MainCategory from '../components/MainCategory';
 import MainInstagram from '../components/MainInstagram';
 import SlideCircle from '../components/SlideCircle';
 import CrocsSection from '../components/CrocsSectionFinal';
+import ComeAsPopupBtn from '../components/ComeAsPopupBtn';
 
 const Main = () => {
     return (
@@ -23,6 +24,7 @@ const Main = () => {
                 <Monthly />
                 <MainInstagram />
             </div>
+            <ComeAsPopupBtn />
         </main>
     );
 };

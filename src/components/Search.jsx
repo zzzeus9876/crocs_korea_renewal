@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './scss/search.scss';
 import SearchLeft from './SearchLeft';
 import { useSearchStore } from '../store/useSearchStore';
+import SearchRight from './SearchRight';
 
 const Search = () => {
     const { inputText, onInputText, onAddRecentSearches, searchOpen, onCloseSearch } =
@@ -31,9 +32,10 @@ const Search = () => {
                     <SearchLeft />
                 </div>
                 <div className="search_right">
-                    <Link>
+                    {/* <Link>
                         <img src="./images/search_img.svg" alt="" />
-                    </Link>
+                    </Link> */}
+                    <SearchRight />
                 </div>
             </div>
         </div>

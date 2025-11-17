@@ -1,0 +1,65 @@
+@use '../../App.scss' as g;
+
+.come_as_popup_wrap {
+    max-width: 500px;
+    height: 700px;
+    margin: 100px auto;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    .come_as_wrap {
+        @include g.flex($fd: column);
+        // padding-bottom: 50px;
+        > div {
+            flex: 1;
+        }
+
+        .img_box {
+            // border-radius: 50%;
+            width: 500px;
+            background-color: #ddd;
+            .img {
+                width: 300px;
+            }
+        }
+
+        .text_box {
+            @include g.flex($fd: column);
+            h3 {
+                font-size: 2.8rem;
+                font-weight: 900;
+            }
+
+            p {
+                font-weight: 500;
+                text-align: center;
+            }
+        }
+
+        button {
+            display: block;
+            width: 40rem;
+            height: 4rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.6rem;
+            background: g.$mainColor;
+            // line-height: 4rem;
+            text-align: center;
+        }
+
+        a {
+            display: block;
+            width: 40rem;
+            height: 4rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: bold;
+            font-size: 1.6rem;
+            background: g.$mainColor;
+            line-height: 4rem;
+            text-align: center;
+        }
+    }
+}

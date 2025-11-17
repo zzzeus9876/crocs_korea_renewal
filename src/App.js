@@ -17,6 +17,7 @@ import Header from './components/Header';
 import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
 import Nonmember from './pages/Nonmember';
+import ComeAsPopup from './components/ComeAsPopup';
 
 function App() {
     return (
@@ -38,6 +39,7 @@ function App() {
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/nonmember" element={<Nonmember />} />
+                <Route path="/comaspopup" element={<ComeAsPopup />} />
             </Routes>
             <Footer />
         </div>
