@@ -38,10 +38,7 @@ const LoginForm = ({ onLoginSubmit, email, password, setEmail, setPassword, onGo
             <button className="login_btn" type="submit">
                 Login
             </button>
-            {/* <button className="join_btn" type="button">
-                Join
-            </button> */}
-            <Link to="/join" className="join_link" type="button">
+            <Link to="/join" className="join_link">
                 Join
             </Link>
 
@@ -49,7 +46,7 @@ const LoginForm = ({ onLoginSubmit, email, password, setEmail, setPassword, onGo
                 <button className="sns_login kakao">
                     <img src="./images/kakao_icon.svg" alt="kakao_login" />
                 </button>
-                <button className="sns_login google" onClick={onGoogleLogin}>
+                <button className="sns_login google" onClick={onGoogleLogin} type="button">
                     <img src="./images/google_icon.svg" alt="google_login" />
                 </button>
 
