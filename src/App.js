@@ -16,6 +16,9 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
+import JibbitzCollaboProductDetail from './pages/JibbitzCollaboProductDetail';
+import WishList from './pages/WishList';
+import OrderHistory from './pages/OrderHistory';
 import Nonmember from './pages/Nonmember';
 import ComeAsPopup from './components/ComeAsPopup';
 
@@ -38,6 +41,11 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
+                <Route path="/product/:id" element={<JibbitzCollaboProductDetail />} />
+                <Route path="/wishlist" element={<WishList />} />
+                <Route path="/crocsclub" element={<CrocsClubPopup />} />
+                <Route path="/userinfo" element={<UserInfo />} />
+                <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/nonmember" element={<Nonmember />} />
                 <Route path="/comaspopup" element={<ComeAsPopup />} />
             </Routes>
