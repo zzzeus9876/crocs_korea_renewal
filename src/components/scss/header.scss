@@ -6,7 +6,7 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
 
     &.hide {
         opacity: 0;
@@ -24,7 +24,7 @@
             }
         }
         &::before {
-            background: rgba($color: #444, $alpha: 0.8);
+            background-color: rgba($color: #444, $alpha: 0.8);
         }
     }
 
@@ -112,8 +112,12 @@
                             button {
                                 @include g.flex($jc: center);
                                 padding: 0;
-                                line-height: 8rem;
+                                line-height: 7rem;
                             }
+                        }
+
+                        .user_login_out_wrap {
+                            @include g.flex($gap: 1rem);
                         }
                     }
                 }
