@@ -6,6 +6,7 @@ import GnbWrap from './GnbWrap';
 import Depth1 from './Depth1';
 import Search from './Search';
 import { useSearchStore } from '../store/useSearchStore';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
     const searchOpen = useSearchStore((state) => state.searchOpen);
@@ -13,8 +14,10 @@ const Header = () => {
     const onCloseSearch = useSearchStore((state) => state.onCloseSearch);
 
     const [depthOpen, setDepthOpen] = useState(false);
-
     const [scrolled, setScrolled] = useState(false); // <- 스크롤 상태
+
+    const location = useLocation();
+    const isSubPage = location.pathname !== '/'; // 예: 메인 페이지가 '/'일 경우
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,9 +42,11 @@ const Header = () => {
         <>
             {/* header와 depth1을 감싸는 wrapper */}
             <div
-                className={`header_wrapper ${depthOpen ? 'open' : ''} ${searchOpen ? 'hide' : ''} ${
-                    scrolled ? 'scrolled' : ''
-                }`}
+                className={`header_wrapper
+                ${depthOpen ? 'open' : ''} 
+                ${searchOpen ? 'hide' : ''} 
+                ${scrolled ? 'scrolled' : ''}
+                ${isSubPage ? 'subpage' : ''}`}
                 onMouseEnter={() => setDepthOpen(true)}
                 onMouseLeave={() => setDepthOpen(false)}
             >
@@ -66,7 +71,8 @@ const Header = () => {
                 {depthOpen && <Depth1 />}
             </div>
 
-            {searchOpen && <Search onClose={onCloseSearch} />}
+            {/* {searchOpen && <Search onClose={onCloseSearch} />} */}
+            {searchOpen && <Search onClose={onCloseSearch} scrolled={scrolled} />}
         </>
     );
 };

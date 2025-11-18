@@ -13,7 +13,8 @@
         transform: translateY(-100%);
     }
 
-    &.scrolled {
+    &.scrolled,
+    &.subpage {
         .header {
             nav {
                 li {
