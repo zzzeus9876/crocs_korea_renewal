@@ -1,7 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { loginAuthStore } from '../store/loginStore';
 
 const GnbRight = ({ onSearchClick }) => {
+    const navigate = useNavigate();
+    const { user, handleUserClick, logout } = loginAuthStore();
+
     return (
         <ul className="gnb_right">
             <li>
@@ -10,9 +14,17 @@ const GnbRight = ({ onSearchClick }) => {
                 </button>
             </li>
             <li>
-                <Link to="/login">
+                <button onClick={() => handleUserClick(navigate)}>
                     <img src="./images/user_icon.svg" alt="user_icon" />
-                </Link>
+                </button>
+            </li>
+            <li>
+                {/* 로그인 상태이면 로그아웃 버튼 표시 */}
+                {user && (
+                    <button onClick={logout}>
+                        <img src="./images/logout_icon.svg" alt="logout_icon" />
+                    </button>
+                )}
             </li>
             <li>
                 <Link to="/cart">

@@ -4,7 +4,7 @@
     .inner {
         .user_info_top {
             @include g.flex();
-            margin: 5rem 0;
+            margin-bottom: 5rem;
 
             > div {
                 width: 100%;

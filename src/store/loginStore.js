@@ -6,6 +6,8 @@ import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 
 console.log(db); // undefined 아니면 정상
 export const loginAuthStore = create((set, get) => ({
+    user: null,
+
     // 기본 로그인
     onLogin: async (email, password) => {
         try {
@@ -105,6 +107,28 @@ export const loginAuthStore = create((set, get) => ({
         } catch (err) {
             console.error('카카오 로그인 중 오류:', err);
             alert('카카오 로그인 실패:' + err.message);
+        }
+    },
+
+    // 로그인 상태를 체크하여, 마이페이지 or 로그인 페이지가 뜨게
+    handleUserClick: (navigate) => {
+        const { user } = get();
+        if (user) {
+            navigate('/userinfo'); // 로그인 되어 있으면 마이페이지
+        } else {
+            navigate('/login'); // 로그인 안 되어 있으면 로그인 페이지
+        }
+    },
+
+    // 로그아웃
+    logout: async () => {
+        try {
+            await auth.signOut(); // Firebase 로그아웃
+            set({ user: null }); // Zustand 상태 초기화
+            alert('로그아웃 되었습니다.');
+        } catch (err) {
+            console.error('로그아웃 실패:', err);
+            alert('로그아웃 실패:' + err.message);
         }
     },
 }));
