@@ -48,8 +48,8 @@ const Login = () => {
                     <p>
                         <Link to="/nonmember">비회원 주문조회</Link>
                     </p>
+                    <CrocsClubJion />
                 </div>
-                <CrocsClubJion />
             </div>
         </div>
     );

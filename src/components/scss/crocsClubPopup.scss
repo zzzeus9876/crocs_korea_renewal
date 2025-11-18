@@ -4,9 +4,11 @@
     max-width: 1000px;
     height: 100%;
     margin: 0 auto;
-    padding: 5rem 10rem;
-    border: 1px solid #ddd;
+    padding: 5rem 10rem 20rem;
+    border-radius: 1rem;
+    // border: 1px solid #ddd;
     @include g.flex($fd: column, $jc: center, $gap: none);
+    box-shadow: 0 30px 60px rgba(20, 20, 21, 0.06);
 
     .title_wrap {
         .section_title {
