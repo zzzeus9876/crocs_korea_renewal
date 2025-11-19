@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import JibbitzCollaboSwiper from '../components/JibbitzCollaboSwiper';
-// import Join from './Join';
-// import { Link } from 'react-router-dom';
 import MainSlider from '../components/MainSlider';
 import TopPopup from '../components/TopPopup';
 import Monthly from '../components/Monthly';
