@@ -44,6 +44,7 @@ function App() {
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/product/:id" element={<JibbitzCollaboProductDetail />} />
                 <Route path="/wishlist" element={<WishList />} />
+                <Route path="/order" element={<Order />} />
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
