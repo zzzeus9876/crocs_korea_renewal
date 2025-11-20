@@ -1,7 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import JibbitzCollaboSwiper from "../components/JibbitzCollaboSwiper";
-// import Join from './Join';
-// import { Link } from 'react-router-dom';
 import MainSlider from "../components/MainSlider";
 import TopPopup from "../components/TopPopup";
 import Monthly from "../components/Monthly";
@@ -13,44 +11,46 @@ import FullPageScroll from "../components/FullPageScroll";
 import Footer from "../components/Footer";
 
 const Main = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentSection, setCurrentSection] = useState(0);
+
+  // Main컴포넌트 안에서만 스크롤 제거
+  useEffect(() => {
+    document.body.classList.add("no-scroll");
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, []);
+
+  const handleSectionChange = (index, element) => {
+    // data-section-id로 섹션 구분
+    const sectionId = element?.getAttribute("data-section-id");
+    setCurrentSection(sectionId);
+  };
+
   return (
     <main>
-      <FullPageScroll onSectionChange={setCurrentIndex}>
-        <section>
+      <FullPageScroll onSectionChange={handleSectionChange}>
+        <section data-section-id='main-slider'>
           <MainSlider />
         </section>
-        <div className="container">
-          {/* 두 번째 섹션 */}
-          <section style={{ position: "relative" }}>
-            {/* currentIndex가 1일 때만 TopPopup 렌더 */}
-            {currentIndex === 1 && (
-              <div
-                style={{
-                  position: "fixed",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  zIndex: 9999,
-                }}
-              >
-                <TopPopup />
-              </div>
-            )}
-            <MainCategory />
-          </section>
-          <section>
-            <SlideCircle />
-          </section>
-          <section>
-            <JibbitzCollaboSwiper />
-          </section>
-          <section>
-            <CrocsSection />
-          </section>
+        <section data-section-id='main-category'>
+          <MainCategory />
+        </section>
+        <section data-section-id='slide-circle' className='showDot'>
+          <SlideCircle showDot={currentSection === "slide-circle"} />
+        </section>
+        <section data-section-id='jibbitz'>
+          <JibbitzCollaboSwiper />
+        </section>
+        <section data-section-id='crocs'>
+          <CrocsSection />
+        </section>
+        <section data-section-id='monthly'>
           <Monthly />
+        </section>
+        <section data-section-id='instagram'>
           <MainInstagram />
-        </div>
+        </section>
         <Footer />
       </FullPageScroll>
     </main>

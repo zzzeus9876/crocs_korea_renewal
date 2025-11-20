@@ -12,3 +12,14 @@ body {
   // display: flex;
   transition: background 0.5s ease, color 0.5s ease;
 }
+
+.fullpage-container {
+  width: 100vw;
+  overflow: visible;
+}
+
+.fullpage-section {
+  // height: 100vw;
+  // display: flex;
+  transition: background 0.5s ease, color 0.5s ease;
+}
