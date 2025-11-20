@@ -19,7 +19,7 @@ import UserInfo from './pages/UserInfo';
 import JibbitzCollaboProductDetail from './pages/JibbitzCollaboProductDetail';
 import WishList from './pages/WishList';
 import OrderHistory from './pages/OrderHistory';
-import Order from './pages/Order';
+// import Order from './components/Order/Order';
 
 function App() {
     return (
@@ -37,13 +37,11 @@ function App() {
                 <Route path="/Brand" element={<Brand />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/order" element={<Order />} />
+                {/* <Route path="/order" element={<Order />} /> */}
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/product/:id" element={<JibbitzCollaboProductDetail />} />
                 <Route path="/wishlist" element={<WishList />} />
-                <Route path="/order" element={<Order />} />
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
