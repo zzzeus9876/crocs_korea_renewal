@@ -1,23 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Breadcrumbs from './Breadcrumbs';
 import SizeMenu from './SizeMenu';
 import FilterMenu from './FilterMenu';
 import ColorMenu from './ColorMenu';
 import PriceMenu from './PriceMenu';
-import './scss/WomenComponents.scss';
+// import './scss/WomenComponents.scss';
+import './scss/leftNavigation.scss';
 
-export default function WomenLeftNavigation({ 
-    category = '여성',
-    subcategory = '털안감 라인드 클로그',
-    sizes = [],
+import { useCrocsSizeStore } from '../store/useCrocsSizeStore';
+
+export default function LeftNavigation({
+    category = [],
+    subcategory = [],
     filters = [],
-    priceRanges = []
+    priceRanges = [],
 }) {
+    const { crocsSizes, onFetchSize } = useCrocsSizeStore();
+
+    // 사이즈 불러오기
+    useEffect(() => {
+        onFetchSize();
+    }, []);
+
     return (
-        <section className="left_nav__section_wrap">
+        <div className="left_nav__section_wrap">
             <Breadcrumbs category={category} subcategory={subcategory} />
             <nav className="left_nav">
-                <SizeMenu sizes={sizes} />
+                {/* 🔥 store에서 불러온 사이즈를 SizeMenu로 전달 */}
+                <SizeMenu sizes={crocsSizes} />
                 <div className="breadcrumbs__line"></div>
                 <FilterMenu filters={filters} />
                 <div className="breadcrumbs__line"></div>
@@ -25,6 +35,6 @@ export default function WomenLeftNavigation({
                 <div className="breadcrumbs__line"></div>
                 <PriceMenu priceRanges={priceRanges} />
             </nav>
-        </section>
+        </div>
     );
 }

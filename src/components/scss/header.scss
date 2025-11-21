@@ -16,11 +16,15 @@
     &.scrolled,
     &.subpage {
         .header {
-            nav {
+            > nav {
                 li {
                     a {
                         color: #fff;
                     }
+                }
+
+                .collabs {
+                    color: g.$mainColor;
                 }
             }
         }

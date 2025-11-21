@@ -5,31 +5,31 @@
 // ============================================
 
 %link-base {
-    @include g.flex($jc: center, $ai: center, $gap: 0.4rem);
+    @include g.flex($jc: center, $gap: 0.4rem);
     height: 100%;
     background-color: #f6faeb;
     border-radius: 0.4rem;
 }
 
 %menu_wrap-style {
-    @include g.flex($jc: null, $ai: center, $fd: column, $fw: null, $gap: 2.4rem);
+    @include g.flex($jc: null, $fd: column, $gap: 2.4rem);
     width: 100%;
 
-    &--title_wrap,
-    .title--wrap {
-        @include g.flex($jc: space-between, $ai: center, $fd: null, $fw: null, $gap: 2rem);
-        width: 100%;
+    // &--title_wrap,
+    // .title--wrap {
+    //     @include g.flex();
+    //     width: 100%;
 
-        &--title .title {
-            font-size: 1.8rem;
-            font-weight: 600;
-        }
+    //     &--title .title {
+    //         font-size: 1.8rem;
+    //         font-weight: 600;
+    //     }
 
-        &--title__toggle .title--toggle {
-            width: 2.4rem;
-            height: 2.4rem;
-        }
-    }
+    //     &--title__toggle .title--toggle {
+    //         width: 2.4rem;
+    //         height: 2.4rem;
+    //     }
+    // }
 }
 
 %btn-menu-style {
@@ -98,7 +98,7 @@
                 }
             }
         }
-        
+
         &--home {
             &_link {
                 @extend %link-base;
@@ -166,12 +166,12 @@
     height: 1.5rem;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.2s ease;
-    
+    // transition: transform 0.2s ease;
+
     &:hover {
         transform: scale(1.2);
     }
-    
+
     &--black {
         background-color: #000;
     }
@@ -224,89 +224,247 @@
 // ColorMenu 컴포넌트
 // ============================================
 
-.color-menu {
-    &__wrap {
-        @extend %menu_wrap-style;
+// .color-menu {
+//     &__wrap {
+//         @extend %menu_wrap-style;
+//     }
+// }
+
+// .select__color--wrap {
+//     width: 100%;
+//     @include g.flex($jc: space-between, $ai: center, $fd: row, $fw: wrap, $gap: 1.5rem 3rem);
+
+//     &_list {
+//         gap: 0.6rem;
+
+//         .select__color--link {
+//             @include g.flex($jc: null, $ai: center, $fd: column, $fw: null, $gap: 0.6rem);
+//             width: 3.2rem;
+//             font-size: 11px;
+//             font-weight: 400;
+
+//             .color_select {
+//                 width: 2.4rem;
+//                 height: 2.4rem;
+//                 border-radius: 50%;
+//             }
+
+//             .black {
+//                 background-color: #000;
+//             }
+//             .gray {
+//                 background-color: #cccccc;
+//             }
+//             .white {
+//                 background-color: #ffffff;
+//                 border: 1px solid #ccc;
+//             }
+//             .red {
+//                 background-color: #ff0000;
+//             }
+//             .pink {
+//                 background-color: #ff69b4;
+//             }
+//             .brown {
+//                 background-color: #aa6400;
+//             }
+//             .orange {
+//                 background-color: #ffcc00;
+//             }
+//             .purple {
+//                 background-color: #dbb2ff;
+//             }
+//             .yellow {
+//                 background-color: #ffff00;
+//             }
+//             .mint {
+//                 background-color: #aaf0d1;
+//             }
+//             .light-green {
+//                 background-color: #ccff99;
+//             }
+//             .green {
+//                 background-color: #00cd00;
+//             }
+//             .sky-blue {
+//                 background-color: #9ad2ff;
+//             }
+//             .blue {
+//                 background-color: #0000ff;
+//             }
+//             .navy {
+//                 background-color: #043896;
+//             }
+//         }
+//     }
+// }
+
+// ============================================
+// ColorMenu 추가 스타일
+// 기존 WomenComponents.scss에 추가하세요
+// ============================================
+
+// 선택된 컬러 아이템 스타일
+// .select__color--wrap_list {
+//     transition: all 0.3s ease;
+
+//     &.selected {
+//         .select__color--link {
+//             background-color: #f0f8ff;
+//             border-radius: 8px;
+//         }
+
+//         .color_select-text {
+//             font-weight: 600;
+//             color: #007bff;
+//         }
+//     }
+
+//     &:hover {
+//         .select__color--link {
+//             background-color: #f5f5f5;
+//             border-radius: 8px;
+//         }
+//     }
+// }
+
+// // 체크마크 스타일
+// .color_select {
+//     position: relative;
+
+//     .color-check-mark {
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         color: white;
+//         font-size: 18px;
+//         font-weight: bold;
+//         text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6);
+//         z-index: 1;
+//     }
+
+//     // 흰색/밝은 색상에는 검은색 체크마크
+//     &.white,
+//     &.yellow,
+//     &.mint,
+//     &.light-green,
+//     &.sky-blue {
+//         .color-check-mark {
+//             color: #333;
+//             text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 1px 1px 2px rgba(255, 255, 255, 0.6);
+//         }
+//     }
+// }
+
+// // 토글 애니메이션
+// .select__color--wrap {
+//     animation: slideDown 0.3s ease;
+// }
+
+// @keyframes slideDown {
+//     from {
+//         opacity: 0;
+//         max-height: 0;
+//         overflow: hidden;
+//     }
+//     to {
+//         opacity: 1;
+//         max-height: 1000px;
+//     }
+// }
+
+// // 선택된 개수 표시 (옵션)
+// .color-menu__wrap--title {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+
+//     .selected-count {
+//         display: inline-flex;
+//         align-items: center;
+//         justify-content: center;
+//         min-width: 20px;
+//         height: 20px;
+//         padding: 0 6px;
+//         background-color: #007bff;
+//         color: white;
+//         border-radius: 10px;
+//         font-size: 12px;
+//         font-weight: 600;
+//     }
+// }
+
+// ============================================
+// 🎨 ColorMenu 색상 표시 스타일
+// WomenComponents.scss 파일 맨 아래에 이 코드를 추가하세요!
+// ============================================
+
+// 체크마크 스타일
+.color_select {
+    position: relative;
+
+    // 체크마크 (어두운 배경용 - 흰색)
+    .color-check-mark.light {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+        z-index: 1;
+    }
+
+    // 체크마크 (밝은 배경용 - 검은색)
+    .color-check-mark.dark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+        z-index: 1;
     }
 }
 
-.select__color--wrap {
-    width: 100%;
-    @include g.flex(
-        $jc: space-between,
-        $ai: center,
-        $fd: row,
-        $fw: wrap,
-        $gap: 1.5rem 3rem
-    );
+// 선택된 컬러 아이템 스타일
+.select__color--wrap_list {
+    transition: all 0.3s ease;
 
-    &_list {
-        gap: 0.6rem;
-        
+    // 선택된 상태
+    &.selected {
         .select__color--link {
-            @include g.flex(
-                $jc: null,
-                $ai: center,
-                $fd: column,
-                $fw: null,
-                $gap: 0.6rem
-            );
-            width: 3.2rem;
-            font-size: 11px;
-            font-weight: 400;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+        }
 
-            .color_select {
-                width: 2.4rem;
-                height: 2.4rem;
-                border-radius: 50%;
-            }
-            
-            .black {
-                background-color: #000;
-            }
-            .gray {
-                background-color: #cccccc;
-            }
-            .white {
-                background-color: #ffffff;
-                border: 1px solid #ccc;
-            }
-            .red {
-                background-color: #ff0000;
-            }
-            .pink {
-                background-color: #ff69b4;
-            }
-            .brown {
-                background-color: #aa6400;
-            }
-            .orange {
-                background-color: #ffcc00;
-            }
-            .purple {
-                background-color: #dbb2ff;
-            }
-            .yellow {
-                background-color: #ffff00;
-            }
-            .mint {
-                background-color: #aaf0d1;
-            }
-            .light-green {
-                background-color: #ccff99;
-            }
-            .green {
-                background-color: #00cd00;
-            }
-            .sky-blue {
-                background-color: #9ad2ff;
-            }
-            .blue {
-                background-color: #0000ff;
-            }
-            .navy {
-                background-color: #043896;
-            }
+        .color_select {
+            border-width: 3px;
+            border-color: #007bff;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .color_select-text {
+            font-weight: 600;
+            color: #007bff;
+        }
+    }
+
+    // 호버 효과
+    &:hover {
+        .select__color--link {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .color_select {
+            transform: scale(1.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
         }
     }
 }
@@ -315,53 +473,193 @@
 // FilterMenu 컴포넌트
 // ============================================
 
+// .filter-menu {
+//     &__wrap {
+//         @extend %menu_wrap-style;
+
+//         &--color {
+//             @include g.flex($jc: start, $ai: center, $fd: row, $fw: null, $gap: 1.6rem);
+
+//             .filter-menu__item {
+//                 @include g.flex($jc: center, $ai: center, $fd: row, $fw: null, $gap: 1.8rem);
+//                 width: 6.2rem;
+//                 height: 3.2rem;
+//                 background-color: #f5f5f5;
+//                 border-radius: 4px;
+
+//                 .filter-menu__select_color {
+//                     width: 1.6rem;
+//                     height: 1.6rem;
+//                     border-radius: 50%;
+//                 }
+
+//                 .select-pink {
+//                     background-color: #ff69b4;
+//                 }
+
+//                 .select-black {
+//                     background-color: #000;
+//                 }
+
+//                 .filter-menu__close-link {
+//                     border-radius: 0.4rem;
+//                     display: flex;
+//                     align-items: center;
+//                     justify-content: center;
+
+//                     .close-btn {
+//                         display: block;
+//                         width: 0.8rem;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// ============================================
+// FilterMenu 추가 스타일
+// 기존 WomenComponents.scss에 추가하세요
+// ============================================
+
 .filter-menu {
-    &__wrap {
-        @extend %menu_wrap-style;
+    margin-bottom: 20px;
 
-        &--color {
-            @include g.flex($jc: start, $ai: center, $fd: row, $fw: null, $gap: 1.6rem);
+    .filter-menu__wrap {
+        // 기존 menu_wrap-style 스타일 적용
+    }
 
-            .filter-menu__item {
-                @include g.flex(
-                    $jc: center,
-                    $ai: center,
-                    $fd: row,
-                    $fw: null,
-                    $gap: 1.8rem
-                );
-                width: 6.2rem;
-                height: 3.2rem;
-                background-color: #f5f5f5;
-                border-radius: 4px;
+    .filter-menu__wrap--title_wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e0e0e0;
 
-                .filter-menu__select_color {
-                    width: 1.6rem;
-                    height: 1.6rem;
-                    border-radius: 50%;
-                }
+        .filter-menu__wrap--title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
 
-                .select-pink {
-                    background-color: #ff69b4;
-                }
-                
-                .select-black {
-                    background-color: #000;
-                }
-                
-                .filter-menu__close-link {
-                    border-radius: 0.4rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    .close-btn {
-                        display: block;
-                        width: 0.8rem;
-                    }
-                }
+            .selected-count {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 24px;
+                height: 24px;
+                padding: 0 8px;
+                background-color: #007bff;
+                color: white;
+                border-radius: 12px;
+                font-size: 13px;
+                font-weight: 600;
             }
         }
+
+        .filter-clear-btn {
+            font-size: 14px;
+            color: #dc3545;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #fee;
+                color: #c82333;
+            }
+        }
+    }
+
+    .filter-tags__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 0;
+    }
+
+    .filter-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        font-size: 14px;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
+
+        &--color {
+            background-color: #e3f2fd;
+
+            &:hover {
+                background-color: #bbdefb;
+            }
+        }
+
+        .filter-tag__color-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            flex-shrink: 0;
+        }
+
+        .filter-tag__text {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .filter-tag__remove {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.8);
+                color: #dc3545;
+            }
+        }
+    }
+
+    .filter-empty-message {
+        color: #999;
+        font-size: 14px;
+        text-align: center;
+        padding: 30px 0;
+        margin: 0;
+    }
+}
+
+// 애니메이션
+.filter-tag {
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -374,13 +672,7 @@
         @extend %menu_wrap-style;
 
         &--size {
-            @include g.flex(
-                $jc: flex-start,
-                $ai: center,
-                $fd: row,
-                $fw: wrap,
-                $gap: 0.8rem
-            );
+            @include g.flex($jc: flex-start, $ai: center, $fd: row, $fw: wrap, $gap: 0.8rem);
 
             .size-menu__item {
                 width: 5.2rem;
@@ -413,7 +705,7 @@
     .title--toggle {
         width: 2.4rem;
         height: 2.4rem;
-        
+
         button {
             width: 100%;
             height: 100%;
@@ -423,7 +715,7 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            
+
             img {
                 width: 100%;
                 height: 100%;
@@ -518,7 +810,7 @@
         outline: 1px solid #cccccc;
         box-shadow: 0 0 12px 2.5px rgba(0, 0, 0, 0.08);
         transform: translateY(-0.4rem);
-        
+
         .product-card__color,
         .product-card__size {
             max-height: 200px;
@@ -532,7 +824,7 @@
         width: 32.8rem;
         height: fit-content;
         background-color: #fff;
-        border-radius: 0.80rem;
+        border-radius: 0.8rem;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -552,6 +844,10 @@
     border-radius: 1rem;
     overflow: hidden;
 
+    img {
+        width: 20rem;
+    }
+
     .swiper-wrapper {
         width: 100%;
         height: 100%;
@@ -564,23 +860,13 @@
     }
 
     .product-card__link {
-        @include g.flex(
-            $jc: center,
-            $ai: center,
-            $fd: null,
-            $fw: null,
-            $gap: null
-        );
+        @include g.flex($jc: center, $ai: center, $fd: null, $fw: null, $gap: null);
         position: relative;
         width: 100%;
         height: 100%;
         border-radius: 1rem;
         background: #fcfcff
-            linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0) 60%,
-                rgba(0, 0, 0, 0.035) 100%
-            );
+            linear-gradient(to bottom, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.035) 100%);
 
         .product-card__img {
             display: block;
@@ -594,8 +880,8 @@
     .swiper-button-next {
         width: 2.4rem;
         height: 2.4rem;
-        color: #B5D766;
-        
+        color: #b5d766;
+
         &::after {
             font-size: 2.4rem;
             font-weight: bold;
@@ -622,7 +908,7 @@
         top: auto;
 
         .swiper-pagination-progressbar-fill {
-            background-color: #B5D766;
+            background-color: #b5d766;
             border-radius: 0.2rem;
         }
     }
@@ -635,7 +921,7 @@
 .product-card__name--warp {
     width: 32.8rem;
     height: 4.5rem;
-    
+
     p {
         width: 100%;
         font-size: 2.4rem;
@@ -692,12 +978,12 @@
 .product-card__color {
     justify-content: flex-start;
     width: 100%;
-    
+
     max-height: 0;
     opacity: 0;
     overflow: visible;
     transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
-    
+
     &__title--wrap {
         p {
             font-size: 1.3rem;
@@ -725,12 +1011,12 @@
 .product-card__size {
     justify-content: flex-start;
     width: 100%;
-    
+
     max-height: 0;
     opacity: 0;
     overflow: hidden;
     transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
-    
+
     &__title--wrap {
         p {
             font-size: 1.3rem;

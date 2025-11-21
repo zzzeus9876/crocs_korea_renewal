@@ -17,8 +17,6 @@ const Main = () => {
     const [isBtnVisible, setIsBtnVisible] = useState(false); // 모달 닫으면 버튼 표시
     const [currentSection, setCurrentSection] = useState('main-slider');
 
-    const showBtn = isBtnVisible && currentSection !== 'main-slider';
-
     const handleClosePopup = () => {
         setIsPopupOpen(false);
         setIsBtnVisible(true);
@@ -46,19 +44,16 @@ const Main = () => {
     };
 
     // ✅ 메인 배너(main-slider)를 지나갔을 때만 버튼 보이게
+    const showBtn = isBtnVisible && currentSection !== 'main-slider';
 
     useEffect(() => {
-        const handleScroll = () => {
-            const bannerHeight = document.querySelector('.main_slider')?.offsetHeight || 0;
-            if (window.scrollY > bannerHeight) {
-                setShowBtn(true);
-            } else {
-                setShowBtn(false);
-            }
-        };
+        // 메인 페이지 진입 시 body 스크롤 제거
+        document.body.style.overflow = 'hidden';
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        return () => {
+            // 페이지 떠날 때 body 스크롤 복원
+            document.body.style.overflow = '';
+        };
     }, []);
 
     return (
@@ -94,9 +89,6 @@ const Main = () => {
 
             {/* 🔘 다시 열기 버튼 */}
             {showBtn && <ComeAsPopupBtn onOpen={() => setIsPopupOpen(true)} />}
-            {/* 팝업창 */}
-            {isPopupOpen && <ComeAsPopup onClose={handleClosePopup} />}
-            {isBtnVisible && showBtn && <ComeAsPopupBtn onOpen={() => setIsPopupOpen(true)} />}
         </main>
     );
 };

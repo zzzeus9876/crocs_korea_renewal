@@ -1,12 +1,12 @@
-import './App.css';
+import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import Main from './pages/Main';
-import New from './pages/New';
-import Women from './pages/Women';
-import Men from './pages/Men';
-import Kids from './pages/Kids';
-import Jibbitz from './pages/Jibbitz';
-import Collabs from './pages/Collabs';
+// import New from './pages/New';
+// import Women from './pages/Women';
+// import Men from './pages/Men';
+// import Kids from './pages/Kids';
+// import Jibbitz from './pages/Jibbitz';
+// import Collabs from './pages/Collabs';
 import Brand from './pages/Brand';
 import Promotion from './pages/Promotion';
 import Login from './pages/Login';
@@ -18,13 +18,14 @@ import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
 import Nonmember from './pages/Nonmember';
 import ComeAsPopup from './components/ComeAsPopup';
-
 import { useEffect } from 'react';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth, db } from './firebase/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { loginAuthStore } from './store/loginStore';
-import JibbitzCollaboProductDetail from './pages/JibbitzCollaboProductDetail';
+import CustomerService from './components/CustomerService';
+import ProductListPage from './pages/ProductListPage';
+import CrocsProductDetail from './pages/CrocsProductDetail';
 // import Order from './components/Order/Order';
 
 function App() {
@@ -59,22 +60,24 @@ function App() {
             <Header />
             <Routes>
                 <Route index element={<Main />} />
-                <Route path="/new" element={<New />} />
-                <Route path="/women" element={<Women />} />
-                <Route path="/men" element={<Men />} />
-                <Route path="/kids" element={<Kids />} />
-                <Route path="/jibbitz" element={<Jibbitz />} />
-                <Route path="/collabs" element={<Collabs />} />
+                {/* <Route path="/new" element={<New />} /> */}
+                {/* <Route path="/women" element={<Women />} /> */}
+                {/* <Route path="/men" element={<Men />} /> */}
+                {/* <Route path="/kids" element={<Kids />} /> */}
+                {/* <Route path="/jibbitz" element={<Jibbitz />} /> */}
+                {/* <Route path="/collabs" element={<Collabs />} /> */}
                 <Route path="/promotion" element={<Promotion />} />
                 <Route path="/Brand" element={<Brand />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
+                <Route path="/:cate" element={<ProductListPage />} />
                 {/* <Route path="/order" element={<Order />} /> */}
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/nonmember" element={<Nonmember />} />
                 <Route path="/comaspopup" element={<ComeAsPopup />} />
-                <Route path="/product/:id" element={<JibbitzCollaboProductDetail />} />
+                <Route path="/cscenter" element={<CustomerService />} />
+                <Route path="/product/:id" element={<CrocsProductDetail />} />
             </Routes>
         </div>
     );

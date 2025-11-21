@@ -1,0 +1,18 @@
+@use '../../App.scss' as g;
+
+.product_list_wrap {
+    @include g.flex();
+    margin: 0 auto;
+
+    // .list_left {
+    // }
+
+    .list_right {
+        // width: 100%;
+        .product-card__item_list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem 4rem;
+        }
+    }
+}
