@@ -44,14 +44,14 @@ const LoginForm = ({ onLoginSubmit, email, password, setEmail, setPassword, onGo
 
             <div className="sns_login_wrap">
                 <button className="sns_login kakao">
-                    <img src="./images/kakao_icon.svg" alt="kakao_login" />
+                    <img src="/images/kakao_icon.svg" alt="kakao_login" />
                 </button>
                 <button className="sns_login google" onClick={onGoogleLogin} type="button">
-                    <img src="./images/google_icon.svg" alt="google_login" />
+                    <img src="/images/google_icon.svg" alt="google_login" />
                 </button>
 
                 <button className="sns_login naver">
-                    <img src="./images/naver_icon.svg" alt="naver_login" />
+                    <img src="/images/naver_icon.svg" alt="naver_login" />
                 </button>
             </div>
         </form>

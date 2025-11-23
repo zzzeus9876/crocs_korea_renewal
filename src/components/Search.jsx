@@ -30,7 +30,7 @@
 //         ${scrolled ? 'scrolled' : ''}`}
 //         >
 //             <button className="close_btn" onClick={onCloseSearch}>
-//                 <img src="./images/close_btn.svg" alt="close_btn" />
+//                 <img src="/images/close_btn.svg" alt="close_btn" />
 //             </button>
 //             <div className="search_top">
 //                 <SearchInput
@@ -45,7 +45,7 @@
 //                 </div>
 //                 <div className="search_right">
 //                     {/* <Link>
-//                         <img src="./images/search_img.svg" alt="" />
+//                         <img src="/images/search_img.svg" alt="" />
 //                     </Link> */}
 //                     <SearchRight />
 //                 </div>
@@ -87,7 +87,7 @@ const Search = ({ scrolled }) => {
             `}
         >
             <button className="close_btn" onClick={onCloseSearch}>
-                <img src="./images/close_btn.svg" alt="close_btn" />
+                <img src="/images/close_btn.svg" alt="close_btn" />
             </button>
 
             <div className="search_top">

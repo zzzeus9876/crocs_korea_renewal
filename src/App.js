@@ -60,18 +60,10 @@ function App() {
             <Header />
             <Routes>
                 <Route index element={<Main />} />
-                {/* <Route path="/new" element={<New />} /> */}
-                {/* <Route path="/women" element={<Women />} /> */}
-                {/* <Route path="/men" element={<Men />} /> */}
-                {/* <Route path="/kids" element={<Kids />} /> */}
-                {/* <Route path="/jibbitz" element={<Jibbitz />} /> */}
-                {/* <Route path="/collabs" element={<Collabs />} /> */}
                 <Route path="/promotion" element={<Promotion />} />
                 <Route path="/Brand" element={<Brand />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
-                {/* <Route path="/:cate" element={<ProductListPage />} /> */}
-                {/* <Route path="/:cate/:subcategory" element={<ProductListPage />} /> */}
                 <Route path="/:cate/:subcategory?" element={<ProductListPage />} />
                 {/* <Route path="/order" element={<Order />} /> */}
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
