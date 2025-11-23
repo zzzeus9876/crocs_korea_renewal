@@ -70,7 +70,9 @@ function App() {
                 <Route path="/Brand" element={<Brand />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
-                <Route path="/:cate" element={<ProductListPage />} />
+                {/* <Route path="/:cate" element={<ProductListPage />} /> */}
+                {/* <Route path="/:cate/:subcategory" element={<ProductListPage />} /> */}
+                <Route path="/:cate/:subcategory?" element={<ProductListPage />} />
                 {/* <Route path="/order" element={<Order />} /> */}
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />

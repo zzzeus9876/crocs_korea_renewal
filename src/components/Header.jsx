@@ -55,7 +55,7 @@ const Header = () => {
                         <div className="header_left">
                             <h1 className="logo">
                                 <Link to="/">
-                                    <img src="./images/crocs_logo.svg" alt="crocs logo" />
+                                    <img src="/images/crocs_logo.svg" alt="crocs logo" />
                                 </Link>
                             </h1>
                             <nav>

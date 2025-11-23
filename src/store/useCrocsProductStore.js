@@ -72,6 +72,12 @@ export const useCrocsProductStore = create(
             colorFilter: null,
             setColorFilter: (color) => set({ colorFilter: color }),
 
+            selectedCategory: null,
+            selectedSubcategory: null,
+
+            setSelectedCategory: (cate) => set({ selectedCategory: cate }),
+            setSelectedSubcategory: (sub) => set({ selectedSubcategory: sub }),
+
             // ---------------------------
             // 📌 상품 로드 + 태그 생성
             // ---------------------------

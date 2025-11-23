@@ -14,22 +14,6 @@
 %menu_wrap-style {
     @include g.flex($jc: null, $fd: column, $gap: 2.4rem);
     width: 100%;
-
-    // &--title_wrap,
-    // .title--wrap {
-    //     @include g.flex();
-    //     width: 100%;
-
-    //     &--title .title {
-    //         font-size: 1.8rem;
-    //         font-weight: 600;
-    //     }
-
-    //     &--title__toggle .title--toggle {
-    //         width: 2.4rem;
-    //         height: 2.4rem;
-    //     }
-    // }
 }
 
 %btn-menu-style {
