@@ -121,93 +121,96 @@ const ProductListPage = () => {
     const mainSubcategory = subcategory || (mainItem?.subcategory?.split(',')[0] ?? null);
 
     return (
-        <div className="sub_page product_list_page">
+        <div className="sub_page">
             <div className="inner">
                 <Title title={cate?.toUpperCase()} />
-
-                {/* ✅ 검색어 표시 */}
-                {searchWord && (
-                    <div className="search_info_wrap">
-                        <div className="search_info">
-                            {`" ${searchWord} " 검색 결과 : `}
-                            <strong>{filteredItems.length}</strong>개
-                        </div>
-                        <button
-                            className="clear_search_info_btn"
-                            onClick={() => {
-                                setSearchWord('');
-                                navigate(cate ? `/${cate}` : '/');
-                            }}
-                        >
-                            ×
-                        </button>
-                    </div>
-                )}
-
-                {/* 타이틀 아래 서브메뉴 */}
-                {currentMenu?.submenu_list?.length > 0 && !searchWord && (
-                    <div className="sub_menu_wrap">
-                        {currentMenu.submenu_list.map((sub) => (
-                            <div
-                                key={sub.key}
-                                className={`btn_menu_item ${
-                                    subcategory === sub.key ? 'active' : ''
-                                }`}
-                                onClick={() => navigate(`/${cate}/${sub.key}`)}
-                            >
-                                <button className="sub_menu_btn">{sub.label}</button>
-                            </div>
-                        ))}
-                    </div>
-                )}
-
                 <div className="product_list_wrap">
-                    <div className="list_left">
-                        <LeftNavigation
-                            category={mainCategory}
-                            subcategory={mainSubcategory}
-                            subCategoryList={subCategoryList}
-                            selectedSize={selectedSize}
-                            onSizeSelect={setSelectedSize}
-                        />
-                    </div>
-
-                    <div className="list_right">
-                        {currentItems.length > 0 ? (
-                            <>
-                                <ul className="product-card__item_list">
-                                    {currentItems.map((p) => (
-                                        <ProductCard
-                                            key={p.id}
-                                            product={p}
-                                            onClick={() => navigate(`/product/${p.id}`)}
-                                            image={p.product_img?.[0] || '/images/default.png'}
-                                            onSizeSelect={setSelectedSize}
-                                        />
-                                    ))}
-                                </ul>
-                            </>
-                        ) : (
-                            <div className="empty_state">
+                    {/* ✅ 검색어 표시 */}
+                    {searchWord && (
+                        <div className="search_info_wrap">
+                            <div className="search_info">
+                                {`" ${searchWord} " 검색 결과 : `}
                                 <p>
-                                    {searchWord
-                                        ? `"${searchWord}"에 대한 검색 결과가 없습니다.`
-                                        : '해당 카테고리에 상품이 없습니다.'}
+                                    <strong>{filteredItems.length}</strong>개
                                 </p>
                             </div>
-                        )}
+                            <button
+                                className="clear_search_info_btn"
+                                onClick={() => {
+                                    setSearchWord('');
+                                    navigate(cate ? `/${cate}` : '/');
+                                }}
+                            >
+                                ×
+                            </button>
+                        </div>
+                    )}
+
+                    {/* 타이틀 아래 서브메뉴 */}
+                    {currentMenu?.submenu_list?.length > 0 && !searchWord && (
+                        <div className="sub_menu_wrap">
+                            {currentMenu.submenu_list.map((sub) => (
+                                <div
+                                    key={sub.key}
+                                    className={`btn_menu_item ${
+                                        subcategory === sub.key ? 'active' : ''
+                                    }`}
+                                    onClick={() => navigate(`/${cate}/${sub.key}`)}
+                                >
+                                    <button className="sub_menu_btn">{sub.label}</button>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+
+                    <div className="product_list_wrap">
+                        <div className="list_left">
+                            <LeftNavigation
+                                category={mainCategory}
+                                subcategory={mainSubcategory}
+                                subCategoryList={subCategoryList}
+                                selectedSize={selectedSize}
+                                onSizeSelect={setSelectedSize}
+                            />
+                        </div>
+
+                        <div className="list_right">
+                            {currentItems.length > 0 ? (
+                                <>
+                                    <ul className="product-card__item_list">
+                                        {currentItems.map((p) => (
+                                            <ProductCard
+                                                key={p.id}
+                                                product={p}
+                                                onClick={() => navigate(`/product/${p.id}`)}
+                                                image={p.product_img?.[0] || '/images/default.png'}
+                                                onSizeSelect={setSelectedSize}
+                                            />
+                                        ))}
+                                    </ul>
+                                </>
+                            ) : (
+                                <div className="empty_state">
+                                    <p>
+                                        {searchWord
+                                            ? `"${searchWord}"에 대한 검색 결과가 없습니다.`
+                                            : '해당 카테고리에 상품이 없습니다.'}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            {/* 페이징목록 */}
-            {totalPage > 1 && (
-                <div className="page_pager">
-                    <button onClick={() => handleGoPage(currentPage - 1)}>이전</button>
-                    {pagerButton}
-                    <button onClick={() => handleGoPage(currentPage + 1)}>다음</button>
-                </div>
-            )}
+                {/* 페이징목록 */}
+                {totalPage > 1 && (
+                    <div className="page_pager">
+                        <button onClick={() => handleGoPage(currentPage - 1)}>이전</button>
+                        {pagerButton}
+                        <button onClick={() => handleGoPage(currentPage + 1)}>다음</button>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

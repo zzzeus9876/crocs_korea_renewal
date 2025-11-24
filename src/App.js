@@ -23,31 +23,22 @@ import Store from './pages/Store';
 // import Order from './components/Order/Order';
 
 function App() {
+    const { user, loading, checkSession, initAuthListener } = loginAuthStore();
+
+    // Firebase 세션 복원
     useEffect(() => {
-        const restoreUser = async () => {
-            onAuthStateChanged(auth, async (firebaseUser) => {
-                const loginTime = localStorage.getItem('loginTime');
-                const now = Date.now();
+        initAuthListener();
+    }, [initAuthListener]);
 
-                // 1시간 초과 시 자동 로그아웃
-                if (loginTime && now - parseInt(loginTime) > 3600000) {
-                    await signOut(auth);
-                    loginAuthStore.getState().logout();
-                    return;
-                }
+    // 1분마다 세션 만료 체크
+    useEffect(() => {
+        const timer = setInterval(() => {
+            checkSession();
+        }, 60000);
+        return () => clearInterval(timer);
+    }, [checkSession]);
 
-                // 로그인 상태 복원
-                if (firebaseUser) {
-                    const userRef = doc(db, 'users', firebaseUser.uid);
-                    const userDoc = await getDoc(userRef);
-                    if (userDoc.exists()) {
-                        loginAuthStore.getState().user = userDoc.data();
-                    }
-                }
-            });
-        };
-        restoreUser();
-    }, []);
+    if (loading) return <h3>로딩 중...</h3>;
 
     return (
         <div className="App">
