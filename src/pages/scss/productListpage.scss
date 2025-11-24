@@ -1,8 +1,18 @@
 @use '../../App.scss' as g;
 
 .product_list_page {
+    .search_info_wrap {
+        @include g.flex($jc: center, $gap: 10px);
+        width: fit-content;
+        background: lightgreen;
+        padding-left: 1rem;
+        border-radius: 5px;
+        .search_info {
+            font-weight: 600;
+        }
+    }
     .sub_menu_wrap {
-        @include g.flex($jc: center);
+        @include g.flex();
         .sub_menu_btn {
             border: 1px solid #ccc;
             font-weight: 600;

@@ -92,6 +92,29 @@ export const useCrocsProductStore = create(
             setSelectedCategory: (cate) => set({ selectedCategory: cate }),
             setSelectedSubcategory: (sub) => set({ selectedSubcategory: sub }),
 
+            // ============================================
+            // 🔍 해시태그 리스트 생성 (여기에 넣기!)
+            // ============================================
+            getHashtags: () => {
+                const { crocsItems } = get();
+                const hashtagSet = new Set();
+
+                // 📌 1. 제품에서 실제 등장한 태그들
+                crocsItems.forEach((item) => {
+                    item.tags?.forEach((tag) => hashtagSet.add(tag));
+                });
+
+                // 📌 2. 자동 태그 키워드 중 제품명에 등장하면 추가
+                AUTO_TAG_KEYWORDS.forEach((keyword) => {
+                    const hasKeywordItem = crocsItems.some((item) =>
+                        item.product.includes(keyword)
+                    );
+                    if (hasKeywordItem) hashtagSet.add(keyword);
+                });
+
+                return Array.from(hashtagSet);
+            },
+
             onFetchItems: async () => {
                 const current = get().crocsItems;
                 if (current.length > 0) return;
