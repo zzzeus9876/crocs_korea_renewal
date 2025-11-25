@@ -1,5 +1,3 @@
-'use no memo';
-
 import React, { useEffect } from 'react';
 import { wishListStore } from '../store/wishListStore';
 import { Link, useLocation } from 'react-router-dom';
