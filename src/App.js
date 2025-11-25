@@ -4,23 +4,18 @@ import Main from './pages/Main';
 import Brand from './pages/Brand';
 import Login from './pages/Login';
 import Join from './pages/Join';
-// import Cart from './pages/Cart3';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
 import Header from './components/Header';
 import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
 import Nonmember from './pages/Nonmember';
 import ComeAsPopup from './components/ComeAsPopup';
 import { useEffect } from 'react';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth, db } from './firebase/firebase';
-import { doc, getDoc } from 'firebase/firestore';
 import { loginAuthStore } from './store/loginStore';
-import CustomerService from './components/CustomerService';
+// import CustomerService from './components/CustomerService';
 import ProductListPage from './pages/ProductListPage';
 import CrocsProductDetail from './pages/CrocsProductDetail';
 import Store from './pages/Store';
-// import Order from './components/Order/Order';
 
 function App() {
     const { user, loading, checkSession, initAuthListener } = loginAuthStore();
@@ -50,15 +45,14 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
                 <Route path="/:cate/:subcategory?" element={<ProductListPage />} />
-                {/* <Route path="/order" element={<Order />} /> */}
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/nonmember" element={<Nonmember />} />
                 <Route path="/comaspopup" element={<ComeAsPopup />} />
-                <Route path="/cscenter" element={<CustomerService />} />
+                {/* <Route path="/cscenter" element={<CustomerService />} /> */}
                 <Route path="/product/:id" element={<CrocsProductDetail />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

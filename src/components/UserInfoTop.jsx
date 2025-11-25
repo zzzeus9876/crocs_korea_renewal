@@ -103,18 +103,20 @@ const UserInfoTop = () => {
     return (
         <div className="user_info_top">
             {!isClubMember && (
-                <div className="user_info_left">
-                    <p>
+                <div className="user_info_left_wrap">
+                    <p className="user_info_text">
                         안녕하세요. <strong>{user.name || user.nickname || user.email}</strong>님
                     </p>
                     <p>크록스로 나만의 스타일을 완성해보세요.</p>
 
-                    <button onClick={handleJoin}>Crocs Club Join</button>
+                    <button className="club_join_btn" onClick={handleJoin}>
+                        Crocs Club Join
+                    </button>
                 </div>
             )}
 
             {isClubMember && (
-                <div className="user_info_left club_join">
+                <div className="user_info_left_wrap club_join_wrap">
                     <p>
                         안녕하세요. <strong>{user.name || user.nickname || user.email}</strong>님
                     </p>

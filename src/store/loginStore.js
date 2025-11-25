@@ -403,12 +403,14 @@ export const loginAuthStore = create((set, get) => ({
     // ==========================================================
     // 🔥 로그아웃
     // ==========================================================
-    logout: async () => {
+    logout: async (navigate) => {
         try {
             await signOut(auth);
             set({ user: null });
             localStorage.removeItem('loginTime');
             alert('로그아웃 되었습니다.');
+
+            if (navigate) navigate('/'); // ⭐ 메인 페이지로 이동
         } catch (err) {
             console.error('로그아웃 실패:', err);
             alert(err.message);

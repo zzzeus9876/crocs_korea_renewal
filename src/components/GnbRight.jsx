@@ -19,7 +19,7 @@ const GnbRight = ({ onSearchClick }) => {
                 </button>
                 {/* 로그인 상태이면 로그아웃 버튼 표시 */}
                 {user && (
-                    <button className="logout_btn" onClick={logout}>
+                    <button className="logout_btn" onClick={() => logout(navigate)}>
                         <img src="/images/logout_icon.svg" alt="logout_icon" />
                     </button>
                 )}
