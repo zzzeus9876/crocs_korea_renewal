@@ -1,4 +1,5 @@
 import './App.scss';
+import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Main from './pages/Main';
 <<<<<<< HEAD
@@ -25,7 +26,6 @@ import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
 import Nonmember from './pages/Nonmember';
 import ComeAsPopup from './components/ComeAsPopup';
-import { useEffect, useState } from 'react';
 import { loginAuthStore } from './store/loginStore';
 <<<<<<< HEAD
 import ProductListPage from './pages/ProductListPage';
@@ -35,6 +35,7 @@ import WishList from './pages/WishList';
 import JibbitzProductDetail from './pages/JibbitzProductDetail';
 import JibbitzProductListPage from './pages/JibbitzProductListPage';
 import JibbitzCollaboProductDetail from './pages/JibbitzCollaboProductDetail';
+<<<<<<< HEAD
 import Cart from './pages/Cart';
 <<<<<<< HEAD
 import Order from './components/Order/Order';
@@ -43,6 +44,9 @@ import Order from './components/Order/Order';
 import JibbitzCollaboProductDetail from './pages/JibbitzCollaboProductDetail';
 >>>>>>> 93debeb (2025-11-25(화) 초원 - v03)
 // import Order from './components/Order/Order';
+=======
+import Order from './components/Order/Order';
+>>>>>>> 19a7efd (2025-11-25(화) 지인 - v03)
 import WishList from './pages/WishList';
 import OrderHistory from './pages/OrderHistory';
 import Cart from './pages/Cart';
@@ -154,6 +158,7 @@ function App() {
                 <Route path="/comaspopup" element={<ComeAsPopup />} />x
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/wishlist" element={<WishList />} />
+                <Route path="/order" element={<Order />} />
                 {/* <Route path='./recent' element={<RecentProducts />} /> */}
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                 <Route path="/jibbitz/:cate/:id" element={<JibbitzProductListPage />} />
