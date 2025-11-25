@@ -142,4 +142,62 @@ export const wishListStore = create((set, get) => ({
 
         return true;
     },
+
+    // 장바구니 추가 버튼 메서드(위시리스트 목록에서 지우기 )
+    // onAddCartBtn: () => {
+    //     console.log('장바구니 추가 버튼');
+    //     const cartWish = get().removeWish;
+    //     console.log('cartWish 카트에 담을 위시:', cartWish);
+    //     const wishLists = get().wishLists;
+    //     console.log('wishLists 전체위시:', wishLists);
+
+    //     const updateWishCartLists = wishLists.filter(
+    //         (wish) => !cartWish.some((r) => r.id === wish.id)
+    //     );
+
+    //     set({ wishLists: updateWishCartLists, addCartWish: cartWish, cartWish: [] });
+
+    //     console.log('장바구니 추가');
+    //     const addToCartWish = get().addCartWish;
+    //     console.log('카트에 담겨있는 위시 내역 확인:', addToCartWish);
+
+    //     //장바구니로 보내기
+
+    //     const addToCartLists = get().addCartWish;
+    //     const existing = addToCartLists.find((item) => item.id === product.id);
+
+    //     let updateWishCart;
+    //     if (existing) {
+    //         updateWishCart = addToCartLists.map((item) =>
+    //             item.id === product.id ? { ...item, count: item.count + product.count } : item
+    //         );
+    //     } else {
+    //         updateWishCart = [...addToCartLists, { ...product }];
+    //     }
+
+    //     set({
+    //         cartWishItems: updateWishCart,
+    //         cartCount: updateWishCart.length,
+    //     });
+    // },
+
+    // 장바구니에 추가하기 (데이터 보내기)
+    // onAddToCart: (product) => {
+    //     const addToCartLists = get().addCartWish;
+    //     const existing = addToCartLists.find((item) => item.id === product.id);
+
+    //     let updateWishCart;
+    //     if (existing) {
+    //         updateWishCart = addToCartLists.map((item) =>
+    //             item.id === product.id ? { ...item, count: item.count + product.count } : item
+    //         );
+    //     } else {
+    //         updateWishCart = [...addToCartLists, { ...product }];
+    //     }
+
+    //     set({
+    //         cartWishItems: updateWishCart,
+    //         cartCount: updateWishCart.length,
+    //     });
+    // },
 }));
