@@ -15,6 +15,9 @@ export default function LeftNavigation({
     onSizeSelect,
     filters = [],
     priceRanges = [],
+    colors = [],
+    selectedColors = [],
+    onColorSelect,
 }) {
     const { crocsSizes, onFetchSize } = useCrocsSizeStore();
     const params = useParams();
@@ -39,7 +42,7 @@ export default function LeftNavigation({
                 <div className="breadcrumbs__line" />
                 <FilterMenu filters={filters} />
                 <div className="breadcrumbs__line" />
-                <ColorMenu />
+                <ColorMenu selectedColors={selectedColors} onColorSelect={onColorSelect} />
                 <div className="breadcrumbs__line" />
                 <PriceMenu priceRanges={priceRanges} />
             </div>
