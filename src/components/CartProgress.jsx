@@ -9,7 +9,11 @@ function CartProgress() {
         //장바구니 페이지
         { id: 1, label: '장바구니', status: 'current' },
         { id: 2, label: '주문결제', status: 'pending' },
+<<<<<<< HEAD
         { id: 3, label: '주문완료', status: 'pending' },
+=======
+        { id: 3, label: '주문완료', status: 'pending' }
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
 
         // 주문완료 페이지
         // { id: 1, label: '장바구니', status: 'completed' },
@@ -18,7 +22,11 @@ function CartProgress() {
     ];
 
     return (
+<<<<<<< HEAD
         <div className="cart-progress">
+=======
+        <div className="order-progress">
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
             <div className="progress-bar">
                 {steps.map((step, index) => (
                     <React.Fragment key={step.id}>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import './scss/Cart.scss';
 import Title from '../components/Title';
@@ -9,6 +10,20 @@ import { useNavigate } from 'react-router-dom';
 
 function Cart() {
     const cartStore = useCartStore();
+=======
+import React, { useEffect } from "react";
+import "./scss/Cart.scss";
+import Title from "../components/Title";
+import { Products } from "../data/CrocsProductsData.js";
+import CartProgress from "../components/CartProgress";
+import { useCartStore } from "../store/useCartStore";
+import { wishListStore } from "../store/wishListStore";
+import { useNavigate } from "react-router-dom";
+
+function Cart() {
+    const cartStore = useCartStore();
+    // console.log('cartStore:', cartStore);
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
     const wishStore = wishListStore();
     const navigate = useNavigate();
 
@@ -19,7 +34,10 @@ function Cart() {
         freeShippingThreshold,
         initializeCart,
         addFromWishlist,
+<<<<<<< HEAD
         mergeCartData,
+=======
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
         getSubtotal,
         getSelectedSubtotal,
         getShipping,
@@ -34,6 +52,7 @@ function Cart() {
         handleOrderAll,
         handleOrderSelected,
         handleGiftSelected,
+<<<<<<< HEAD
     } = cartStore || {};
 
     // wishListStore에서 cartWishItems와 cartItems 가져오기
@@ -69,6 +88,25 @@ function Cart() {
             mergeCartData(Products, cartItems);
         }
     }, [cartWishItems, cartItems]);
+=======
+        // } = useCartStore();
+    } = cartStore || {};
+
+    // wishListStore에서 cartWishItems 가져오기
+    const { cartWishItems = [] } = wishStore || {};
+
+    // 장바구니 초기화
+    useEffect(() => {
+        initializeCart(Products, cartWishItems);
+    }, []);
+
+    // cartWishItems 체크
+    useEffect(() => {
+        if (addFromWishlist && cartWishItems && cartWishItems.length > 0) {
+            addFromWishlist(Products, cartWishItems);
+        }
+    }, [cartWishItems]);
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
 
     // 가격 계산
     const subtotal = getSubtotal();
@@ -79,13 +117,18 @@ function Cart() {
 
     // 금액 포맷팅
     const formatPrice = (price) => {
+<<<<<<< HEAD
         return price.toLocaleString('ko-KR');
+=======
+        return price.toLocaleString("ko-KR");
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
     };
 
     const handleToOrder = (type) => {
         let orderData;
 
         if (type === 'all') {
+<<<<<<< HEAD
             if (cartProducts.length === 0) {
                 alert('장바구니에 상품이 없습니다.');
                 return;
@@ -103,6 +146,13 @@ function Cart() {
             return;
         }
 
+=======
+            orderData = handleOrderAll();
+        } else {
+            orderData = handleOrderSelected();
+        }
+
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
         navigate('/order', {
             state: {
                 orderProducts: orderData.products,
@@ -111,6 +161,7 @@ function Cart() {
                 total: orderData.total,
             },
         });
+<<<<<<< HEAD
     };
 
     return (
@@ -126,6 +177,24 @@ function Cart() {
                                 <label>
                                     <input
                                         type="checkbox"
+=======
+    }
+
+
+    return (
+        <div className='cart-container'>
+            <div className='inner'>
+                <Title title='Cart' />
+                <CartProgress />
+                <div className='cart-content'>
+                    {/* 왼쪽: 상품 목록 */}
+                    <div className='cart-left'>
+                        <div className='product-header'>
+                            <div className='select-all'>
+                                <label>
+                                    <input
+                                        type='checkbox'
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                         checked={
                                             cartProducts.length > 0 &&
                                             selectedProducts.size === cartProducts.length
@@ -137,11 +206,19 @@ function Cart() {
                                     </span>
                                 </label>
                             </div>
+<<<<<<< HEAD
                             <button className="btn-remove-selected" onClick={handleRemoveSelected}>
+=======
+                            <button
+                                className='btn-remove-selected'
+                                onClick={handleRemoveSelected}
+                            >
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                 선택삭제
                             </button>
                         </div>
 
+<<<<<<< HEAD
                         <div className="product-list">
                             {cartProducts.length === 0 ? (
                                 <div className="empty-cart">
@@ -179,10 +256,48 @@ function Cart() {
                                                         onClick={() =>
                                                             handleDecreaseQuantity(product.id)
                                                         }
+=======
+                        <div className='product-list'>
+                            {cartProducts.length === 0 ? (
+                                <div className='empty-cart'>
+                                    <p>장바구니에 담긴 상품이 없습니다.</p>
+                                </div>
+                            ) : (
+                                cartProducts.map((product) => (
+                                    <div key={product.id} className='product-item-wrap'>
+                                        <input
+                                            type='checkbox'
+                                            className='product-checkbox'
+                                            checked={selectedProducts.has(product.id)}
+                                            onChange={() => handleSelectProduct(product.id)}
+                                        />
+                                        <div className='product-item'>
+                                            <div className='product-image'>
+                                                <img src={product.product_img} alt={product.name} />
+                                            </div>
+
+                                            <div className='product-info'>
+                                                <h3 className='product-name'>{product.name}</h3>
+                                                {/* 지비츠 - 사이즈가 있을때만 표시 */}
+                                                {product.size && (
+                                                    <p className='product-option'>
+                                                        사이즈: {product.size}
+                                                    </p>
+                                                )}
+                                                {/* <p className='product-color'>
+                                                    컬러: {product.color}
+                                                </p> */}
+
+                                                <div className='quantity-control'>
+                                                    <button
+                                                        className='quantity-btn'
+                                                        onClick={() => handleDecreaseQuantity(product.id)}
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                                         disabled={product.quantity <= 1}
                                                     >
                                                         -
                                                     </button>
+<<<<<<< HEAD
                                                     <span className="quantity-display">
                                                         {product.quantity}
                                                     </span>
@@ -191,12 +306,21 @@ function Cart() {
                                                         onClick={() =>
                                                             handleIncreaseQuantity(product.id)
                                                         }
+=======
+                                                    <span className='quantity-display'>
+                                                        {product.quantity}
+                                                    </span>
+                                                    <button
+                                                        className='quantity-btn'
+                                                        onClick={() => handleIncreaseQuantity(product.id)}
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                                     >
                                                         +
                                                     </button>
                                                 </div>
                                             </div>
 
+<<<<<<< HEAD
                                             <div className="product-price">
                                                 <span className="price">
                                                     {formatPrice(product.price * product.quantity)}
@@ -206,6 +330,16 @@ function Cart() {
                                                     className="remove-btn"
                                                     onClick={() => handleRemoveProduct(product.id)}
                                                     title="상품 삭제"
+=======
+                                            <div className='product-price'>
+                                                <span className='price'>
+                                                    {formatPrice(product.price * product.quantity)}원
+                                                </span>
+                                                <button
+                                                    className='remove-btn'
+                                                    onClick={() => handleRemoveProduct(product.id)}
+                                                    title='상품 삭제'
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                                 >
                                                     ✕
                                                 </button>
@@ -218,6 +352,7 @@ function Cart() {
                     </div>
 
                     {/* 오른쪽: 주문 요약 */}
+<<<<<<< HEAD
                     <div className="cart-right">
                         {/* 가격 요약 */}
                         <div className="price-summary">
@@ -236,12 +371,35 @@ function Cart() {
                                         >
                                             {shipping === 0
                                                 ? '무료배송'
+=======
+                    <div className='cart-right'>
+                        {/* 가격 요약 */}
+                        <div className='price-summary'>
+                            <div className='price-row'>
+                                <span className='price-label'>주문상품</span>
+                                <span className='price-value'>{formatPrice(subtotal)}원</span>
+                            </div>
+                            {cartProducts.length > 0 && (
+                                <>
+                                    <div className='price-row'>
+                                        <span className='price-label'>배송비</span>
+                                        <span
+                                            className={`price-value ${shipping === 0 ? "free-shipping" : ""
+                                                }`}
+                                        >
+                                            {shipping === 0
+                                                ? "무료배송"
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                                 : `+${formatPrice(shipping)}원`}
                                         </span>
                                     </div>
 
                                     {shipping > 0 && (
+<<<<<<< HEAD
                                         <p className="shipping-notice">
+=======
+                                        <p className='shipping-notice'>
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                             {formatPrice(freeShippingThreshold)}원 이상 구매 시
                                             무료배송
                                         </p>
@@ -249,26 +407,42 @@ function Cart() {
                                 </>
                             )}
 
+<<<<<<< HEAD
                             <div className="price-row total-row">
                                 <span className="price-label total-label">최종 결제 금액</span>
                                 <span className="price-value total-value">
+=======
+                            <div className='price-row total-row'>
+                                <span className='price-label total-label'>최종 결제 금액</span>
+                                <span className='price-value total-value'>
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                     {formatPrice(total)}원
                                 </span>
                             </div>
                         </div>
 
                         {/* 안내문구 */}
+<<<<<<< HEAD
                         <div className="terms-content">
                             <p className="terms-description">
                                 장바구니 상품은 30일간 보관됩니다. 장기간 보관을 원하실 경우
                                 위시리스트에 추가해주세요. <br />
                                 교차 및 복수 할인 프로모션 적용 주문 건의 경우 부분 취소 및 반품은
                                 불가하며, 전체 취소/반품 후 재주문해주셔야합니다.
+=======
+                        <div className='terms-content'>
+                            <p className='terms-description'>
+                                장바구니 상품은 30일간 보관됩니다. 장기간 보관을 원하실 경우
+                                위시리스트에 추가해주세요. <br />
+                                교차 및 복수 할인 프로모션 적용 주문 건의 경우 부분 취소 및
+                                반품은 불가하며, 전체 취소/반품 후 재주문해주셔야합니다.
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                             </p>
                         </div>
 
                         {/* 주문 버튼들 */}
                         {!isOrderComplete ? (
+<<<<<<< HEAD
                             <div className="order-buttons">
                                 <button
                                     className="btn-order-all"
@@ -281,12 +455,27 @@ function Cart() {
                                     <button
                                         className="btn-order-selected"
                                         onClick={() => handleToOrder('selected')}
+=======
+                            <div className='order-buttons'>
+                                <button className='btn-order-all' onClick={handleOrderAll}>
+                                    전체상품주문하기
+                                </button>
+
+                                <div className='btn-group'>
+                                    <button
+                                        className='btn-order-selected'
+                                        onClick={handleOrderSelected}
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                     >
                                         선택상품주문
                                     </button>
 
                                     <button
+<<<<<<< HEAD
                                         className="btn-gift-selected"
+=======
+                                        className='btn-gift-selected'
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                                         onClick={handleGiftSelected}
                                     >
                                         선택상품선물
@@ -294,9 +483,15 @@ function Cart() {
                                 </div>
                             </div>
                         ) : (
+<<<<<<< HEAD
                             <div className="order-complete">
                                 <div className="complete-icon">✓</div>
                                 <p className="complete-text">주문이 완료되었습니다.</p>
+=======
+                            <div className='order-complete'>
+                                <div className='complete-icon'>✓</div>
+                                <p className='complete-text'>주문이 완료되었습니다.</p>
+>>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
                             </div>
                         )}
                     </div>
