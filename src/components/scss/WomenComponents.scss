@@ -67,32 +67,6 @@
 //             justify-content: center;
 //         }
 
-        &--home,
-        &--women,
-        &--Fur-lined {
-            &_link {
-                @extend %link-base;
-                width: fit-content;
-                height: 100%;
-                padding: 0 10px;
-                background-color: #f6faeb;
-                border-radius: 0.4rem;
-                img {
-                    width: 0.8rem;
-                }
-            }
-        }
-
-        &--home {
-            &_link {
-                @extend %link-base;
-                width: 2.5rem;
-                padding: 0;
-                img {
-                    width: 1.3rem;
-                }
-            }
-        }
 //         &--home,
 //         &--women,
 //         &--Fur-lined {
@@ -171,64 +145,6 @@
 // ColorBadge 컴포넌트
 // ============================================
 
-.color-badge {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-
-    &:hover {
-        transform: scale(1.2);
-    }
-
-    &--black {
-        background-color: #000;
-    }
-    &--brown {
-        background-color: rgba(150, 105, 74, 1);
-    }
-    &--navy {
-        background-color: #043896;
-    }
-    &--pink {
-        background-color: #ff69b4;
-    }
-    &--gray {
-        background-color: #cccccc;
-    }
-    &--white {
-        background-color: #ffffff;
-        border: 1px solid #ccc;
-    }
-    &--red {
-        background-color: #ff0000;
-    }
-    &--orange {
-        background-color: #ffcc00;
-    }
-    &--purple {
-        background-color: #dbb2ff;
-    }
-    &--yellow {
-        background-color: #ffff00;
-    }
-    &--mint {
-        background-color: #aaf0d1;
-    }
-    &--light-green {
-        background-color: #ccff99;
-    }
-    &--green {
-        background-color: #00cd00;
-    }
-    &--sky-blue {
-        background-color: #9ad2ff;
-    }
-    &--blue {
-        background-color: #0000ff;
-    }
-}
 // .color-badge {
 //     width: 1rem;
 //     height: 1rem;
@@ -298,74 +214,6 @@
 //     }
 // }
 
-.select__color--wrap {
-    width: 100%;
-    @include g.flex($jc: space-between, $ai: center, $fd: row, $fw: wrap, $gap: 1.5rem 3rem);
-
-    &_list {
-        gap: 0.6rem;
-
-        .select__color--link {
-            @include g.flex($jc: null, $ai: center, $fd: column, $fw: null, $gap: 0.6rem);
-            width: 3.2rem;
-            font-size: 11px;
-            font-weight: 400;
-
-            .color_select {
-                width: 2.4rem;
-                height: 2.4rem;
-                border-radius: 50%;
-            }
-
-            .black {
-                background-color: #000;
-            }
-            .gray {
-                background-color: #cccccc;
-            }
-            .white {
-                background-color: #ffffff;
-                border: 1px solid #ccc;
-            }
-            .red {
-                background-color: #ff0000;
-            }
-            .pink {
-                background-color: #ff69b4;
-            }
-            .brown {
-                background-color: #aa6400;
-            }
-            .orange {
-                background-color: #ffcc00;
-            }
-            .purple {
-                background-color: #dbb2ff;
-            }
-            .yellow {
-                background-color: #ffff00;
-            }
-            .mint {
-                background-color: #aaf0d1;
-            }
-            .light-green {
-                background-color: #ccff99;
-            }
-            .green {
-                background-color: #00cd00;
-            }
-            .sky-blue {
-                background-color: #9ad2ff;
-            }
-            .blue {
-                background-color: #0000ff;
-            }
-            .navy {
-                background-color: #043896;
-            }
-        }
-    }
-}
 // .select__color--wrap {
 //     width: 100%;
 //     @include g.flex($jc: space-between, $ai: center, $fd: row, $fw: wrap, $gap: 1.5rem 3rem);
@@ -731,42 +579,6 @@
         }
 
         &--color {
-            @include g.flex($jc: start, $ai: center, $fd: row, $fw: null, $gap: 1.6rem);
-
-            .filter-menu__item {
-                @include g.flex($jc: center, $ai: center, $fd: row, $fw: null, $gap: 1.8rem);
-                width: 6.2rem;
-                height: 3.2rem;
-                background-color: #f5f5f5;
-                border-radius: 4px;
-
-                .filter-menu__select_color {
-                    width: 1.6rem;
-                    height: 1.6rem;
-                    border-radius: 50%;
-                }
-
-                .select-pink {
-                    background-color: #ff69b4;
-                }
-
-                .select-black {
-                    background-color: #000;
-                }
-
-                .filter-menu__close-link {
-                    border-radius: 0.4rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    .close-btn {
-                        display: block;
-                        width: 0.8rem;
-                    }
-                }
-            }
-        }
             background-color: #e3f2fd;
 
             &:hover {
@@ -817,6 +629,7 @@
         padding: 30px 0;
         margin: 0;
     }
+}
 
 // 애니메이션
 .filter-tag {
@@ -976,18 +789,6 @@
     border-radius: 10px;
     padding: 2rem 2rem;
     transition: all 0.3s ease;
-
-    &:hover {
-        outline: 1px solid #cccccc;
-        box-shadow: 0 0 12px 2.5px rgba(0, 0, 0, 0.08);
-        transform: translateY(-0.4rem);
-
-        .product-card__color,
-        .product-card__size {
-            max-height: 200px;
-            opacity: 1;
-            margin-top: 0;
-        }
     outline: 1px solid #cccccc;
 
     .product-card__color,
@@ -1051,7 +852,6 @@
     }
 
     .product-card__link {
-        @include g.flex($jc: center, $ai: center, $fd: null, $fw: null, $gap: null);
         @include g.flex($jc: center, $gap: null);
         position: relative;
         width: 100%;

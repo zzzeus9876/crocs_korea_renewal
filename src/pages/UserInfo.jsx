@@ -70,11 +70,8 @@ const UserInfo = () => {
                                             <span>{item.price}</span>
                                         </p>
                                         <p className="price_bottom">
-                                            {(
-                                                (Number(item.price) / Number(item.price)) *
-                                                100
-                                            ).toFixed(0)}
-                                            %
+                                            {item.discountPercent}
+
                                         </p>
                                     </div>
                                 </div>
@@ -104,11 +101,7 @@ const UserInfo = () => {
                                             <span>{item.price}</span>
                                         </p>
                                         <p className="price_bottom">
-                                            {(
-                                                (Number(item.price) / Number(item.price)) *
-                                                100
-                                            ).toFixed(0)}
-                                            %
+                                            {item.discountPercent}
                                         </p>
                                     </div>
                                 </div>

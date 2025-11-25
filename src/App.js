@@ -29,6 +29,7 @@ import ProductListPage from './pages/ProductListPage';
 
 import CrocsProductDetail from './pages/CrocsProductDetail';
 import Promotion from './pages/Promotion';
+import StoreLocator from './components/StoreLocator';
 
 function App() {
     const { user, loading, checkSession, initAuthListener } = loginAuthStore();
@@ -53,11 +54,6 @@ function App() {
             <Header />
             <Routes>
                 <Route index element={<Main />} />
-                {/* <Route path="/new" element={<New />} /> */}
-                {/* <Route path="/women" element={<Women />} /> */}
-                {/* <Route path="/men" element={<Men />} /> */}
-                {/* <Route path="/kids" element={<Kids />} /> */}
-                {/* <Route path="/jibbitz" element={<Jibbitz />} /> */}
                 <Route path="/jibbitz" element={<JibbitzProductListPage />} />
                 <Route path="/collabs" element={<Collabs />} />
                 <Route path="/promotion" element={<Promotion />} />
@@ -71,12 +67,10 @@ function App() {
                 <Route path="/nonmember" element={<Nonmember />} />
                 <Route path="/comaspopup" element={<ComeAsPopup />} />
                 <Route path="/product/:id" element={<JibbitzCollaboProductDetail />} />
-                <Route path="/jibbitz/:id" element={<JibbitzCollaboProductDetail />} />
                 <Route path="/wishlist" element={<WishList />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/jibbitz/:cate/:id" element={<JibbitzProductListPage />} />
-                <Route path="/product/:id" element={<JibbitzProductDetail />} />
                 <Route path="/jibbitz/:id" element={<JibbitzProductDetail />} />
                 <Route path="/wishlist" element={<WishList />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
@@ -84,6 +78,7 @@ function App() {
                 <Route path="/:cate/:subcategory?" element={<ProductListPage />} />
                 {/* <Route path="/cscenter" element={<CustomerService />} /> */}
                 <Route path="/product/:id" element={<CrocsProductDetail />} />
+                <Route path="/store" element={<StoreLocator />} />
             </Routes>
             {/* <Footer /> */}
         </div>
