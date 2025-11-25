@@ -37,11 +37,21 @@ const ProductCardSwiper = ({ images }) => {
             <div className="swiper-wrapper">
                 {imgList.map((img, i) => (
                     <div className="swiper-slide" key={i}>
+<<<<<<< HEAD
                         <img
                             src={typeof img === 'string' ? img : img.src}
                             alt={`상품 이미지 ${i + 1}`}
                             className="product-card__img"
                         />
+=======
+                        <a href="#" className="product-card__link">
+                            <img
+                                src={img.src}
+                                alt={img.alt || `상품 이미지 ${i + 1}`}
+                                className="product-card__img"
+                            />
+                        </a>
+>>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
                     </div>
                 ))}
             </div>
@@ -65,11 +75,33 @@ const ProductName = ({ name }) => (
     </div>
 );
 
+<<<<<<< HEAD
 // ---------- 가격 ----------
 const ProductPrice = ({ prices }) => {
     if (!prices || !Array.isArray(prices) || !prices[0]) return null;
     const [originalPrice, discountPrice, discountRate] = prices;
     const hasDiscount = discountPrice != null;
+=======
+// 가격
+// const ProductPrice = ({ price: { discountedPrice, discountRate, originalPrice } }) => (
+//     <div className="product-card__price_wrap">
+//         <div className="product-card__price">
+//             <span className="product-card__price_dc_rate">{discountedPrice.toLocaleString()}</span>
+//             <span className="product-card__price_breadcrumbs__line" />
+//             <span className="product-card__price_slel">{discountRate}%</span>
+//             <span className="product-card__price_breadcrumbs__line" />
+//             <span className="product-card__price_cost">{originalPrice.toLocaleString()}</span>
+//         </div>
+//     </div>
+// );
+const ProductPrice = ({ product }) => {
+    if (!product) return null; // product 없으면 렌더 안 함
+
+    const discounted = product.discountedPrice ?? product.price ?? 0;
+
+    return <div className="product_price">{discounted.toLocaleString()}원</div>;
+};
+>>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
 
     return (
         <div className="product-card__price_wrap">
@@ -87,8 +119,24 @@ const ProductPrice = ({ prices }) => {
                 <div className="original-price">{originalPrice}</div>
             )}
         </div>
+<<<<<<< HEAD
     );
 };
+=======
+        <div className="color-badge__wrap">
+            {colors.map((color, i) => (
+                <span
+                    key={i}
+                    className={`color-badge color-badge--${color}`}
+                    onClick={() => onColorClick?.(color)}
+                    role="button"
+                    tabIndex={0}
+                />
+            ))}
+        </div>
+    </div>
+);
+>>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
 
 // ---------- 색상 ----------
 const normalizeColor = (c) => {
@@ -160,6 +208,7 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
 
                     return (
                         <li key={size} className="size--btns__item">
+<<<<<<< HEAD
                             <button
                                 className={`size--btns__button ${isActive ? 'active' : ''} ${
                                     soldOut ? 'sold-out' : ''
@@ -174,6 +223,30 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
                             >
                                 {size}
                             </button>
+=======
+                            {soldOut ? (
+                                <span className="size--btns__link sold-out">
+                                    <span className="size--btns__button">{size}</span>
+                                    <span className="sold-out-line" />
+                                </span>
+                            ) : (
+                                <a
+                                    href="#"
+                                    className={`size--btns__link btn-menu-style ${
+                                        isActive ? 'active' : ''
+                                    }`}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setActive(size);
+                                        onSizeSelect?.(size);
+                                    }}
+                                >
+                                    <button className="size--btns__button btn-menu__button">
+                                        {size}
+                                    </button>
+                                </a>
+                            )}
+>>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
                         </li>
                     );
                 })}
@@ -182,6 +255,7 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
     );
 };
 
+<<<<<<< HEAD
 // ---------- 상품 카드 ----------
 const ProductCard = ({ product, onClick, onSizeSelect }) => (
     <li className="product-card" onClick={onClick}>
@@ -197,6 +271,44 @@ const ProductCard = ({ product, onClick, onSizeSelect }) => (
             soldOutSizes={product.soldOutSizes || []}
             onSizeSelect={onSizeSelect} // 🔥 상위 상태로 전달
         />
+=======
+// 상품 카드
+// const WomenProductCard = ({ product }) => (
+//     <li className="product-card">
+//         <div className="product-card__img_info_wrap">
+//             <ProductCardSwiper images={product.images} />
+//             <ProductName name={product.name} />
+//             <ProductPrice price={product.price} />
+//             <ProductColorBadges
+//                 colors={product.colors}
+//                 onColorClick={(c) => console.log('색상:', c)}
+//             />
+//             <ProductSizeButtons
+//                 sizes={product.sizes}
+//                 soldOutSizes={product.soldOutSizes || []}
+//                 onSizeSelect={(s) => console.log('사이즈:', s)}
+//             />
+//         </div>
+//     </li>
+// );
+
+const WomenProductCard = ({ product }) => (
+    <li className="product-card">
+        <div className="product-card__img_info_wrap">
+            <ProductCardSwiper images={product?.images ?? []} />
+            <ProductName name={product?.name ?? ''} />
+            <ProductPrice product={product} />
+            <ProductColorBadges
+                colors={product?.colors ?? []}
+                onColorClick={(c) => console.log('색상:', c)}
+            />
+            <ProductSizeButtons
+                sizes={product?.sizes ?? []}
+                soldOutSizes={product?.soldOutSizes ?? []}
+                onSizeSelect={(s) => console.log('사이즈:', s)}
+            />
+        </div>
+>>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
     </li>
 );
 

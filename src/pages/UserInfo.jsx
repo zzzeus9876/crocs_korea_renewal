@@ -20,6 +20,15 @@ const UserInfo = () => {
             setActive(false);
         }
     }, [wishLists]);
+    const [active, setActive] = useState(false);
+
+    useEffect(() => {
+        if (wishLists.length === 0) {
+            setActive(true);
+        } else {
+            setActive(false);
+        }
+    }, [wishLists]);
 
     return (
         <div className="sub_page">
