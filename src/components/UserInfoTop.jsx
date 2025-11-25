@@ -39,7 +39,11 @@
 // export default UserInfoTop;
 
 import React from 'react';
+<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom';
+=======
+import { Link } from 'react-router-dom';
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 import { loginAuthStore } from '../store/loginStore';
 
 // const UserInfoTop = () => {
@@ -90,20 +94,31 @@ import { loginAuthStore } from '../store/loginStore';
 // };
 
 const UserInfoTop = () => {
+<<<<<<< HEAD
     const { user } = loginAuthStore();
     const navigate = useNavigate();
+=======
+    const { user, setClubMember } = loginAuthStore();
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 
     if (!user) return null; // ⭐ 중요! user 준비가 안 되면 렌더링 X
 
     const isClubMember = user.isClubMember === true;
 
     const handleJoin = () => {
+<<<<<<< HEAD
         navigate('/crocsclub');
+=======
+        setClubMember(user.uid, true);
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
     };
 
     return (
         <div className="user_info_top">
+<<<<<<< HEAD
             {/* 미가입자 영역 */}
+=======
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
             {!isClubMember && (
                 <div className="user_info_left_wrap">
                     <p className="user_info_text">
@@ -117,7 +132,10 @@ const UserInfoTop = () => {
                 </div>
             )}
 
+<<<<<<< HEAD
             {/* 가입자 영역 */}
+=======
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
             {isClubMember && (
                 <div className="user_info_left_wrap club_join_wrap">
                     <p>
@@ -132,7 +150,10 @@ const UserInfoTop = () => {
                 </div>
             )}
 
+<<<<<<< HEAD
             {/* 오른쪽 고정 영역 */}
+=======
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
             <div className="usr_info_right">
                 <strong>쿠폰</strong>
                 <p>쿠폰 개수</p>

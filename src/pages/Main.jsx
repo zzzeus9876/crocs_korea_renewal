@@ -115,7 +115,11 @@ const Main = () => {
                         <button className="cs-close-btn" onClick={closeCS}>
                             ×
                         </button>
+<<<<<<< HEAD
                         <CustomerService onClose={closeCS} />
+=======
+                        <CustomerService />
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
                     </div>
                 </div>
             )}

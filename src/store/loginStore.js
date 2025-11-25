@@ -1,3 +1,197 @@
+<<<<<<< HEAD
+=======
+// import { create } from 'zustand';
+// import { auth, db, googleProvider } from '../firebase/firebase';
+// import {
+//     signInWithEmailAndPassword,
+//     signInWithPopup,
+//     setPersistence,
+//     browserLocalPersistence,
+//     signOut,
+// } from 'firebase/auth';
+// import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+
+// export const loginAuthStore = create((set, get) => ({
+//     user: null,
+
+//     // ===========================
+//     // 🔥 크록스 클럽 가입 상태 변경
+//     // ===========================
+//     setClubMember: async (uid, value) => {
+//         try {
+//             const userRef = doc(db, 'users', uid);
+//             await updateDoc(userRef, { isClubMember: value });
+
+//             set({
+//                 user: {
+//                     ...get().user,
+//                     isClubMember: value,
+//                 },
+//             });
+//         } catch (err) {
+//             console.error('클럽 가입 정보 업데이트 실패:', err);
+//         }
+//     },
+
+//     // ===========================
+//     // 🔥 이메일 로그인
+//     // ===========================
+//     onLogin: async (email, password) => {
+//         try {
+//             await setPersistence(auth, browserLocalPersistence);
+
+//             const userCredential = await signInWithEmailAndPassword(auth, email, password);
+//             const firebaseUser = userCredential.user;
+//             const userRef = doc(db, 'users', firebaseUser.uid);
+//             const userDoc = await getDoc(userRef);
+
+//             let userData;
+
+//             if (userDoc.exists()) {
+//                 // 기존 회원 → Firestore 데이터 불러오기
+//                 userData = userDoc.data();
+//             } else {
+//                 // 신규 회원 → Firestore 데이터 생성
+//                 userData = {
+//                     uid: firebaseUser.uid,
+//                     email: firebaseUser.email,
+//                     name: firebaseUser.displayName || '',
+//                     nickname: '',
+//                     phone: '',
+//                     file: '',
+//                     profile: '',
+//                     isClubMember: false,
+//                 };
+//                 await setDoc(userRef, userData);
+//             }
+
+//             set({ user: userData });
+//             localStorage.setItem('loginTime', Date.now().toString());
+//             alert('로그인 성공!');
+//         } catch (err) {
+//             console.error('로그인 오류:', err);
+//             alert(err.message);
+//         }
+//     },
+
+//     // ===========================
+//     // 🔥 구글 로그인
+//     // ===========================
+//     onGoogleLogin: async () => {
+//         try {
+//             await setPersistence(auth, browserLocalPersistence);
+
+//             const result = await signInWithPopup(auth, googleProvider);
+//             const firebaseUser = result.user;
+
+//             const userRef = doc(db, 'users', firebaseUser.uid);
+//             const userDoc = await getDoc(userRef);
+
+//             let userData;
+
+//             if (userDoc.exists()) {
+//                 userData = userDoc.data();
+//             } else {
+//                 userData = {
+//                     uid: firebaseUser.uid,
+//                     email: firebaseUser.email,
+//                     name: firebaseUser.displayName || '',
+//                     nickname: '',
+//                     phone: '',
+//                     file: '',
+//                     profile: '',
+//                     isClubMember: false,
+//                 };
+//                 await setDoc(userRef, userData);
+//             }
+
+//             set({ user: userData });
+//             localStorage.setItem('loginTime', Date.now().toString());
+//             alert('구글 로그인 성공!');
+//         } catch (err) {
+//             console.error('구글 로그인 오류:', err);
+//             alert(err.message);
+//         }
+//     },
+
+//     // ===========================
+//     // 🔥 카카오 로그인
+//     // ===========================
+//     onKakaoLogin: async (navigate) => {
+//         try {
+//             if (!window.Kakao.isInitialized()) {
+//                 window.Kakao.init('278bf328d5fd32cb74049bf38a44bf2e');
+//             }
+
+//             const authObj = await new Promise((resolve, reject) => {
+//                 window.Kakao.Auth.login({
+//                     scope: 'profile_nickname, profile_image',
+//                     success: resolve,
+//                     fail: reject,
+//                 });
+//             });
+
+//             const res = await window.Kakao.API.request({ url: '/v2/user/me' });
+
+//             const uid = res.id.toString();
+//             const userRef = doc(db, 'users', uid);
+//             const userDoc = await getDoc(userRef);
+
+//             let userData;
+
+//             if (userDoc.exists()) {
+//                 userData = userDoc.data();
+//             } else {
+//                 userData = {
+//                     uid,
+//                     email: res.kakao_account?.email || '',
+//                     name: res.kakao_account.profile?.nickname || '카카오사용자',
+//                     nickname: res.kakao_account.profile?.nickname || '카카오사용자',
+//                     photoURL: res.kakao_account.profile?.profile_image_url || '',
+//                     provider: 'kakao',
+//                     createAt: new Date(),
+//                     isClubMember: false,
+//                 };
+//                 await setDoc(userRef, userData);
+//             }
+
+//             set({ user: userData });
+//             localStorage.setItem('loginTime', Date.now().toString());
+//             alert('카카오 로그인 성공!');
+
+//             if (navigate) navigate('/userinfo');
+//         } catch (err) {
+//             console.error('카카오 로그인 오류:', err);
+//             alert(err.message);
+//         }
+//     },
+
+//     // ===========================
+//     // 🔥 로그인 상태에 따라 이동
+//     // ===========================
+//     handleUserClick: (navigate) => {
+//         const { user } = get();
+//         if (user) navigate('/userinfo');
+//         else navigate('/login');
+//     },
+
+//     // ===========================
+//     // 🔥 로그아웃
+//     // ===========================
+//     logout: async () => {
+//         try {
+//             await signOut(auth);
+//             set({ user: null });
+//             localStorage.removeItem('loginTime');
+//             alert('로그아웃 되었습니다.');
+//         } catch (err) {
+//             console.error('로그아웃 실패:', err);
+//             alert(err.message);
+//         }
+//     },
+// }));
+
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 import { create } from 'zustand';
 import { auth, db, googleProvider } from '../firebase/firebase';
 import {

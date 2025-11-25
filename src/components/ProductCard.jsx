@@ -51,7 +51,15 @@ const ProductCardSwiper = ({ images }) => {
                                 className="product-card__img"
                             />
                         </a>
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+                        <img
+                            src={typeof img === 'string' ? img : img.src}
+                            alt={`상품 이미지 ${i + 1}`}
+                            className="product-card__img"
+                        />
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
                     </div>
                 ))}
             </div>
@@ -101,7 +109,34 @@ const ProductPrice = ({ product }) => {
 
     return <div className="product_price">{discounted.toLocaleString()}원</div>;
 };
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+// ---------- 가격 ----------
+const ProductPrice = ({ prices }) => {
+    if (!prices || !Array.isArray(prices) || !prices[0]) return null;
+    const [originalPrice, discountPrice, discountRate] = prices;
+    const hasDiscount = discountPrice != null;
+
+    return (
+        <div className="product-card__price_wrap">
+            {hasDiscount ? (
+                <>
+                    <div className="discount-price">
+                        {discountPrice}
+                        {discountRate && ` (${discountRate} 할인)`}
+                    </div>
+                    <div className="original-price" style={{ textDecoration: 'line-through' }}>
+                        {originalPrice}
+                    </div>
+                </>
+            ) : (
+                <div className="original-price">{originalPrice}</div>
+            )}
+        </div>
+    );
+};
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 
     return (
         <div className="product-card__price_wrap">
@@ -136,6 +171,7 @@ const ProductPrice = ({ product }) => {
         </div>
     </div>
 );
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
 
 // ---------- 색상 ----------
@@ -147,6 +183,17 @@ const normalizeColor = (c) => {
     return null;
 };
 
+=======
+// ---------- 색상 ----------
+const normalizeColor = (c) => {
+    if (!c) return null;
+    if (c.startsWith('rgb')) return c;
+    if (c.match(/^\d+\s*,/)) return `rgb(${c})`;
+    if (c.startsWith('#')) return c;
+    return null;
+};
+
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 const ProductColorBadges = ({ colors = [], onColorClick }) => {
     const normalized = (Array.isArray(colors) ? colors : [colors])
         .map(normalizeColor)
@@ -237,6 +284,12 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
                                     }`}
                                     onClick={(e) => {
                                         e.preventDefault();
+                            <button
+                                className={`size--btns__button ${isActive ? 'active' : ''} ${
+                                    soldOut ? 'sold-out' : ''
+                                }`}
+                                onClick={() => {
+                                    if (!soldOut) {
                                         setActive(size);
                                         onSizeSelect?.(size);
                                     }}
@@ -246,7 +299,16 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
                                     </button>
                                 </a>
                             )}
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+                                    }
+                                }}
+                                disabled={soldOut}
+                            >
+                                {size}
+                            </button>
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
                         </li>
                     );
                 })}
@@ -308,7 +370,25 @@ const WomenProductCard = ({ product }) => (
                 onSizeSelect={(s) => console.log('사이즈:', s)}
             />
         </div>
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+// ---------- 상품 카드 ----------
+const ProductCard = ({ product, onClick, onSizeSelect }) => (
+    <li className="product-card" onClick={onClick}>
+        <ProductCardSwiper images={product.product_img || []} />
+        <ProductName name={product.product} />
+        <ProductPrice prices={product.prices} />
+        <ProductColorBadges
+            colors={product.color || []}
+            onColorClick={(c) => console.log('색상 선택:', c)}
+        />
+        <ProductSizeButtons
+            cate={product.cate} // 여기서 cate 값을 전달
+            soldOutSizes={product.soldOutSizes || []}
+            onSizeSelect={onSizeSelect} // 🔥 상위 상태로 전달
+        />
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
     </li>
 );
 

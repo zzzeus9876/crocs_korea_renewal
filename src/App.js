@@ -13,9 +13,13 @@ import Brand from './pages/Brand';
 import Login from './pages/Login';
 import Join from './pages/Join';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import OrderHistory from './pages/OrderHistory';
 =======
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+// import Footer from './components/Footer';
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 import Header from './components/Header';
 import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
@@ -45,7 +49,14 @@ import Cart from './pages/Cart';
 import JibbitzProductDetail from './pages/JibbitzProductDetail';
 import JibbitzProductListPage from './pages/JibbitzProductListPage';
 import ProductListPage from './pages/ProductListPage';
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+// import CustomerService from './components/CustomerService';
+import ProductListPage from './pages/ProductListPage';
+import CrocsProductDetail from './pages/CrocsProductDetail';
+import Store from './pages/Store';
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 
 function App() {
     const { user, loading, checkSession, initAuthListener } = loginAuthStore();
@@ -85,10 +96,15 @@ function App() {
                 <Route path="/jibbitz" element={<JibbitzProductListPage />} />
                 <Route path="/collabs" element={<Collabs />} />
                 <Route path="/promotion" element={<Promotion />} />
+                <Route path="/store" element={<Store />} />
                 <Route path="/Brand" element={<Brand />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+                <Route path="/:cate/:subcategory?" element={<ProductListPage />} />
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
                 <Route path="/nonmember" element={<Nonmember />} />
@@ -110,7 +126,12 @@ function App() {
                 <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/:cate/:subcategory?" element={<ProductListPage />} />
+<<<<<<< HEAD
 >>>>>>> e38f4cb (2025-11-25(화) 초원 - v02)
+=======
+                {/* <Route path="/cscenter" element={<CustomerService />} /> */}
+                <Route path="/product/:id" element={<CrocsProductDetail />} />
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
             </Routes>
             {/* <Footer /> */}
         </div>

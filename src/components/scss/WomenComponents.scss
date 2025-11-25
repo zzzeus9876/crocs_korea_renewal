@@ -83,6 +83,64 @@
 //             }
 //         }
 
+<<<<<<< HEAD
+//         &--home {
+//             &_link {
+//                 @extend %link-base;
+//                 width: 2.5rem;
+//                 padding: 0;
+//                 img {
+//                     width: 1.3rem;
+=======
+        &--home {
+            &_link {
+                @extend %link-base;
+                width: 2.5rem;
+                padding: 0;
+                img {
+                    width: 1.3rem;
+                }
+            }
+        }
+//         &--home,
+//         &--women,
+//         &--Fur-lined {
+//             &_link {
+//                 @extend %link-base;
+//                 width: fit-content;
+//                 height: 100%;
+//                 padding: 0 10px;
+//                 background-color: #f6faeb;
+//                 border-radius: 0.4rem;
+//                 img {
+//                     width: 0.8rem;
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+//                 }
+//             }
+//         }
+
+<<<<<<< HEAD
+//         &--Fur-lined {
+//             &_link {
+//                 @extend %link-base;
+//                 gap: 0.6rem;
+//             }
+//         }
+//     }
+
+//     &__title {
+//         width: 26.8rem;
+//         margin-top: 1.6rem;
+//         margin-bottom: 2.4rem;
+
+//         h2 {
+//             width: 100%;
+//             font-size: 3.2rem;
+//             font-weight: 600;
+//         }
+//     }
+
+=======
 //         &--home {
 //             &_link {
 //                 @extend %link-base;
@@ -114,6 +172,7 @@
 //         }
 //     }
 
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 //     &__line {
 //         width: 29.2rem;
 //         height: 0.1rem;
@@ -156,6 +215,67 @@
 //         transform: scale(1.2);
 //     }
 
+<<<<<<< HEAD
+=======
+    &--black {
+        background-color: #000;
+    }
+    &--brown {
+        background-color: rgba(150, 105, 74, 1);
+    }
+    &--navy {
+        background-color: #043896;
+    }
+    &--pink {
+        background-color: #ff69b4;
+    }
+    &--gray {
+        background-color: #cccccc;
+    }
+    &--white {
+        background-color: #ffffff;
+        border: 1px solid #ccc;
+    }
+    &--red {
+        background-color: #ff0000;
+    }
+    &--orange {
+        background-color: #ffcc00;
+    }
+    &--purple {
+        background-color: #dbb2ff;
+    }
+    &--yellow {
+        background-color: #ffff00;
+    }
+    &--mint {
+        background-color: #aaf0d1;
+    }
+    &--light-green {
+        background-color: #ccff99;
+    }
+    &--green {
+        background-color: #00cd00;
+    }
+    &--sky-blue {
+        background-color: #9ad2ff;
+    }
+    &--blue {
+        background-color: #0000ff;
+    }
+}
+// .color-badge {
+//     width: 1rem;
+//     height: 1rem;
+//     border-radius: 50px;
+//     cursor: pointer;
+//     // transition: transform 0.2s ease;
+
+//     &:hover {
+//         transform: scale(1.2);
+//     }
+
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 //     &--black {
 //         background-color: #000;
 //     }
@@ -213,7 +333,248 @@
 //         @extend %menu_wrap-style;
 //     }
 // }
+<<<<<<< HEAD
 
+// .select__color--wrap {
+//     width: 100%;
+//     @include g.flex($jc: space-between, $ai: center, $fd: row, $fw: wrap, $gap: 1.5rem 3rem);
+
+//     &_list {
+//         gap: 0.6rem;
+
+//         .select__color--link {
+//             @include g.flex($jc: null, $ai: center, $fd: column, $fw: null, $gap: 0.6rem);
+//             width: 3.2rem;
+//             font-size: 11px;
+//             font-weight: 400;
+
+//             .color_select {
+//                 width: 2.4rem;
+//                 height: 2.4rem;
+//                 border-radius: 50%;
+//             }
+
+//             .black {
+//                 background-color: #000;
+//             }
+//             .gray {
+//                 background-color: #cccccc;
+//             }
+//             .white {
+//                 background-color: #ffffff;
+//                 border: 1px solid #ccc;
+//             }
+//             .red {
+//                 background-color: #ff0000;
+//             }
+//             .pink {
+//                 background-color: #ff69b4;
+//             }
+//             .brown {
+//                 background-color: #aa6400;
+//             }
+//             .orange {
+//                 background-color: #ffcc00;
+//             }
+//             .purple {
+//                 background-color: #dbb2ff;
+//             }
+//             .yellow {
+//                 background-color: #ffff00;
+//             }
+//             .mint {
+//                 background-color: #aaf0d1;
+//             }
+//             .light-green {
+//                 background-color: #ccff99;
+//             }
+//             .green {
+//                 background-color: #00cd00;
+//             }
+//             .sky-blue {
+//                 background-color: #9ad2ff;
+//             }
+//             .blue {
+//                 background-color: #0000ff;
+//             }
+//             .navy {
+//                 background-color: #043896;
+//             }
+//         }
+//     }
+// }
+
+// ============================================
+// ColorMenu 추가 스타일
+// 기존 WomenComponents.scss에 추가하세요
+// ============================================
+
+// 선택된 컬러 아이템 스타일
+// .select__color--wrap_list {
+//     transition: all 0.3s ease;
+
+//     &.selected {
+//         .select__color--link {
+//             background-color: #f0f8ff;
+//             border-radius: 8px;
+//         }
+
+//         .color_select-text {
+//             font-weight: 600;
+//             color: #007bff;
+//         }
+//     }
+
+//     &:hover {
+//         .select__color--link {
+//             background-color: #f5f5f5;
+//             border-radius: 8px;
+//         }
+//     }
+// }
+
+// // 체크마크 스타일
+// .color_select {
+//     position: relative;
+
+//     .color-check-mark {
+//         position: absolute;
+//         top: 50%;
+//         left: 50%;
+//         transform: translate(-50%, -50%);
+//         color: white;
+//         font-size: 18px;
+//         font-weight: bold;
+//         text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 1px 1px 2px rgba(0, 0, 0, 0.6);
+//         z-index: 1;
+//     }
+
+//     // 흰색/밝은 색상에는 검은색 체크마크
+//     &.white,
+//     &.yellow,
+//     &.mint,
+//     &.light-green,
+//     &.sky-blue {
+//         .color-check-mark {
+//             color: #333;
+//             text-shadow: 0 0 3px rgba(255, 255, 255, 0.8), 1px 1px 2px rgba(255, 255, 255, 0.6);
+//         }
+//     }
+// }
+
+// // 토글 애니메이션
+// .select__color--wrap {
+//     animation: slideDown 0.3s ease;
+// }
+
+// @keyframes slideDown {
+//     from {
+//         opacity: 0;
+//         max-height: 0;
+//         overflow: hidden;
+//     }
+//     to {
+//         opacity: 1;
+//         max-height: 1000px;
+//     }
+// }
+
+// // 선택된 개수 표시 (옵션)
+// .color-menu__wrap--title {
+//     display: flex;
+//     align-items: center;
+//     gap: 8px;
+
+//     .selected-count {
+//         display: inline-flex;
+//         align-items: center;
+//         justify-content: center;
+//         min-width: 20px;
+//         height: 20px;
+//         padding: 0 6px;
+//         background-color: #007bff;
+//         color: white;
+//         border-radius: 10px;
+//         font-size: 12px;
+//         font-weight: 600;
+//     }
+// }
+
+// ============================================
+// 🎨 ColorMenu 색상 표시 스타일
+// WomenComponents.scss 파일 맨 아래에 이 코드를 추가하세요!
+// ============================================
+
+// 체크마크 스타일
+.color_select {
+    position: relative;
+
+    // 체크마크 (어두운 배경용 - 흰색)
+    .color-check-mark.light {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.9);
+        z-index: 1;
+    }
+
+    // 체크마크 (밝은 배경용 - 검은색)
+    .color-check-mark.dark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+        text-shadow: 0 0 4px rgba(255, 255, 255, 0.9);
+        z-index: 1;
+    }
+}
+=======
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+
+// 선택된 컬러 아이템 스타일
+.select__color--wrap_list {
+    transition: all 0.3s ease;
+
+    // 선택된 상태
+    &.selected {
+        .select__color--link {
+            background-color: #f0f8ff;
+            border-radius: 8px;
+        }
+
+        .color_select {
+            border-width: 3px;
+            border-color: #007bff;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        .color_select-text {
+            font-weight: 600;
+            color: #007bff;
+        }
+    }
+
+    // 호버 효과
+    &:hover {
+        .select__color--link {
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+
+        .color_select {
+            transform: scale(1.05);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
 // .select__color--wrap {
 //     width: 100%;
 //     @include g.flex($jc: space-between, $ai: center, $fd: row, $fw: wrap, $gap: 1.5rem 3rem);
@@ -508,6 +869,8 @@
 
 .filter-menu {
     margin-bottom: 20px;
+<<<<<<< HEAD
+=======
 
     .filter-menu__wrap {
         // 기존 menu_wrap-style 스타일 적용
@@ -577,8 +940,81 @@
         &:hover {
             background-color: #e0e0e0;
         }
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+
+    .filter-menu__wrap {
+        // 기존 menu_wrap-style 스타일 적용
+    }
+
+    .filter-menu__wrap--title_wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #e0e0e0;
+
+        .filter-menu__wrap--title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0;
+
+            .selected-count {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 24px;
+                height: 24px;
+                padding: 0 8px;
+                background-color: #007bff;
+                color: white;
+                border-radius: 12px;
+                font-size: 13px;
+                font-weight: 600;
+            }
+        }
+<<<<<<< HEAD
+
+        .filter-clear-btn {
+            font-size: 14px;
+            color: #dc3545;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+
+            &:hover {
+                background-color: #fee;
+                color: #c82333;
+            }
+        }
+    }
+
+    .filter-tags__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 10px 0;
+    }
+
+    .filter-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        font-size: 14px;
+        transition: all 0.2s;
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
 
         &--color {
+=======
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
             background-color: #e3f2fd;
 
             &:hover {
@@ -803,6 +1239,29 @@
         box-shadow: 0 0 12px 2.5px rgba(0, 0, 0, 0.08);
         // transform: translateY(-0.4rem);
 
+<<<<<<< HEAD
+=======
+        .product-card__color,
+        .product-card__size {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 0;
+        }
+    outline: 1px solid #cccccc;
+
+    .product-card__color,
+    .product-card__size {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 0;
+    }
+
+    &:hover {
+        outline: 1px solid #cccccc;
+        box-shadow: 0 0 12px 2.5px rgba(0, 0, 0, 0.08);
+        // transform: translateY(-0.4rem);
+
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
         // .product-card__color,
         // .product-card__size {
         //     max-height: 200px;
@@ -852,6 +1311,10 @@
     }
 
     .product-card__link {
+<<<<<<< HEAD
+=======
+        @include g.flex($jc: center, $ai: center, $fd: null, $fw: null, $gap: null);
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
         @include g.flex($jc: center, $gap: null);
         position: relative;
         width: 100%;

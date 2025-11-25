@@ -61,6 +61,7 @@ export default function ColorMenu() {
     // 컬러 데이터 (이름, CSS 클래스, RGB 값)
     const colors = [
         { name: '블랙', class: 'black', value: 'rgb(0, 0, 0)' },
+<<<<<<< HEAD
         {
             name: '그레이',
             class: 'gray',
@@ -109,6 +110,20 @@ export default function ColorMenu() {
             ],
         },
         { name: '하늘', class: 'sky-blue', value: ['rgb(210, 244, 255)', 'rgb(164, 191, 200)'] },
+=======
+        { name: '그레이', class: 'gray', value: 'rgb(128, 128, 128)' },
+        { name: '화이트', class: 'white', value: 'rgb(255, 255, 255)' },
+        { name: '빨강', class: 'red', value: 'rgb(220, 43, 43)' },
+        { name: '핑크', class: 'pink', value: 'rgba(255, 166, 237)' },
+        { name: '브라운', class: 'brown', value: 'rgba(92, 53, 27, 1)' },
+        { name: '주황', class: 'orange', value: 'rgb(255, 140, 0)' },
+        { name: '보라', class: 'purple', value: 'rgba(78, 52, 212, 1)' },
+        { name: '노랑', class: 'yellow', value: 'rgba(255, 255, 91, 1)' },
+        { name: '민트', class: 'mint', value: 'rgb(215, 251, 225)' },
+        { name: '연두', class: 'light-green', value: 'rgba(142, 240, 50)' },
+        { name: '녹색', class: 'green', value: 'rgb(34, 139, 34)' },
+        { name: '하늘', class: 'sky-blue', value: 'rgb(210, 244, 255)' },
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
         { name: '파랑', class: 'blue', value: 'rgb(0, 8, 255)' },
         { name: '네이비', class: 'navy', value: 'rgb(23, 29, 96)' },
     ];

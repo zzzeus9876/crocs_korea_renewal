@@ -8,7 +8,11 @@ import Search from './Search';
 import { useCrocsProductStore } from '../store/useCrocsProductStore';
 import { useLocation } from 'react-router-dom';
 
+<<<<<<< HEAD
 const Header = ({ onCartClick, onRecentClick }) => {
+=======
+const Header = () => {
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
     const searchOpen = useCrocsProductStore((state) => state.searchOpen);
     const onOpenSearch = useCrocsProductStore((state) => state.onOpenSearch);
     const onCloseSearch = useCrocsProductStore((state) => state.onCloseSearch);

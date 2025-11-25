@@ -25,9 +25,15 @@ const GnbRight = ({ onSearchClick }) => {
                 )}
             </li>
             <li>
+<<<<<<< HEAD
                 <Link to="/cart" className="cart_btn">
                     <img src="/images/cart_icon.svg" alt="cart_icon" />
                 </Link>
+=======
+                <button className="cart_btn">
+                    <img src="/images/cart_icon.svg" alt="cart_icon" />
+                </button>
+>>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
             </li>
         </ul>
     );
