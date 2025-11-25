@@ -1,16 +1,17 @@
 import React, { useState, useMemo, useRef } from 'react';
-import OrderForm from './OrderForm';
-import OrderSummary from './OrderSummary';
+import OrderForm from './OrderForm.jsx';
+import OrderSummary from './OrderSummary.jsx';
 import './styles/Order.scss';
 
 // JSON
-import womenProducts from '../../data/여성-카테고리-완전통합.json';
-import menProducts from '../../data/남성-카테고리-완전통합.json';
-import kidsProducts from '../../data/키즈-카테고리-완전통합.json';
-import newProducts from '../../data/신상품&트렌드-카테고리-완전통합.json';
-import jibbitzProducts from '../../data/지비츠_참-카테고리-완전통합.json';
-import OrderProgress from './OrderProgress';
-import Title from '../Title';
+// import womenProducts from '../../data/여성-카테고리-완전통합.json';
+// import menProducts from '../../data/남성-카테고리-완전통합.json';
+// import kidsProducts from '../../data/키즈-카테고리-완전통합.json';
+// import newProducts from '../../data/신상품&트렌드-카테고리-완전통합.json';
+// import jibbitzProducts from '../../data/지비츠_참-카테고리-완전통합.json';
+import { Products } from "../../data/CrocsProductsData.js";
+import OrderProgress from './OrderProgress.jsx';
+import Title from '../Title.jsx';
 
 function Order() {
     const [isOrderComplete, setIsOrderComplete] = useState(false);
@@ -21,7 +22,12 @@ function Order() {
         const result = [];
 
         // 여성 상품 1개 선택
-        const womenItems = womenProducts.products || [];
+        const womenItems = Products.filter((product) => {
+            if (!product.cate) return false;
+            // cate 속성비교
+            const cateLower = product.cate.toLowerCase();
+            return cateLower.includes("여성")
+        });
         const randomWomen = getRandomItems(womenItems, 1);
 
         randomWomen.forEach((item) => {
@@ -38,7 +44,12 @@ function Order() {
         });
 
         // 남성 상품 1개 추가
-        const menItems = menProducts.products || [];
+        const menItems = Products.filter((product) => {
+            if (!product.cate) return false;
+            // cate 속성비교
+            const cateLower = product.cate.toLowerCase();
+            return cateLower.includes("남성")
+        });
         const randomMen = getRandomItems(menItems, 1);
 
         randomMen.forEach((item) => {
@@ -54,56 +65,56 @@ function Order() {
             });
         });
 
-        // 키즈 상품 1개 추가
-        const kidsItems = kidsProducts.products || [];
-        const randomKids = getRandomItems(kidsItems, 1);
+        // // 키즈 상품 1개 추가
+        // const kidsItems = kidsProducts.products || [];
+        // const randomKids = getRandomItems(kidsItems, 1);
 
-        randomKids.forEach((item) => {
-            result.push({
-                id: result.length + 1,
-                name: item.product || '상품명 없음',
-                color: parseColor(item.color),
-                size: 'C10/C11',
-                quantity: 1,
-                price: parsePrice(item.price_dc_rate || item.price),
-                image: Array.isArray(item.product_img) ? item.product_img[0] : item.product_img,
-                category: '키즈',
-            });
-        });
+        // randomKids.forEach((item) => {
+        //     result.push({
+        //         id: result.length + 1,
+        //         name: item.product || '상품명 없음',
+        //         color: parseColor(item.color),
+        //         size: 'C10/C11',
+        //         quantity: 1,
+        //         price: parsePrice(item.price_dc_rate || item.price),
+        //         image: Array.isArray(item.product_img) ? item.product_img[0] : item.product_img,
+        //         category: '키즈',
+        //     });
+        // });
 
-        // 지비츠 1개 추가
-        const jibbitzItems = jibbitzProducts.products || [];
-        const randomJibbitz = getRandomItems(jibbitzItems, 1);
+        // // 지비츠 1개 추가
+        // const jibbitzItems = jibbitzProducts.products || [];
+        // const randomJibbitz = getRandomItems(jibbitzItems, 1);
 
-        randomJibbitz.forEach((item) => {
-            result.push({
-                id: result.length + 1,
-                name: item.product || '상품명 없음',
-                color: '지비츠',
-                size: 'ONE SIZE',
-                quantity: 1,
-                price: parsePrice(item.price_dc_rate || item.price),
-                image: Array.isArray(item.product_img) ? item.product_img[0] : item.product_img,
-                category: '지비츠',
-            });
-        });
+        // randomJibbitz.forEach((item) => {
+        //     result.push({
+        //         id: result.length + 1,
+        //         name: item.product || '상품명 없음',
+        //         color: '지비츠',
+        //         size: 'ONE SIZE',
+        //         quantity: 1,
+        //         price: parsePrice(item.price_dc_rate || item.price),
+        //         image: Array.isArray(item.product_img) ? item.product_img[0] : item.product_img,
+        //         category: '지비츠',
+        //     });
+        // });
 
-        // 신상품 1개 추가
-        const newItems = newProducts.products || [];
-        const randomNew = getRandomItems(newItems, 1);
+        // // 신상품 1개 추가
+        // const newItems = newProducts.products || [];
+        // const randomNew = getRandomItems(newItems, 1);
 
-        randomNew.forEach((item) => {
-            result.push({
-                id: result.length + 1,
-                name: item.product || '상품명 없음',
-                color: parseColor(item.color),
-                size: item.size || 'ONE SIZE',
-                quantity: 1,
-                price: parsePrice(item.price_dc_rate || item.price),
-                image: Array.isArray(item.product_img) ? item.product_img[0] : item.product_img,
-                category: '신상품',
-            });
-        });
+        // randomNew.forEach((item) => {
+        //     result.push({
+        //         id: result.length + 1,
+        //         name: item.product || '상품명 없음',
+        //         color: parseColor(item.color),
+        //         size: item.size || 'ONE SIZE',
+        //         quantity: 1,
+        //         price: parsePrice(item.price_dc_rate || item.price),
+        //         image: Array.isArray(item.product_img) ? item.product_img[0] : item.product_img,
+        //         category: '신상품',
+        //     });
+        // });
 
         return result;
     }, []);

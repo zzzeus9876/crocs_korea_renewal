@@ -1,4 +1,5 @@
 import './App.scss';
+import { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from 'react-router-dom';
 import Main from './pages/Main';
 // import New from './pages/New';
@@ -15,10 +16,9 @@ import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
 import Nonmember from './pages/Nonmember';
 import ComeAsPopup from './components/ComeAsPopup';
-import { useEffect, useState } from 'react';
 import { loginAuthStore } from './store/loginStore';
 import JibbitzCollaboProductDetail from './pages/JibbitzCollaboProductDetail';
-// import Order from './components/Order/Order';
+import Order from './components/Order/Order';
 import WishList from './pages/WishList';
 import OrderHistory from './pages/OrderHistory';
 import Cart from './pages/Cart';
@@ -82,6 +82,7 @@ function App() {
                 <Route path="/comaspopup" element={<ComeAsPopup />} />x
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/wishlist" element={<WishList />} />
+                <Route path="/order" element={<Order />} />
                 {/* <Route path='./recent' element={<RecentProducts />} /> */}
                 <Route path="/jibbitz/:cate/:id" element={<JibbitzProductListPage />} />
                 <Route path="/jibbitz/:id" element={<JibbitzProductDetail />} />
