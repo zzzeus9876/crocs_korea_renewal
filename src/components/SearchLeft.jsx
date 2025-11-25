@@ -31,14 +31,17 @@ const SearchLeft = () => {
 
     // 🚀 crocsItems가 로딩된 이후에만 해시태그 만들기
     useEffect(() => {
-        if (!crocsItems || crocsItems.length === 0) return;
+        if (!crocsItems || crocsItems.length === 0) {
+            console.log('제품 데이터 없음'); // 🔍
+            return;
+        }
 
         const hashtags = getHashtags();
         if (!hashtags || hashtags.length === 0) return;
 
         const shuffled = shuffleTag(hashtags).slice(0, 6);
         setRandomTags(shuffled);
-    }, [crocsItems]); // ← 핵심: crocsItems가 바뀔 때만 실행됨
+    }, [crocsItems, getHashtags]); // ← 핵심: crocsItems가 바뀔 때만 실행됨
 
     // 최근 검색어 클릭 핸들러
     const handleRecentSearchClick = (searchText) => {
@@ -101,7 +104,7 @@ const SearchLeft = () => {
                             key={id}
                             onClick={() => handleHashtagClick(hashtag)}
                         >
-                            {`# ${hashtag}`}
+                            {`# ${hashtag.toUpperCase()}`}
                         </button>
                     ))}
                 </div>

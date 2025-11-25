@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SearchInput from './SearchInput';
 import './scss/search.scss';
 import SearchLeft from './SearchLeft';
@@ -14,9 +14,18 @@ const Search = ({ scrolled }) => {
         searchOpen,
         onCloseSearch,
         setSearchWord,
+        onFetchItems,
     } = useCrocsProductStore();
 
     const navigate = useNavigate();
+
+    // ✅ 검색 모달이 열릴 때 제품 데이터 로드
+    useEffect(() => {
+        if (searchOpen) {
+            console.log('제품 데이터 로드 시작');
+            onFetchItems();
+        }
+    }, [searchOpen, onFetchItems]);
 
     const handleSearch = (e) => {
         e.preventDefault();
