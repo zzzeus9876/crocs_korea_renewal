@@ -32,30 +32,19 @@ export const wishListStore = create((set, get) => ({
         // // set({ popUp: { show: true, message: '장바구니에 담겼습니다! 💚' } });
         // console.log('wishLists에 담긴 것 확인:', get().wishLists);
         // console.log('찜완💚되었으니 계속 개발을 하시어요');
-        // return true;
         const wish = get().wishLists;
         const existing = wish.find((item) => item.id === product.id);
 
         if (existing) {
             set({ popUp: { show: true, message: '이미 위시리스트에 담긴 상품입니다 💚' } });
-            return;
+            return false;
         }
 
         set({
             wishLists: [...wish, product],
             popUp: { show: true, message: '위시리스트에 추가되었습니다! 💚' },
         });
-            alert('이미 당신의 위시 속에 쏘옥💚');
-            return false;
-        } else {
-            updateWish = [...wish, { ...product }];
-            console.log('선택상품 담겼나?:', wish);
-        }
-
-        set({ wishLists: updateWish });
-        set({ popUp: { show: true, message: '장바구니에 담겼습니다! 💚' } });
         console.log('wishLists에 담긴 것 확인:', get().wishLists);
-        console.log('찜완💚되었으니 계속 개발을 하시어요');
         return true;
     },
 
@@ -167,8 +156,6 @@ export const wishListStore = create((set, get) => ({
         });
     },
 
-    hidePopup: () => set({ popUp: { show: false, message: '' } }),
-
     // addToCart: (product, count = 1) => {
     //     const cartItems = get().cartItems;
     //     const existing = cartItems.find((item) => item.id === product.id);
@@ -211,105 +198,6 @@ export const wishListStore = create((set, get) => ({
     //     console.log('상품 상세에서 장바구니:', product);
     //     get().addToCart(product, count);
     // },
-
-    // 장바구니 추가 버튼 메서드(위시리스트 목록에서 지우기 )
-    // onAddCartBtn: () => {
-    //     console.log('장바구니 추가 버튼');
-    //     const cartWish = get().removeWish;
-    //     console.log('cartWish 카트에 담을 위시:', cartWish);
-    //     const wishLists = get().wishLists;
-    //     console.log('wishLists 전체위시:', wishLists);
-
-    //     const updateWishCartLists = wishLists.filter(
-    //         (wish) => !cartWish.some((r) => r.id === wish.id)
-    //     );
-
-    //     set({ wishLists: updateWishCartLists, addCartWish: cartWish, cartWish: [] });
-
-    //     console.log('장바구니 추가');
-    //     const addToCartWish = get().addCartWish;
-    //     console.log('카트에 담겨있는 위시 내역 확인:', addToCartWish);
-
-    //     //장바구니로 보내기
-
-    //     const addToCartLists = get().addCartWish;
-    //     const existing = addToCartLists.find((item) => item.id === product.id);
-
-    //     let updateWishCart;
-    //     if (existing) {
-    //         updateWishCart = addToCartLists.map((item) =>
-    //             item.id === product.id ? { ...item, count: item.count + product.count } : item
-    //         );
-    //     } else {
-    //         updateWishCart = [...addToCartLists, { ...product }];
-    //     }
-
-    //     set({
-    //         cartWishItems: updateWishCart,
-    //         cartCount: updateWishCart.length,
-    //     });
-    // },
-
-    // 장바구니에 추가하기 (데이터 보내기)
-    // onAddToCart: (product) => {
-    //     const addToCartLists = get().addCartWish;
-    //     const existing = addToCartLists.find((item) => item.id === product.id);
-
-    //     let updateWishCart;
-    //     if (existing) {
-    //         updateWishCart = addToCartLists.map((item) =>
-    //             item.id === product.id ? { ...item, count: item.count + product.count } : item
-    //         );
-    //     } else {
-    //         updateWishCart = [...addToCartLists, { ...product }];
-    //     }
-
-    //     set({
-    //         cartWishItems: updateWishCart,
-    //         cartCount: updateWishCart.length,
-    //     });
-    // },
-    },
-
-    addCartWish: [],
-    cartWishItems: [],
-    cartCount: 0,
-
-    //장바구니 추가 버튼 선택 시 위시리스트에서 지우고 장바구니 배열에 추가
-
-    onAddCartBtn: () => {
-        // 체크된 위시들을 배열로 가져옴
-        const removeWish = get().removeWish;
-        // 전체 위시리스트
-        const wishLists = get().wishLists;
-        // 현재 장바구니 목록
-        const cartWishItems = get().cartWishItems;
-
-        // 위시리스트에서 선택된 항목 제거
-        const newWishLists = wishLists.filter((wish) => !removeWish.some((r) => r.id === wish.id));
-
-        // 장바구니에 선택된 항목 추가
-        // 이미 cartWishItems에 있는 동일 상품은 count만 증가
-        const newcartWishItems = [...cartWishItems];
-
-        removeWish.forEach((item) => {
-            const existing = newcartWishItems.find((cart) => cart.id === item.id);
-
-            if (existing) {
-                existing.count = (existing.count || 1) + (item.count || 1);
-            } else {
-                newcartWishItems.push({ ...item });
-            }
-        });
-
-        // 상태 업데이트
-        set({
-            wishLists: newWishLists,
-            cartWishItems: newcartWishItems,
-            cartCount: newcartWishItems.length,
-            removeWish: [], // 체크 초기화
-        });
-    },
 
     // 장바구니 추가 버튼 메서드(위시리스트 목록에서 지우기 )
     // onAddCartBtn: () => {

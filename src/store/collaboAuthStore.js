@@ -3,15 +3,6 @@ import { jibbitzs } from '../data/jibbitzs';
 
 export const collaboAuthStore = create((set, get) => ({
     jibbitzItems: [],
-
-    onFetchJibbitz: async () => {
-        const items = get().jibbitzItems;
-        if (items.length > 0) return;
-        set({ jibbitzItems: jibbitzs });
-    },
-
-    disneyItems: jibbitzs.filter(
-    jibbitzItems: [],
     selectFilterLists: [],
 
     onFetchJibbitz: async () => {
