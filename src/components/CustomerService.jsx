@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Title from './Title';
-import './scss/CustomerService.scss';
 import { loginAuthStore } from '../store/loginStore';
+import './scss/CustomerService.scss';
 
 function CustomerService({ onClose }) {
     const navigate = useNavigate();
     const { user } = loginAuthStore();
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isAgreed, setIsAgreed] = useState(false);
-    const [isOpen, setIsOpen] = useState(true);
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -17,8 +16,6 @@ function CustomerService({ onClose }) {
         subject: '',
         message: '',
     });
-
-    if (!isOpen) return null;
 
     // 입력값 팝업 함수
     const showUserInfoPopup = () => {
@@ -117,7 +114,7 @@ function CustomerService({ onClose }) {
                             </p>
                         </div>
 
-                        <div className="info-section">
+                        {/* <div className="info-section">
                             <h3 className="section-subtitle">자주 묻는 질문</h3>
                             <ul className="faq-list">
                                 <li>배송 관련 문의</li>
@@ -126,7 +123,7 @@ function CustomerService({ onClose }) {
                                 <li>회원 정보 변경</li>
                                 <li>적립금 및 쿠폰 사용</li>
                             </ul>
-                        </div>
+                        </div> */}
 
                         <div className="info-section">
                             <h3 className="section-subtitle">연락처</h3>
