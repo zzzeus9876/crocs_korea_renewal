@@ -1,6 +1,10 @@
 @use '../../App.scss' as g;
 
-.product_list_wrap {
+.product_list_page {
+    .title_wrap {
+        margin: 0 auto;
+        width: fit-content;
+    }
     .search_info_wrap {
         @include g.flex($jc: center, $gap: 10px);
         width: fit-content;
