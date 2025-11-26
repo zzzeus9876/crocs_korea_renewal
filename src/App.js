@@ -4,7 +4,7 @@ import Main from './pages/Main';
 import Brand from './pages/Brand';
 import Login from './pages/Login';
 import Join from './pages/Join';
-
+import OrderHistory from './pages/OrderHistory';
 import Header from './components/Header';
 import CrocsClubPopup from './components/CrocsClubPopup';
 import UserInfo from './pages/UserInfo';
@@ -15,6 +15,10 @@ import { loginAuthStore } from './store/loginStore';
 import ProductListPage from './pages/ProductListPage';
 import CrocsProductDetail from './pages/CrocsProductDetail';
 import Store from './pages/Store';
+import WishList from './pages/WishList';
+import JibbitzProductDetail from './pages/JibbitzProductDetail';
+import JibbitzProductListPage from './pages/JibbitzProductListPage';
+import Cart from './pages/Cart';
 
 function App() {
     const { user, loading, checkSession, initAuthListener } = loginAuthStore();
@@ -49,6 +53,11 @@ function App() {
                 <Route path="/nonmember" element={<Nonmember />} />
                 <Route path="/comaspopup" element={<ComeAsPopup />} />
                 <Route path="/product/:id" element={<CrocsProductDetail />} />
+                <Route path="/orderhistory" element={<OrderHistory />} />
+                <Route path="/wishlist" element={<WishList />} />
+                <Route path="/jibbitz" element={<JibbitzProductListPage />} />
+                <Route path="/jibbitz/:id" element={<JibbitzProductDetail />} />
+                <Route path="/cart" element={<Cart />} />
             </Routes>
             {/* <Footer /> */}
         </div>

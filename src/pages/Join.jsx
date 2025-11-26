@@ -1,5 +1,3 @@
-'use no memo';
-
 import React from 'react';
 import Title from '../components/Title';
 import LoginSns from '../components/LoginSns';
@@ -10,9 +8,11 @@ const Join = () => {
     return (
         <div className="sub_page">
             <div className="inner">
-                <Title title="Join" />
-                <LoginSns />
-                <JoinForm />
+                <div className="join_wrap">
+                    <Title title="Join" />
+                    <LoginSns />
+                    <JoinForm />
+                </div>
             </div>
         </div>
     );

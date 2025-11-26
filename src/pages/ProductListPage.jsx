@@ -7,48 +7,51 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { menuList } from '../store/menuList';
 import Title from '../components/Title';
 import { useCrocsSizeStore } from '../store/useCrocsSizeStore';
+import { useColorFilterStore } from '../store/useColorFilterStore';
 
 const ProductListPage = () => {
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get('search');
 
-    // --- size store: sizes by category + onFetchSize ---
+    // --- size store ---
     const { crocsSizesByCategory, onFetchSize } = useCrocsSizeStore();
 
     // --- product store ---
     const { onFetchItems, filterByMenu, searchWord, setSearchWord } = useCrocsProductStore();
+
+    // --- color filter store ---
+    const { selectedColors } = useColorFilterStore();
 
     const navigate = useNavigate();
     const { cate, subcategory } = useParams();
 
     const [selectedSize, setSelectedSize] = useState(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const [selectedColors, setSelectedColors] = useState([]);
 
-    // 최초 데이터 로드
+    // 최초 로딩
     useEffect(() => {
         onFetchItems();
-        onFetchSize(); // 반드시 사이즈 데이터도 로드
+        onFetchSize();
     }, [onFetchItems, onFetchSize]);
 
-    // URL 검색어 -> store
+    // 검색어 URL → store
     useEffect(() => {
         if (searchQuery) setSearchWord(searchQuery);
     }, [searchQuery, setSearchWord]);
 
-    // 카테고리/서브/검색 바뀌면 페이지 초기화
+    // 카테고리/검색 변경 시 페이지 초기화
     useEffect(() => {
         setCurrentPage(1);
     }, [cate, subcategory, searchWord]);
 
-    // -------------------------
-    // 1) 카테고리 + 서브카테고리 필터링
-    // -------------------------
+    // -----------------------------------
+    // 1) 카테고리 필터 (기존 정상 작동 코드 기반)
+    // -----------------------------------
     let filteredItems = filterByMenu(cate, subcategory);
 
-    // -------------------------
+    // -----------------------------------
     // 2) 검색어 필터
-    // -------------------------
+    // -----------------------------------
     if (searchWord) {
         const lower = searchWord.toLowerCase();
         filteredItems = filteredItems.filter(
@@ -58,67 +61,100 @@ const ProductListPage = () => {
         );
     }
 
-    // -------------------------
-    // cate 문자열 -> 'men' | 'women' | 'kids' 로 매핑
-    // -------------------------
+    // -----------------------------------
+    // 3) 카테고리 기반 사이즈 자동 부여
+    // -----------------------------------
     const normalizeCate = (cateString) => {
         if (!cateString) return null;
         const lower = cateString.toLowerCase();
 
-        // 특정 키워드 우선 체크
-        if (lower.includes('kid') || lower.includes('토들러') || lower.includes('kids'))
-            return 'kids';
-        if (lower.includes('women') || lower.includes('woman') || lower.includes('여'))
+        if (lower.includes('kid') || lower.includes('키즈')) return 'kids';
+        if (lower.includes('women') || lower.includes('여성') || lower.includes('여'))
             return 'women';
-        if (lower.includes('men') || lower.includes('man') || lower.includes('남')) return 'men';
-        if (lower.includes('unisex')) return 'women'; // 정책: unisex -> women (필요시 변경)
+        if (lower.includes('men') || lower.includes('남성') || lower.includes('남')) return 'men';
 
-        // fallback: try to guess from words
-        if (lower.includes('키즈')) return 'kids';
         return null;
     };
 
-    // -------------------------
-    // 3) 자동으로 sizes 필드 부여 (항상 수행) — 반드시 사이즈 필터 전에 수행
-    // -------------------------
-    const itemsWithAutoSize = filteredItems.map((item) => {
+    filteredItems = filteredItems.map((item) => {
         const cateKey = normalizeCate(item.cate);
         const autoSizes = cateKey ? crocsSizesByCategory?.[cateKey] || [] : [];
         return { ...item, sizes: autoSizes };
     });
 
-    // 교체
-    filteredItems = itemsWithAutoSize;
-
-    // -------------------------
-    // 4) 전역 사이즈 필터 (카테고리/검색 결과 상관없이 적용)
-    // selectedSize는 SizeMenu에서 전달된 값 (string or number)
-    // 비교는 Number로 통일
-    // -------------------------
-    if (selectedSize !== null && selectedSize !== undefined) {
+    // -----------------------------------
+    // 4) 사이즈 필터
+    // -----------------------------------
+    if (selectedSize) {
         const sizeNum = Number(selectedSize);
         if (!isNaN(sizeNum)) {
             filteredItems = filteredItems.filter(
                 (item) => Array.isArray(item.sizes) && item.sizes.includes(sizeNum)
             );
-        } else {
-            // 만약 selectedSize가 숫자로 변환 불가하면 아무것도 필터하지 않음
         }
     }
 
-    // -------------------------
-    // 🔥 5) 컬러 필터 적용
-    // selectedColors 에 포함된 컬러가 하나라도 있으면 통과
-    // -------------------------
+    // -----------------------------------
+    // 5) 🔥 색상 필터 (store 기반, item.color 배열 사용)
+    // -----------------------------------
+    const normalizeRGB = (rgb) => {
+        if (!rgb) return null;
+
+        const nums = rgb.match(/\d+/g);
+        if (!nums) return null;
+
+        const [r, g, b] = nums.map(Number);
+        return `rgb(${r}, ${g}, ${b})`;
+    };
+
+    // 🔥 5) 색상 필터 적용
+    // if (selectedColors.length > 0) {
+    //     filteredItems = filteredItems.filter((item) => {
+    //         if (!Array.isArray(item.color)) return false;
+
+    //         return item.color.some((productColor) => {
+    //             const productNorm = normalizeRGB(productColor);
+
+    //             return selectedColors.some((selected) => {
+    //                 const selectedNorm = normalizeRGB(selected.value);
+    //                 return productNorm === selectedNorm;
+    //             });
+    //         });
+    //     });
+    // }
+    // if (selectedColors.length > 0) {
+    //     filteredItems = filteredItems.filter((item) => {
+    //         const productColors = Array.isArray(item.color) ? item.color : [item.color];
+
+    //         return selectedColors.some((selected) => {
+    //             // selected.value 가 배열일 수도 있음 → 배열로 통일
+    //             const selectedValues = Array.isArray(selected.value)
+    //                 ? selected.value
+    //                 : [selected.value];
+
+    //             // 상품 색상 중 하나라도 선택된 색상 배열 안에 있으면 통과
+    //             return productColors.some((productColor) => selectedValues.includes(productColor));
+    //         });
+    //     });
+    // }
     if (selectedColors.length > 0) {
-        filteredItems = filteredItems.filter((item) =>
-            selectedColors.some((color) => item.color?.toLowerCase().includes(color.toLowerCase()))
-        );
+        filteredItems = filteredItems.filter((item) => {
+            const productColors = Array.isArray(item.color) ? item.color : [item.color];
+
+            return selectedColors.some((selected) => {
+                const selectedValues = Array.isArray(selected.value)
+                    ? selected.value
+                    : [selected.value];
+
+                // 정확히 완전 일치해야 매칭됨
+                return productColors.some((pColor) => selectedValues.includes(pColor));
+            });
+        });
     }
 
-    // -------------------------
-    // 페이징
-    // -------------------------
+    // -----------------------------------
+    // 6) 페이징
+    // -----------------------------------
     const itemsPerPage = 12;
     const totalPage = Math.max(1, Math.ceil(filteredItems.length / itemsPerPage));
     const start = (currentPage - 1) * itemsPerPage;
@@ -147,7 +183,9 @@ const ProductListPage = () => {
         );
     }
 
-    // 현재 메뉴 / 서브카테고리 계산 (UI용)
+    // -----------------------------------
+    // UI용 서브카테고리 계산
+    // -----------------------------------
     const currentMenu = menuList.find((m) => m.key === cate);
     const subCategoryList = [
         ...new Set(
@@ -165,7 +203,9 @@ const ProductListPage = () => {
         <div className="sub_page">
             <div className="inner">
                 <Title title={cate?.toUpperCase()} />
+
                 <div className="product_list_wrap">
+                    {/* 검색결과 */}
                     {searchWord && (
                         <div className="search_info_wrap">
                             <div className="search_info">
@@ -178,7 +218,7 @@ const ProductListPage = () => {
                                 className="clear_search_info_btn"
                                 onClick={() => {
                                     setSearchWord('');
-                                    navigate(cate ? `/${cate}` : '/');
+                                    navigate(`/${cate}`);
                                 }}
                             >
                                 ×
@@ -186,6 +226,7 @@ const ProductListPage = () => {
                         </div>
                     )}
 
+                    {/* 서브 메뉴 */}
                     {currentMenu?.submenu_list?.length > 0 && !searchWord && (
                         <div className="sub_menu_wrap">
                             {currentMenu.submenu_list.map((sub) => (
@@ -203,6 +244,7 @@ const ProductListPage = () => {
                     )}
 
                     <div className="product_list_wrap">
+                        {/* 좌측 필터 */}
                         <div className="list_left">
                             <LeftNavigation
                                 category={mainCategory}
@@ -210,11 +252,10 @@ const ProductListPage = () => {
                                 subCategoryList={subCategoryList}
                                 selectedSize={selectedSize}
                                 onSizeSelect={setSelectedSize}
-                                selectedColors={selectedColors}
-                                onColorSelect={setSelectedColors}
                             />
                         </div>
 
+                        {/* 우측 리스트 */}
                         <div className="list_right">
                             {currentItems.length > 0 ? (
                                 <ul className="product-card__item_list">
@@ -223,7 +264,6 @@ const ProductListPage = () => {
                                             key={p.id}
                                             product={p}
                                             onClick={() => navigate(`/product/${p.id}`)}
-                                            image={p.product_img?.[0] || '/images/default.png'}
                                             onSizeSelect={setSelectedSize}
                                         />
                                     ))}

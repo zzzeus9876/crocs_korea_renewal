@@ -23,14 +23,15 @@ export const useProductStore = create(
                 if (existing.length > 0) return;
 
                 // 상품 불러오기
-                const res = {
-                    json: async () => Products,
-                };
+                // const res = {
+                //     json: async () => Products,
+                // };
 
-                const data = await res.json();
-                console.log(data);
+                // const data = await res.json();
+                // console.log(data);
 
-                set({ items: data });
+                // set({ items: data });
+                set({ items: Products });
             },
 
             // ==========================================
