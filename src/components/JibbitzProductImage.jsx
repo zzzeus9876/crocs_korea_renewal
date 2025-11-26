@@ -127,7 +127,11 @@ const JibbitzProductImage = ({ product }) => {
                         <button
                             type="button"
                             className="product-img__thumbs-link"
+<<<<<<< HEAD
                             // aria-label={`${index + 1}번째 이미지 보기`}
+=======
+                        // aria-label={`${index + 1}번째 이미지 보기`}
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         >
                             <img
                                 className="product-img__thumbs-img"

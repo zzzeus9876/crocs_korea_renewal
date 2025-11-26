@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import './scss/CartSidebar.scss';
 import Title from '../components/Title';
@@ -263,6 +264,8 @@ function CartSidebar({ isOpen, onClose }) {
         </>
     );
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import React, { useEffect } from "react";
 import "./scss/CartSidebar.scss";
 import Title from "../components/Title";
@@ -516,7 +519,10 @@ function CartSidebar({ isOpen, onClose }) {
       </div>
     </>
   );
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 }
 
 export default CartSidebar;

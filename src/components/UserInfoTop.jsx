@@ -43,7 +43,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 =======
 import { Link } from 'react-router-dom';
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import { loginAuthStore } from '../store/loginStore';
 
 // const UserInfoTop = () => {
@@ -95,11 +98,15 @@ import { loginAuthStore } from '../store/loginStore';
 
 const UserInfoTop = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     const { user } = loginAuthStore();
     const navigate = useNavigate();
 =======
     const { user, setClubMember } = loginAuthStore();
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+    const { user, setClubMember } = loginAuthStore();
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
     if (!user) return null; // ⭐ 중요! user 준비가 안 되면 렌더링 X
 
@@ -107,18 +114,25 @@ const UserInfoTop = () => {
 
     const handleJoin = () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
         navigate('/crocsclub');
 =======
         setClubMember(user.uid, true);
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        setClubMember(user.uid, true);
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     };
 
     return (
         <div className="user_info_top">
 <<<<<<< HEAD
+<<<<<<< HEAD
             {/* 미가입자 영역 */}
 =======
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             {!isClubMember && (
                 <div className="user_info_left_wrap">
                     <p className="user_info_text">
@@ -133,9 +147,12 @@ const UserInfoTop = () => {
             )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             {/* 가입자 영역 */}
 =======
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             {isClubMember && (
                 <div className="user_info_left_wrap club_join_wrap">
                     <p>
@@ -151,9 +168,12 @@ const UserInfoTop = () => {
             )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             {/* 오른쪽 고정 영역 */}
 =======
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             <div className="usr_info_right">
                 <strong>쿠폰</strong>
                 <p>쿠폰 개수</p>

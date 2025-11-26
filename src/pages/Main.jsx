@@ -116,10 +116,14 @@ const Main = () => {
                             ×
                         </button>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <CustomerService onClose={closeCS} />
 =======
                         <CustomerService />
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+                        <CustomerService />
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     </div>
                 </div>
             )}

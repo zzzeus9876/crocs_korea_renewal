@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @use '../../App.scss' as g;
 =======
 @use "../../App.scss" as g;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+@use "../../App.scss" as g;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
 $success-color: #2e7d32;
 $danger-color: #d32f2f;
@@ -13,10 +17,14 @@ $white: #fff;
     position: fixed;
     top: 90px;
 <<<<<<< HEAD
+<<<<<<< HEAD
     right: -40px;
 =======
     right:-40px;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+    right:-40px;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     // right: -40px;
     z-index: 100000;
     display: flex;
@@ -25,14 +33,19 @@ $white: #fff;
 
     button {
 <<<<<<< HEAD
+<<<<<<< HEAD
         background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
 =======
         background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+        background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         border: none;
         cursor: pointer;
         padding: 0.5rem;
         border-radius: 10px;
+<<<<<<< HEAD
 <<<<<<< HEAD
         box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
         transition: all 0.3s;
@@ -40,6 +53,10 @@ $white: #fff;
         box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);   
         transition: all 0.3s; 
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+        box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);   
+        transition: all 0.3s; 
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
         img {
             width: 45px;
@@ -94,10 +111,14 @@ $white: #fff;
         right: 0;
         max-width: 600px;
 <<<<<<< HEAD
+<<<<<<< HEAD
         width: 100%;
 =======
         width:100%;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+        width:100%;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         height: 100vh;
         font-size: 28px;
         padding: 2rem;
@@ -131,6 +152,7 @@ $white: #fff;
             }
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         h2 {
             font-size: 3.6rem;
@@ -139,6 +161,8 @@ $white: #fff;
         }
 =======
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     }
 
     .cart-side-content {
@@ -147,6 +171,7 @@ $white: #fff;
         gap: 4rem;
         height: 100%;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     // 왼쪽: 상품 목록
@@ -463,6 +488,8 @@ $white: #fff;
             }
 
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 }
 
 // 왼쪽: 상품 목록
@@ -797,11 +824,15 @@ $white: #fff;
                 transform: translateY(-2px);
                 box-shadow: 0 6px 20px rgba(68, 68, 68, 0.4);
             }
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             &:active {
                 transform: translateY(0);
             }
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         .btn-group {
@@ -861,6 +892,8 @@ $white: #fff;
             margin: 0;
         }
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     }
 }
 
@@ -889,6 +922,9 @@ $white: #fff;
         font-weight: 600;
         color: $success-color;
         margin: 0;
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     }
 }

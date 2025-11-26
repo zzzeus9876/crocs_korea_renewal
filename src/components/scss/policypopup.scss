@@ -12,6 +12,7 @@
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+<<<<<<< HEAD
         max-width: 90rem;
         background: #fff;
         padding: 2rem 8rem;
@@ -26,6 +27,13 @@
             cursor: pointer;
             padding: 0;
         }
+=======
+        width: 82rem;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 10px;
+        overflow: hidden;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         .policy_popup_scroll {
             max-height: 80vh;
             overflow-y: auto;

@@ -17,7 +17,11 @@ const PolicyPopup = () => {
         <div className="policy_popup_bg">
             <div className="policy_popup_textbox">
                 <button className="policy_popup_close" onClick={hidePopup}>
+<<<<<<< HEAD
                     <img src="/images/close_btn.svg" alt="close_btn" />
+=======
+                    x
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 </button>
                 <div className="policy_popup_scroll">
                     <div>(필수) 이용약관 동의</div>

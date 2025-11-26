@@ -4,6 +4,7 @@ import { jibbitzs } from '../data/jibbitzs';
 export const collaboAuthStore = create((set, get) => ({
     jibbitzItems: [],
 <<<<<<< HEAD
+<<<<<<< HEAD
     selectFilterLists: [],
 
     onFetchJibbitz: async () => {
@@ -25,6 +26,8 @@ export const collaboAuthStore = create((set, get) => ({
     jibbitzItems: [],
 =======
 >>>>>>> f7a4375 (2025-11-25(화) 초원 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     selectFilterLists: [],
 
     onFetchJibbitz: async () => {
@@ -47,9 +50,13 @@ export const collaboAuthStore = create((set, get) => ({
             item.title.includes('디즈니') ||
             item.title.includes('동물') ||
 <<<<<<< HEAD
+<<<<<<< HEAD
             item.title.includes('미키') ||
 =======
 >>>>>>> 2fccd59 (2025-11-25(화) 초원 - feat: 지비츠 페이지 필터 기능 추가)
+=======
+            item.title.includes('미키') ||
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             (item.title.includes('산리오') && item.price !== '')
     ),
 

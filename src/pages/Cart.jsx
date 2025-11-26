@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import './scss/Cart.scss';
 import Title from '../components/Title';
@@ -11,6 +12,8 @@ import { useNavigate } from 'react-router-dom';
 function Cart() {
     const cartStore = useCartStore();
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import React, { useEffect } from "react";
 import "./scss/Cart.scss";
 import Title from "../components/Title";
@@ -23,7 +26,10 @@ import { useNavigate } from "react-router-dom";
 function Cart() {
     const cartStore = useCartStore();
     // console.log('cartStore:', cartStore);
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     const wishStore = wishListStore();
     const navigate = useNavigate();
 
@@ -35,9 +41,12 @@ function Cart() {
         initializeCart,
         addFromWishlist,
 <<<<<<< HEAD
+<<<<<<< HEAD
         mergeCartData,
 =======
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         getSubtotal,
         getSelectedSubtotal,
         getShipping,
@@ -52,6 +61,7 @@ function Cart() {
         handleOrderAll,
         handleOrderSelected,
         handleGiftSelected,
+<<<<<<< HEAD
 <<<<<<< HEAD
     } = cartStore || {};
 
@@ -89,6 +99,8 @@ function Cart() {
         }
     }, [cartWishItems, cartItems]);
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         // } = useCartStore();
     } = cartStore || {};
 
@@ -106,7 +118,10 @@ function Cart() {
             addFromWishlist(Products, cartWishItems);
         }
     }, [cartWishItems]);
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
     // 가격 계산
     const subtotal = getSubtotal();
@@ -118,16 +133,21 @@ function Cart() {
     // 금액 포맷팅
     const formatPrice = (price) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return price.toLocaleString('ko-KR');
 =======
         return price.toLocaleString("ko-KR");
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+        return price.toLocaleString("ko-KR");
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     };
 
     const handleToOrder = (type) => {
         let orderData;
 
         if (type === 'all') {
+<<<<<<< HEAD
 <<<<<<< HEAD
             if (cartProducts.length === 0) {
                 alert('장바구니에 상품이 없습니다.');
@@ -147,12 +167,17 @@ function Cart() {
         }
 
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             orderData = handleOrderAll();
         } else {
             orderData = handleOrderSelected();
         }
 
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         navigate('/order', {
             state: {
                 orderProducts: orderData.products,
@@ -161,6 +186,7 @@ function Cart() {
                 total: orderData.total,
             },
         });
+<<<<<<< HEAD
 <<<<<<< HEAD
     };
 
@@ -182,6 +208,12 @@ function Cart() {
 
 
     return (
+=======
+    }
+
+
+    return (
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         <div className='cart-container'>
             <div className='inner'>
                 <Title title='Cart' />
@@ -194,7 +226,10 @@ function Cart() {
                                 <label>
                                     <input
                                         type='checkbox'
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                         checked={
                                             cartProducts.length > 0 &&
                                             selectedProducts.size === cartProducts.length
@@ -207,17 +242,24 @@ function Cart() {
                                 </label>
                             </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <button className="btn-remove-selected" onClick={handleRemoveSelected}>
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                             <button
                                 className='btn-remove-selected'
                                 onClick={handleRemoveSelected}
                             >
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                 선택삭제
                             </button>
                         </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                         <div className="product-list">
                             {cartProducts.length === 0 ? (
@@ -257,6 +299,8 @@ function Cart() {
                                                             handleDecreaseQuantity(product.id)
                                                         }
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         <div className='product-list'>
                             {cartProducts.length === 0 ? (
                                 <div className='empty-cart'>
@@ -292,11 +336,15 @@ function Cart() {
                                                     <button
                                                         className='quantity-btn'
                                                         onClick={() => handleDecreaseQuantity(product.id)}
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                         disabled={product.quantity <= 1}
                                                     >
                                                         -
                                                     </button>
+<<<<<<< HEAD
 <<<<<<< HEAD
                                                     <span className="quantity-display">
                                                         {product.quantity}
@@ -307,19 +355,25 @@ function Cart() {
                                                             handleIncreaseQuantity(product.id)
                                                         }
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                     <span className='quantity-display'>
                                                         {product.quantity}
                                                     </span>
                                                     <button
                                                         className='quantity-btn'
                                                         onClick={() => handleIncreaseQuantity(product.id)}
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                     >
                                                         +
                                                     </button>
                                                 </div>
                                             </div>
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                                             <div className="product-price">
                                                 <span className="price">
@@ -331,6 +385,8 @@ function Cart() {
                                                     onClick={() => handleRemoveProduct(product.id)}
                                                     title="상품 삭제"
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                             <div className='product-price'>
                                                 <span className='price'>
                                                     {formatPrice(product.price * product.quantity)}원
@@ -339,7 +395,10 @@ function Cart() {
                                                     className='remove-btn'
                                                     onClick={() => handleRemoveProduct(product.id)}
                                                     title='상품 삭제'
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                 >
                                                     ✕
                                                 </button>
@@ -352,6 +411,7 @@ function Cart() {
                     </div>
 
                     {/* 오른쪽: 주문 요약 */}
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <div className="cart-right">
                         {/* 가격 요약 */}
@@ -372,6 +432,8 @@ function Cart() {
                                             {shipping === 0
                                                 ? '무료배송'
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     <div className='cart-right'>
                         {/* 가격 요약 */}
                         <div className='price-summary'>
@@ -389,17 +451,24 @@ function Cart() {
                                         >
                                             {shipping === 0
                                                 ? "무료배송"
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                 : `+${formatPrice(shipping)}원`}
                                         </span>
                                     </div>
 
                                     {shipping > 0 && (
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <p className="shipping-notice">
 =======
                                         <p className='shipping-notice'>
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                                        <p className='shipping-notice'>
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                             {formatPrice(freeShippingThreshold)}원 이상 구매 시
                                             무료배송
                                         </p>
@@ -407,6 +476,7 @@ function Cart() {
                                 </>
                             )}
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <div className="price-row total-row">
                                 <span className="price-label total-label">최종 결제 금액</span>
@@ -416,12 +486,18 @@ function Cart() {
                                 <span className='price-label total-label'>최종 결제 금액</span>
                                 <span className='price-value total-value'>
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                            <div className='price-row total-row'>
+                                <span className='price-label total-label'>최종 결제 금액</span>
+                                <span className='price-value total-value'>
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                     {formatPrice(total)}원
                                 </span>
                             </div>
                         </div>
 
                         {/* 안내문구 */}
+<<<<<<< HEAD
 <<<<<<< HEAD
                         <div className="terms-content">
                             <p className="terms-description">
@@ -430,18 +506,24 @@ function Cart() {
                                 교차 및 복수 할인 프로모션 적용 주문 건의 경우 부분 취소 및 반품은
                                 불가하며, 전체 취소/반품 후 재주문해주셔야합니다.
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         <div className='terms-content'>
                             <p className='terms-description'>
                                 장바구니 상품은 30일간 보관됩니다. 장기간 보관을 원하실 경우
                                 위시리스트에 추가해주세요. <br />
                                 교차 및 복수 할인 프로모션 적용 주문 건의 경우 부분 취소 및
                                 반품은 불가하며, 전체 취소/반품 후 재주문해주셔야합니다.
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                             </p>
                         </div>
 
                         {/* 주문 버튼들 */}
                         {!isOrderComplete ? (
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <div className="order-buttons">
                                 <button
@@ -456,6 +538,8 @@ function Cart() {
                                         className="btn-order-selected"
                                         onClick={() => handleToOrder('selected')}
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                             <div className='order-buttons'>
                                 <button className='btn-order-all' onClick={handleOrderAll}>
                                     전체상품주문하기
@@ -465,17 +549,24 @@ function Cart() {
                                     <button
                                         className='btn-order-selected'
                                         onClick={handleOrderSelected}
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                     >
                                         선택상품주문
                                     </button>
 
                                     <button
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         className="btn-gift-selected"
 =======
                                         className='btn-gift-selected'
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                                        className='btn-gift-selected'
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                         onClick={handleGiftSelected}
                                     >
                                         선택상품선물
@@ -483,6 +574,7 @@ function Cart() {
                                 </div>
                             </div>
                         ) : (
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <div className="order-complete">
                                 <div className="complete-icon">✓</div>
@@ -492,6 +584,11 @@ function Cart() {
                                 <div className='complete-icon'>✓</div>
                                 <p className='complete-text'>주문이 완료되었습니다.</p>
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                            <div className='order-complete'>
+                                <div className='complete-icon'>✓</div>
+                                <p className='complete-text'>주문이 완료되었습니다.</p>
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                             </div>
                         )}
                     </div>

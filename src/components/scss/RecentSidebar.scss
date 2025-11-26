@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @use '../../App.scss' as g;
 =======
 @use "../../App.scss" as g;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+@use "../../App.scss" as g;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
 .sidebar-overlay {
     position: fixed;
@@ -58,6 +62,7 @@
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         h2 {
             font-size: 3.6rem;
             font-weight: 600;
@@ -81,6 +86,8 @@
 
 =======
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         .recent-side-products {
             // max-width: 1200px;
             // margin: 0 auto;
@@ -93,12 +100,17 @@
             // background: #eee;
             // border-radius: 2rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
             // display: grid;
             // grid-template-columns: 4 / 1fr;
 =======
             display: grid;
             grid-template-columns: 4 / 1fr;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+            display: grid;
+            grid-template-columns: 4 / 1fr;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             gap: 4rem;
             height: 100%;
 
@@ -109,10 +121,13 @@
                 margin-top: 1.5rem;
                 // padding-bottom: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
                 // border-bottom: 2px solid #eee;
                 //임시
 
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 border-bottom: 2px solid #eee;
                 //임시
 
@@ -138,7 +153,10 @@
                     }
                 }
 
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 .header-info {
                     display: flex;
                     align-items: center;
@@ -205,10 +223,14 @@
             .product-item {
                 @include g.flex($fd: column, $ai: unset);
 <<<<<<< HEAD
+<<<<<<< HEAD
                 gap: 0;
 =======
                 gap: 20px;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                gap: 20px;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 padding: 20px 0;
                 // display: flex;
                 // gap: 20px;
@@ -256,18 +278,25 @@
                     align-items: center;
                     gap: 12px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     margin-top: auto;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                    margin-top: auto;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     font-size: 13px;
                     color: #666;
 
                     .viewed-time {
                         color: #999;
 <<<<<<< HEAD
+<<<<<<< HEAD
                         justify-content: flex-end;
 =======
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     }
 
                     .rating {
@@ -279,6 +308,7 @@
 
                 .product_textbox {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     display: none;
                     // width: 100%;
                     // padding: 0 1rem;
@@ -289,6 +319,11 @@
                     padding: 0 1rem;
                     cursor: pointer;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                    width: 100%;
+                    padding: 0 1rem;
+                    cursor: pointer;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     // flex: 1;
                     // display: flex;
                     // flex-direction: column;
@@ -296,6 +331,7 @@
                     // min-width: 0;
 
                     .product-name {
+<<<<<<< HEAD
 <<<<<<< HEAD
                         opacity: 0;
                     }
@@ -307,11 +343,16 @@
                         font-size: 18px;
                         font-weight: 600;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                        font-size: 18px;
+                        font-weight: 600;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         color: #333;
                         margin: 0;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         display: -webkit-box;
+<<<<<<< HEAD
 <<<<<<< HEAD
                         -webkit-line-clamp: 1;
                         -webkit-box-orient: vertical;
@@ -321,6 +362,10 @@
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     }
 
                     .product-category {

@@ -68,6 +68,9 @@
 //         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 //         &--home,
 //         &--women,
 //         &--Fur-lined {
@@ -83,6 +86,7 @@
 //                 }
 //             }
 //         }
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 //         &--home {
@@ -168,6 +172,33 @@
 //         margin-top: 1.6rem;
 //         margin-bottom: 2.4rem;
 
+=======
+
+//         &--home {
+//             &_link {
+//                 @extend %link-base;
+//                 width: 2.5rem;
+//                 padding: 0;
+//                 img {
+//                     width: 1.3rem;
+//                 }
+//             }
+//         }
+
+//         &--Fur-lined {
+//             &_link {
+//                 @extend %link-base;
+//                 gap: 0.6rem;
+//             }
+//         }
+//     }
+
+//     &__title {
+//         width: 26.8rem;
+//         margin-top: 1.6rem;
+//         margin-bottom: 2.4rem;
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 //         h2 {
 //             width: 100%;
 //             font-size: 3.2rem;
@@ -175,7 +206,10 @@
 //         }
 //     }
 
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 //     &__line {
 //         width: 29.2rem;
 //         height: 0.1rem;
@@ -208,6 +242,9 @@
 // ============================================
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 // .color-badge {
 //     width: 1rem;
 //     height: 1rem;
@@ -219,6 +256,7 @@
 //         transform: scale(1.2);
 //     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     &--black {
@@ -282,6 +320,8 @@
 //     }
 
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 //     &--black {
 //         background-color: #000;
 //     }
@@ -339,6 +379,7 @@
 //         @extend %menu_wrap-style;
 //     }
 // }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 <<<<<<< HEAD
@@ -584,6 +625,9 @@
 }
 =======
 >>>>>>> 420c130 (2025-11-25(화) 채아 - v04)
+=======
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 // .select__color--wrap {
 //     width: 100%;
 //     @include g.flex($jc: space-between, $ai: center, $fd: row, $fw: wrap, $gap: 1.5rem 3rem);
@@ -879,7 +923,10 @@
 .filter-menu {
     margin-bottom: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
     .filter-menu__wrap {
         // 기존 menu_wrap-style 스타일 적용
@@ -949,6 +996,7 @@
         &:hover {
             background-color: #e0e0e0;
         }
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 
 <<<<<<< HEAD
@@ -1028,6 +1076,10 @@
 =======
         &--color {
 >>>>>>> 420c130 (2025-11-25(화) 채아 - v04)
+=======
+
+        &--color {
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             background-color: #e3f2fd;
 
             &:hover {
@@ -1239,6 +1291,9 @@
     padding: 2rem 2rem;
     transition: all 0.3s ease;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     outline: 1px solid #cccccc;
 
     .product-card__color,
@@ -1253,6 +1308,7 @@
         box-shadow: 0 0 12px 2.5px rgba(0, 0, 0, 0.08);
         // transform: translateY(-0.4rem);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         .product-card__color,
@@ -1278,6 +1334,8 @@
         // transform: translateY(-0.4rem);
 
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         // .product-card__color,
         // .product-card__size {
         //     max-height: 200px;
@@ -1329,11 +1387,14 @@
     .product-card__link {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         @include g.flex($jc: center, $ai: center, $fd: null, $fw: null, $gap: null);
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 =======
 >>>>>>> 420c130 (2025-11-25(화) 채아 - v04)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         @include g.flex($jc: center, $gap: null);
         position: relative;
         width: 100%;

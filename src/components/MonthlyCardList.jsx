@@ -10,6 +10,7 @@ const MonthlyCardList = () => {
             mainImg: '/images/magazine_01.png',
             aImg: '/images/magazine_a_01.png',
 <<<<<<< HEAD
+<<<<<<< HEAD
             item: {
                 id: '206750',
                 product: '클래식 플랫폼 클로그',
@@ -19,6 +20,8 @@ const MonthlyCardList = () => {
                 dcPrice: '',
             },
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             item: '클래식 플랫폼 클로그',
             color: '콰츠',
             price: '79,900',
@@ -33,6 +36,7 @@ const MonthlyCardList = () => {
             mainImg: '/images/magazine_02.png',
             aImg: '/images/magazine_a_02.png',
 <<<<<<< HEAD
+<<<<<<< HEAD
             item: {
                 id: '206302',
                 product: '베이클로그',
@@ -44,6 +48,8 @@ const MonthlyCardList = () => {
             dec: '월간 크록스 x 레드벨벳 슬기',
             itemImg: '/images/item_02.png',
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             item: '베이클로그',
             color: '화이트',
             price: '99,900',
@@ -51,12 +57,16 @@ const MonthlyCardList = () => {
             dcPrice: '79,900',
             dec: '월간 크록스 x 레드벨벳 슬기',
             itemImg: '/images/item_01.png',
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         },
         {
             id: 3,
             mainImg: '/images/magazine_03.png',
             aImg: '/images/magazine_a_03.png',
+<<<<<<< HEAD
 <<<<<<< HEAD
             item: {
                 id: '210521',
@@ -69,6 +79,8 @@ const MonthlyCardList = () => {
             dec: '월간 크록스 x 샤이니 태민',
             itemImg: '/images/item_03.png',
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             item: '에코 웨이브',
             color: '아몬드 틴트',
             price: '99,900',
@@ -76,12 +88,16 @@ const MonthlyCardList = () => {
             dcPrice: '59,900',
             dec: '월간 크록스 x 샤이니 태민',
             itemImg: '/images/item_01.png',
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         },
         {
             id: 4,
             mainImg: '/images/magazine_04.png',
             aImg: '/images/magazine_a_04.png',
+<<<<<<< HEAD
 <<<<<<< HEAD
             item: {
                 id: '206302',
@@ -94,6 +110,8 @@ const MonthlyCardList = () => {
             dec: '월간 크록스 x 르세라핌 채원',
             itemImg: '/images/item_04.png',
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             item: '베이클로그',
             color: '블랙',
             price: '99,900',
@@ -101,7 +119,10 @@ const MonthlyCardList = () => {
             dcPrice: '79,900',
             dec: '월간 크록스 x 르세라핌 채원',
             itemImg: '/images/item_01.png',
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         },
     ];
 

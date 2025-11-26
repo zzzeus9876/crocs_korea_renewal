@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useEffect } from 'react';
 import { useRecentProductsStore } from '../store/recentProductsStore';
 import Title from '../components/Title';
@@ -10,6 +11,8 @@ const RecentSidebar = ({ isOpen, onClose }) => {
     const formatPrice = (price, discountPrice) => {
         return new Intl.NumberFormat('ko-KR').format(price);
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import React, { useEffect } from "react";
 import { useRecentProductsStore } from "../store/recentProductsStore";
 import Title from "../components/Title";
@@ -20,22 +23,30 @@ const RecentSidebar = ({isOpen, onClose}) => {
 
     const formatPrice = (price, discountPrice) => {
         return new Intl.NumberFormat("ko-KR").format(price);
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     };
 
     // ESC 키로 닫기
     useEffect(() => {
         const handleEsc = (e) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (e.key === 'Escape' && onClose) {
 =======
             if (e.key === "Escape" && onClose) {
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+            if (e.key === "Escape" && onClose) {
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 onClose();
             }
         };
 
         if (isOpen) {
+<<<<<<< HEAD
 <<<<<<< HEAD
             document.addEventListener('keydown', handleEsc);
             // 배경 스크롤 방지
@@ -46,6 +57,8 @@ const RecentSidebar = ({isOpen, onClose}) => {
             document.removeEventListener('keydown', handleEsc);
             document.body.style.overflow = 'unset';
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             document.addEventListener("keydown", handleEsc);
             // 배경 스크롤 방지
             document.body.style.overflow = "hidden";
@@ -54,7 +67,10 @@ const RecentSidebar = ({isOpen, onClose}) => {
         return () => {
             document.removeEventListener("keydown", handleEsc);
             document.body.style.overflow = "unset";
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         };
     }, [isOpen, onClose]);
 
@@ -67,23 +83,30 @@ const RecentSidebar = ({isOpen, onClose}) => {
         const diffDays = Math.floor(diffMs / 86400000);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (diffMins < 1) return '방금 전';
         if (diffMins < 60) return `${diffMins}분 전`;
         if (diffHours < 24) return `${diffHours}시간 전`;
         if (diffDays < 7) return `${diffDays}일 전`;
         return viewed.toLocaleDateString('ko-KR');
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         if (diffMins < 1) return "방금 전";
         if (diffMins < 60) return `${diffMins}분 전`;
         if (diffHours < 24) return `${diffHours}시간 전`;
         if (diffDays < 7) return `${diffDays}일 전`;
         return viewed.toLocaleDateString("ko-KR");
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     };
 
     return (
         <>
             {/* 배경 오버레이 */}
+<<<<<<< HEAD
 <<<<<<< HEAD
             {isOpen && <div className="sidebar-overlay" onClick={onClose} />}
 
@@ -100,6 +123,8 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                     <span className="count">{recentProducts.length}개</span>
                                     <button className="clear-btn" onClick={clearAll}>
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             {isOpen && <div className='sidebar-overlay' onClick={onClose} />}
 
             <div className={`recent-side-container ${isOpen ? "open" : ""}`}>
@@ -114,7 +139,10 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                 <div className='header-info'>
                                     <span className='count'>{recentProducts.length}개</span>
                                     <button className='clear-btn' onClick={clearAll}>
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                         전체 삭제
                                     </button>
                                 </div>
@@ -122,6 +150,7 @@ const RecentSidebar = ({isOpen, onClose}) => {
                         </div>
 
                         {recentProducts.length == 0 ? (
+<<<<<<< HEAD
 <<<<<<< HEAD
                             <div className="recent-side-products__empty">
                                 <div className="empty-icon">👀</div>
@@ -134,6 +163,8 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                         <div className="product-meta">
                                             <span className="viewed-time">
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                             <div className='recent-side-products__empty'>
                                 <div className='empty-icon'>👀</div>
                                 <p>최근 본 상품이 없습니다</p>
@@ -144,7 +175,10 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                     <div key={item.id} className='product-item'>
                                         <div className='product-meta'>
                                             <span className='viewed-time'>
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                 {formatDate(item.viewedAt)}
                                             </span>
                                             {/* 리뷰별점표시 */}
@@ -154,6 +188,7 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                 </span>
                             )} */}
                                         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                                         <div className="product_imgbox">
                                             <img src={item.image} alt={item.name} />
@@ -172,6 +207,8 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                                     {item.discountPrice == ''
                                                         ? ''
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                         <div className='product_imgbox'>
                                             <img src={item.image} alt={item.name} />
                                         </div>
@@ -188,17 +225,24 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                                 <span className='price-text'>
                                                     {item.discountPrice == ""
                                                         ? ""
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                         : item.originPrice}
                                                 </span>
                                                 {/* <span className='price-text'>{formatPrice(item.price)}원</span>
                                 <span className='price-text'>{item.price}</span> */}
                                                 {item.discount && (
 <<<<<<< HEAD
+<<<<<<< HEAD
                                                     <span className="discount">
 =======
                                                     <span className='discount'>
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                                                    <span className='discount'>
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                                         {item.discount}%
                                                     </span>
                                                 )}
@@ -206,10 +250,14 @@ const RecentSidebar = ({isOpen, onClose}) => {
                                         </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         <div className="product-actions">
 =======
                                         <div className='product-actions'>
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+                                        <div className='product-actions'>
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                             {/* <button 
                 className="remove-btn"
                 onClick={() => removeProduct(product.id)}

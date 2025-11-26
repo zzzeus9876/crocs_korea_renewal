@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import Title from './Title';
 import { loginAuthStore } from '../store/loginStore';
 import './scss/CustomerService.scss';
@@ -11,6 +12,8 @@ function CustomerService({ onClose }) {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isAgreed, setIsAgreed] = useState(false);
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
 import './scss/CustomerService.scss';
 import Title from './Title';
@@ -18,7 +21,10 @@ import Title from './Title';
 function CustomerService() {
     const navigate = useNavigate();
 
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     const [formData, setFormData] = useState({
         name: '',
         phone: '',
@@ -27,6 +33,7 @@ function CustomerService() {
         message: '',
     });
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // 입력값 팝업 함수
     const showUserInfoPopup = () => {
@@ -44,6 +51,10 @@ function CustomerService() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isAgreed, setIsAgreed] = useState(false);
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isAgreed, setIsAgreed] = useState(false);
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -53,6 +64,7 @@ function CustomerService() {
         }));
     };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // 🔸 문의하기
     const handleSubmit = (e) => {
@@ -67,20 +79,29 @@ function CustomerService() {
 
         // 로그인 O → 기존 검사
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     const handleSubmit = (e) => {
         e.preventDefault();
 
         // 간단한 유효성 검사
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         if (!formData.name || !formData.email || !formData.subject || !formData.message) {
             alert('필수 항목을 모두 입력해주세요.');
             return;
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         // 이메일 형식 검사
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        // 이메일 형식 검사
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
             alert('올바른 이메일 형식을 입력해주세요.');
@@ -88,31 +109,42 @@ function CustomerService() {
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         // 개인정보 동의 체크 확인
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        // 개인정보 동의 체크 확인
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         if (!isAgreed) {
             alert('개인정보 수집 및 이용에 동의해주세요.');
             return;
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         setIsSubmitted(true);
 
         setTimeout(() => {
             onClose(); // ⭐ 모달 닫기
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         // 제출 처리
         console.log('문의 내용:', formData);
         setIsSubmitted(true);
 
         // 3초 후 /userinfo로 이동
         setTimeout(() => {
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             navigate('/userinfo');
         }, 3000);
     };
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // 🔸 취소하기
     const handleCancel = () => {
@@ -137,6 +169,8 @@ function CustomerService() {
             <div className="cs-content">
                 {/* 왼쪽 안내 영역 */}
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     const handleCancel = () => {
         if (window.confirm('작성 중인 내용이 삭제됩니다. 취소하시겠습니까?')) {
             setFormData({
@@ -155,7 +189,10 @@ function CustomerService() {
             <Title title="Customer Service" />
             <div className="cs-content">
                 {/* 왼쪽: 안내 영역 */}
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 <div className="cs-left">
                     <div className="cs-info-box">
                         <h2 className="info-title">이메일 문의</h2>
@@ -175,10 +212,14 @@ function CustomerService() {
                         </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                         {/* <div className="info-section">
 =======
                         <div className="info-section">
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+                        <div className="info-section">
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                             <h3 className="section-subtitle">자주 묻는 질문</h3>
                             <ul className="faq-list">
                                 <li>배송 관련 문의</li>
@@ -188,10 +229,14 @@ function CustomerService() {
                                 <li>적립금 및 쿠폰 사용</li>
                             </ul>
 <<<<<<< HEAD
+<<<<<<< HEAD
                         </div> */}
 =======
                         </div>
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+                        </div>
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
                         <div className="info-section">
                             <h3 className="section-subtitle">연락처</h3>
@@ -205,10 +250,14 @@ function CustomerService() {
                 </div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 {/* 오른쪽 폼 영역 */}
 =======
                 {/* 오른쪽: 문의 폼 */}
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+                {/* 오른쪽: 문의 폼 */}
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 <div className="cs-right">
                     {!isSubmitted ? (
                         <form className="cs-form" onSubmit={handleSubmit}>
@@ -291,10 +340,14 @@ function CustomerService() {
                                     <p className="privacy-item">
                                         <strong>수집항목(필수)</strong>: 이름, 이메일 주소, 문의내용
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         /<strong> 선택</strong>: 전화 번호
 =======
                                         /<strong> 수집항목(선택)</strong>: 전화 번호
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+                                        /<strong> 수집항목(선택)</strong>: 전화 번호
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                     </p>
                                 </div>
                             </div>
@@ -316,10 +369,15 @@ function CustomerService() {
                                 빠른 시일 내에 답변드리겠습니다.
                                 <br />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                                 감사합니다.
                                 <br />
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+                                감사합니다.
+                                <br />
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                 <br />
                                 <span className="redirect-notice">
                                     잠시 후 마이페이지로 이동합니다.

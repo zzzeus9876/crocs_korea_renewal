@@ -16,7 +16,10 @@ const Footer = ({ onOpenCS }) => {
 =======
             <FooterTitle />
             <FooterContents />
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             <FooterBottom onOpenCS={onOpenCS} />
         </footer>
     );

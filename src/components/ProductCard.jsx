@@ -39,11 +39,15 @@ const ProductCardSwiper = ({ images }) => {
                     <div className="swiper-slide" key={i}>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         <img
                             src={typeof img === 'string' ? img : img.src}
                             alt={`상품 이미지 ${i + 1}`}
                             className="product-card__img"
                         />
+<<<<<<< HEAD
 =======
                         <a href="#" className="product-card__link">
                             <img
@@ -71,6 +75,8 @@ const ProductCardSwiper = ({ images }) => {
                             className="product-card__img"
                         />
 >>>>>>> cd9cbcd (2025-11-25(화) 채아 - v02)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     </div>
                 ))}
             </div>
@@ -96,11 +102,15 @@ const ProductName = ({ name }) => (
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 // ---------- 가격 ----------
 const ProductPrice = ({ prices }) => {
     if (!prices || !Array.isArray(prices) || !prices[0]) return null;
     const [originalPrice, discountPrice, discountRate] = prices;
     const hasDiscount = discountPrice != null;
+<<<<<<< HEAD
 =======
 // 가격
 // const ProductPrice = ({ price: { discountedPrice, discountRate, originalPrice } }) => (
@@ -133,6 +143,9 @@ const ProductPrice = ({ prices }) => {
     const [originalPrice, discountPrice, discountRate] = prices;
     const hasDiscount = discountPrice != null;
 
+=======
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     return (
         <div className="product-card__price_wrap">
             {hasDiscount ? (
@@ -151,6 +164,7 @@ const ProductPrice = ({ prices }) => {
         </div>
     );
 };
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
 =======
@@ -221,6 +235,9 @@ const ProductPrice = ({ prices }) => {
 
 =======
 >>>>>>> 420c130 (2025-11-25(화) 채아 - v04)
+=======
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 // ---------- 색상 ----------
 const normalizeColor = (c) => {
     if (!c) return null;
@@ -230,6 +247,7 @@ const normalizeColor = (c) => {
     return null;
 };
 
+<<<<<<< HEAD
 =======
 // ---------- 색상 ----------
 const normalizeColor = (c) => {
@@ -241,6 +259,8 @@ const normalizeColor = (c) => {
 };
 
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 const ProductColorBadges = ({ colors = [], onColorClick }) => {
     const normalized = (Array.isArray(colors) ? colors : [colors])
         .map(normalizeColor)
@@ -300,6 +320,7 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
                     const soldOut = soldOutSizes.includes(size);
                     const isActive = active === size;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     // ---------- 사이즈 ----------
     const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
@@ -382,10 +403,18 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
                                 className={`size--btns__button ${isActive ? 'active' : ''} ${soldOut ? 'sold-out' : ''
                                     }`}
 >>>>>>> 420c130 (2025-11-25(화) 채아 - v04)
+=======
+                    return (
+                        <li key={size} className="size--btns__item">
+                            <button
+                                className={`size--btns__button ${isActive ? 'active' : ''} ${soldOut ? 'sold-out' : ''
+                                    }`}
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                 onClick={() => {
                                     if (!soldOut) {
                                         setActive(size);
                                         onSizeSelect?.(size);
+<<<<<<< HEAD
 <<<<<<< HEAD
                                     }}
 =======
@@ -429,12 +458,15 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
 =======
 =======
 >>>>>>> 420c130 (2025-11-25(화) 채아 - v04)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                                     }
                                 }}
                                 disabled={soldOut}
                             >
                                 {size}
                             </button>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
@@ -449,6 +481,8 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
 >>>>>>> cd9cbcd (2025-11-25(화) 채아 - v02)
 =======
 >>>>>>> 420c130 (2025-11-25(화) 채아 - v04)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         </li>
                     );
                 })}
@@ -469,6 +503,9 @@ const ProductSizeButtons = ({ cate, soldOutSizes = [], onSizeSelect }) => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 // ---------- 상품 카드 ----------
 const ProductCard = ({ product, onClick, onSizeSelect }) => (
     <li className="product-card" onClick={onClick}>
@@ -484,6 +521,7 @@ const ProductCard = ({ product, onClick, onSizeSelect }) => (
             soldOutSizes={product.soldOutSizes || []}
             onSizeSelect={onSizeSelect} // 🔥 상위 상태로 전달
         />
+<<<<<<< HEAD
 =======
 // 상품 카드
 // const WomenProductCard = ({ product }) => (
@@ -566,6 +604,8 @@ const ProductCard = ({ product, onClick, onSizeSelect }) => (
             onSizeSelect={onSizeSelect} // 🔥 상위 상태로 전달
         />
 >>>>>>> cd9cbcd (2025-11-25(화) 채아 - v02)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     </li>
 );
 =======

@@ -2,7 +2,10 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 =======
 import React, { useState, useMemo, useRef } from 'react';
+<<<<<<< HEAD
 >>>>>>> 19a7efd (2025-11-25(화) 지인 - v03)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import OrderForm from './OrderForm.jsx';
 import OrderSummary from './OrderSummary.jsx';
 import './styles/Order.scss';
@@ -19,11 +22,17 @@ import { useLocation, useNavigate } from 'react-router-dom';
 // import newProducts from '../../data/신상품&트렌드-카테고리-완전통합.json';
 // import jibbitzProducts from '../../data/지비츠_참-카테고리-완전통합.json';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import { Products } from "../../data/CrocsProductsData.js";
 import OrderProgress from './OrderProgress.jsx';
 import Title from '../Title.jsx';
 >>>>>>> 19a7efd (2025-11-25(화) 지인 - v03)
+=======
+import { Products } from "../../data/CrocsProductsData.js";
+import OrderProgress from './OrderProgress.jsx';
+import Title from '../Title.jsx';
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
 function Order() {
     const location = useLocation();
@@ -159,7 +168,10 @@ function Order() {
         //         category: '신상품',
         //     });
         // });
+<<<<<<< HEAD
 >>>>>>> 19a7efd (2025-11-25(화) 지인 - v03)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
         // 여성 상품 1개 선택
         // const womenItems = Products.filter((product)=> {

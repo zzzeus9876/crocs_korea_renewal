@@ -6,11 +6,15 @@ import { Link, useNavigate } from 'react-router-dom';
 =======
 import UserInfoTop from '../components/UserInfoTop';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
 >>>>>>> ebd2d8f (2025-11-25(화) 초원 - Revert "feat: 상세페이지 지비츠 연결...)
 =======
 import { Link, useNavigate } from 'react-router-dom';
 >>>>>>> f7a4375 (2025-11-25(화) 초원 - v01)
+=======
+import { Link, useNavigate } from 'react-router-dom';
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import OrderState from '../components/OrderState';
 import './scss/orderhistory.scss';
 

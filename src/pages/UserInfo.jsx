@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import Title from '../components/Title';
 import UserInfoTop from '../components/UserInfoTop';
 import './scss/userinfo.scss';
+<<<<<<< HEAD
 import { Link, useNavigate } from 'react-router-dom';
 // import WishListCard from '../components/WishListCard';
+=======
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import WishListCard from '../components/WishListCard';
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import { wishListStore } from '../store/wishListStore';
 // import OrderHistoryCard from '../components/OrderHistoryCard';
 import OrderState from '../components/OrderState';

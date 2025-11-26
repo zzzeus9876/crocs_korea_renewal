@@ -1,8 +1,11 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { parsePrice } from '../components/parsePrice';
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
 // 가격설정
 function parsePrice(priceStr) {
@@ -12,7 +15,10 @@ function parsePrice(priceStr) {
     const numbers = price.match(/\d+/);
     return numbers ? parseInt(numbers[0]) : 0;
 }
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
 export const useCartStore = create(
     persist(
@@ -26,6 +32,7 @@ export const useCartStore = create(
             freeShippingThreshold: 30000,
             shippingFee: 2500,
 
+<<<<<<< HEAD
 <<<<<<< HEAD
             // ✅ 위시리스트 cartItems를 cartProducts에 병합
             mergeCartData: (products, cartItems) => {
@@ -90,10 +97,14 @@ export const useCartStore = create(
 =======
             // 초기화 -  localstorage에서 불러오기
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+            // 초기화 -  localstorage에서 불러오기
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             initializeCart: (Products, wishCartItems = []) => {
                 const { cartProducts } = get();
 
                 // 이미 장바구니에 상품이 있으면 건너뜀
+<<<<<<< HEAD
 <<<<<<< HEAD
                 if (cartProducts.length > 0) {
                     console.log('⚠️ 이미 초기화됨');
@@ -105,6 +116,8 @@ export const useCartStore = create(
                 const cartIds = JSON.parse(localStorage.getItem('cartIds')) || [];
                 console.log('📋 cartIds:', cartIds);
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 if (cartProducts.length > 0) return;
 
                 // 가격 파싱 헬퍼 함수
@@ -131,7 +144,10 @@ export const useCartStore = create(
                 //     set({ cartProducts: wishProducts });
                 //   }
                 // },
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
                 // Products에서 가져온 상품
                 const productsWithPrice = Products.filter((item) => cartIds.includes(item.id)).map(
@@ -143,36 +159,51 @@ export const useCartStore = create(
                             quantity: 1,
                             price: price_dc > 0 ? price_dc : price_original,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                             // size가 있는 경우에만 추가
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+                            // size가 있는 경우에만 추가
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                             ...(item.size && { size: item.size }),
                         };
                     }
                 );
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 // wishCartItems 처리
 =======
                 // wishListStore의 cartWishItems도 추가
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+                // wishListStore의 cartWishItems도 추가
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 const wishProducts = wishCartItems.map((item) => {
                     const price_dc = parsePrice(item.price_dc_rate || item.price);
                     const price_original = parsePrice(item.price);
                     return {
                         ...item,
 <<<<<<< HEAD
+<<<<<<< HEAD
                         id: item.id,
 =======
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         quantity: item.count || 1,
                         price: price_dc > 0 ? price_dc : price_original,
                         product_img: item.imageUrl || item.product_img,
                         name: item.title || item.name,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                         // size가 있는 경우에만 추가
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+                        // size가 있는 경우에만 추가
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         ...(item.size && { size: item.size }),
                     };
                 });
@@ -187,10 +218,13 @@ export const useCartStore = create(
                 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 console.log('✅ 초기화 완료:', allProducts);
 
 =======
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 set({
                     cartProducts: allProducts,
                     selectedProducts: new Set(allProducts.map((p) => p.id)),
@@ -199,6 +233,7 @@ export const useCartStore = create(
 
             // 위시리스트에서 상품 추가
             addFromWishlist: (Products, wishCartItems) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
                 console.log('💚 addFromWishlist 호출:', wishCartItems);
 
@@ -214,6 +249,11 @@ export const useCartStore = create(
 
                 // wishListStore의 cartWishItems 처리
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+                const { cartProducts } = get();
+
+                // wishListStore의 cartWishItems 처리
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 const wishProducts = wishCartItems.map((item) => {
                     const price_dc = parsePrice(item.price_dc_rate || item.price);
                     const price_original = parsePrice(item.price);
@@ -234,13 +274,17 @@ export const useCartStore = create(
                 if (newProducts.length > 0) {
                     const updatedProducts = [...cartProducts, ...newProducts];
 <<<<<<< HEAD
+<<<<<<< HEAD
                     console.log('✅ 위시리스트 상품 추가:', newProducts);
 =======
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     set({
                         cartProducts: updatedProducts,
                         selectedProducts: new Set(updatedProducts.map((p) => p.id)),
                     });
+<<<<<<< HEAD
 <<<<<<< HEAD
                 } else {
                     console.log('ℹ️ 추가할 새 상품 없음');
@@ -347,6 +391,8 @@ export const useCartStore = create(
                 console.log('✅ 장바구니에 추가 완료:', newProduct);
                 return true;
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 }
             },
 
@@ -386,7 +432,10 @@ export const useCartStore = create(
                     });
                     console.log('🛒 CartProducts:', get().cartProducts);
                 }
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             },
 
             // 개별 선택
@@ -420,12 +469,15 @@ export const useCartStore = create(
                 newSelected.delete(id);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 const cartIds = JSON.parse(localStorage.getItem('cartIds')) || [];
                 const updatedCartIds = cartIds.filter((cartId) => cartId !== id);
                 localStorage.setItem('cartIds', JSON.stringify(updatedCartIds));
 
 =======
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 set({
                     cartProducts: newProducts,
                     selectedProducts: newSelected,
@@ -442,6 +494,7 @@ export const useCartStore = create(
                 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (window.confirm(`선택한 ${selectedProducts.size}개 상품을 삭제하시겠습니까?`)) {
                     const cartIds = JSON.parse(localStorage.getItem('cartIds')) || [];
                     const updatedCartIds = cartIds.filter((id) => !selectedProducts.has(id));
@@ -452,6 +505,11 @@ export const useCartStore = create(
 
                 if (window.confirm(`선택한 ${selectedProducts.size}개 상품을 삭제하시겠습니까?`)) {
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+                const newProducts = cartProducts.filter((p) => !selectedProducts.has(p.id));
+
+                if (window.confirm(`선택한 ${selectedProducts.size}개 상품을 삭제하시겠습니까?`)) {
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     set({
                         cartProducts: cartProducts.filter((p) => !selectedProducts.has(p.id)),
                         selectedProducts: new Set(),
@@ -482,9 +540,13 @@ export const useCartStore = create(
             },
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
             // 총 가격 계산
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+            // 총 가격 계산
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             // 전체 상품 금액 (배송비 제외)
             getSubtotal: () => {
                 const { cartProducts } = get();
@@ -510,15 +572,21 @@ export const useCartStore = create(
             getTotal: () => {
                 const { cartProducts } = get();
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (cartProducts.length === 0) return 0;
 
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
                 // 장바구니가 비어있으면 총가격 0
                 if (cartProducts.length === 0) {
                     return 0;
                 }
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 const subtotal = get().getSubtotal();
                 const shipping = get().getShipping();
                 return subtotal + shipping;
@@ -530,13 +598,19 @@ export const useCartStore = create(
                 const selectedSubtotal = get().getSelectedSubtotal();
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (cartProducts.length === 0 || selectedSubtotal === 0) return 0;
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 // 장바구니가 비어있으면 배송비도 0
                 if (cartProducts.length === 0 || selectedSubtotal === 0) {
                     return 0;
                 }
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
                 const Shipping = selectedSubtotal >= freeShippingThreshold ? 0 : shippingFee;
                 return selectedSubtotal + Shipping;
@@ -548,6 +622,7 @@ export const useCartStore = create(
 
                 if (cartProducts.length === 0) {
                     alert('장바구니에 상품이 없습니다.');
+<<<<<<< HEAD
 <<<<<<< HEAD
                     return null;
                 }
@@ -567,6 +642,8 @@ export const useCartStore = create(
                     total: get().getTotal(),
                 };
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     return;
                 }
 
@@ -581,7 +658,10 @@ export const useCartStore = create(
                     });
                     alert(`전체 ${cartProducts.length}개 상품 주문이 완료되었습니다!`);
                 }, 1000);
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             },
 
             // 선택 상품 주문
@@ -593,6 +673,7 @@ export const useCartStore = create(
                     return;
                 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
                 const selected = cartProducts.filter((p) => selectedProducts.has(p.id));
 
@@ -611,6 +692,8 @@ export const useCartStore = create(
                     total: get().getSelectedTotal(),
                 };
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 set({ isOrderComplete: true });
 
                 setTimeout(() => {
@@ -622,7 +705,10 @@ export const useCartStore = create(
                     });
                     alert(`선택한 ${selectedProducts.size}개 상품만 주문하시겠습니까?`);
                 }, 1000);
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             },
 
             // 선택 상품 선물
@@ -638,6 +724,7 @@ export const useCartStore = create(
             },
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // 장바구니 전체 비우기
             clearCart: () => {
                 localStorage.setItem('cartIds', JSON.stringify([]));
@@ -646,6 +733,10 @@ export const useCartStore = create(
             // 장바구니 전체 비우기 (추가 기능)
             clearCart: () => {
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+            // 장바구니 전체 비우기 (추가 기능)
+            clearCart: () => {
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                 set({
                     cartProducts: [],
                     selectedProducts: new Set(),
@@ -661,6 +752,7 @@ export const useCartStore = create(
             partialize: (state) => ({
                 cartProducts: state.cartProducts,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 selectedProducts: Array.from(state.selectedProducts),
             }),
 =======
@@ -668,10 +760,16 @@ export const useCartStore = create(
             }),
             // 로드 시 Set으로 다시 변환
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+                selectedProducts: Array.from(state.selectedProducts), // Set을 배열로 변환
+            }),
+            // 로드 시 Set으로 다시 변환
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             onRehydrateStorage: () => (state) => {
                 if (state && Array.isArray(state.selectedProducts)) {
                     state.selectedProducts = new Set(state.selectedProducts);
                 }
+<<<<<<< HEAD
 <<<<<<< HEAD
                 console.log(
                     '🔄 Zustand persist 복원:',
@@ -682,6 +780,8 @@ export const useCartStore = create(
         }
     )
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             },
         }
     ),
@@ -696,5 +796,8 @@ export const useCartStore = create(
             // selectedProducts는 저장 안 함 (새로고침 시 선택 초기화)
         }),
     }
+<<<<<<< HEAD
 >>>>>>> aa6f6f1 (2025-11-25(화) 초원 - 위시리스트, 장바구니 팝업 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 );

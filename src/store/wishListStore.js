@@ -20,6 +20,7 @@ export const wishListStore = create((set, get) => ({
         const existing = wish.find((item) => item.id === product.id);
         if (existing) {
             set({ popUp: { show: true, message: '이미 위시리스트에 담긴 상품입니다 💚' } });
+<<<<<<< HEAD
             return false;
         }
 =======
@@ -67,16 +68,22 @@ export const wishListStore = create((set, get) => ({
 >>>>>>> 669cad9 (2025-11-25(화) 초원 - feat: 상세페이지 지비츠 연결, 장바구니 팝업...)
 =======
             alert('이미 당신의 위시 속에 쏘옥💚');
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             return false;
-        } else {
-            updateWish = [...wish, { ...product }];
-            console.log('선택상품 담겼나?:', wish);
         }
+<<<<<<< HEAD
 
         set({ wishLists: updateWish });
         set({ popUp: { show: true, message: '장바구니에 담겼습니다! 💚' } });
 =======
 >>>>>>> f7a4375 (2025-11-25(화) 초원 - v01)
+=======
+        set({
+            wishLists: [...wish, product],
+            popUp: { show: true, message: '위시리스트에 추가되었습니다! 💚' },
+        });
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         console.log('wishLists에 담긴 것 확인:', get().wishLists);
         return true;
 >>>>>>> ebd2d8f (2025-11-25(화) 초원 - Revert "feat: 상세페이지 지비츠 연결...)
@@ -107,6 +114,13 @@ export const wishListStore = create((set, get) => ({
     },
 
     onRemoveWish: () => {
+<<<<<<< HEAD
+=======
+        // console.log('위시삭제');
+        // const wish = get().removeWish;
+        // const updateWish = wish.filter((wish) => wish.id !== item.id);
+        // set({ removeWish: updateWish });
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         console.log('위시삭제');
         const removeWish = get().removeWish;
         console.log('removeWish 선택된 위시:', removeWish);
@@ -125,6 +139,10 @@ export const wishListStore = create((set, get) => ({
     cartCount: 0,
 
     //장바구니 추가 버튼 선택 시 위시리스트에서 지우고 장바구니 배열에 추가
+<<<<<<< HEAD
+=======
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     onAddCartBtn: () => {
         // 체크된 위시들을 배열로 가져옴
         const removeWish = get().removeWish;
@@ -133,12 +151,19 @@ export const wishListStore = create((set, get) => ({
         // 현재 장바구니 목록
         const cartWishItems = get().cartWishItems;
 
+<<<<<<< HEAD
         console.log('🛒 장바구니 추가 버튼:', { removeWish, wishLists, cartWishItems });
 
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         // 위시리스트에서 선택된 항목 제거
         const newWishLists = wishLists.filter((wish) => !removeWish.some((r) => r.id === wish.id));
 
         // 장바구니에 선택된 항목 추가
+<<<<<<< HEAD
+=======
+        // 이미 cartWishItems에 있는 동일 상품은 count만 증가
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         const newcartWishItems = [...cartWishItems];
 
         removeWish.forEach((item) => {
@@ -147,18 +172,26 @@ export const wishListStore = create((set, get) => ({
             if (existing) {
                 existing.count = (existing.count || 1) + (item.count || 1);
             } else {
+<<<<<<< HEAD
                 newcartWishItems.push({ ...item, count: item.count || 1 });
             }
         });
 
         console.log('✅ 새로운 cartWishItems:', newcartWishItems);
 
+=======
+                newcartWishItems.push({ ...item });
+            }
+        });
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         // 상태 업데이트
         set({
             wishLists: newWishLists,
             cartWishItems: newcartWishItems,
             cartCount: newcartWishItems.length,
             removeWish: [], // 체크 초기화
+<<<<<<< HEAD
             popUp: { show: true, message: '장바구니에 추가되었습니다! 🛒' },
         });
     },
@@ -172,17 +205,26 @@ export const wishListStore = create((set, get) => ({
         console.log('🛒 onProductAddCart 호출:', { product, count });
 
 =======
+=======
+        });
+    },
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     cartItems: [],
 
     // //진짜 장바구니 버튼 클릭 시 장바구니 추가 메서드 (위시리스트랑 합쳐)
 
     onProductAddCart: (product, count = 1) => {
+<<<<<<< HEAD
 >>>>>>> 669cad9 (2025-11-25(화) 초원 - feat: 상세페이지 지비츠 연결, 장바구니 팝업...)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         const cartItems = get().cartItems;
         const existing = cartItems.find((item) => item.id === product.id);
 
         let updated;
         if (existing) {
+<<<<<<< HEAD
 <<<<<<< HEAD
             // 이미 있으면 수량 증가
             updated = cartItems.map((item) =>
@@ -198,6 +240,8 @@ export const wishListStore = create((set, get) => ({
         console.log('📦 업데이트된 cartItems:', updated);
 
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             updated = cartItems.map((item) =>
                 item.id === product.id ? { ...item, count: item.count + count } : item
             );
@@ -205,18 +249,24 @@ export const wishListStore = create((set, get) => ({
             updated = [...cartItems, { ...product, count }];
         }
 
+<<<<<<< HEAD
 >>>>>>> 669cad9 (2025-11-25(화) 초원 - feat: 상세페이지 지비츠 연결, 장바구니 팝업...)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         set({
             cartItems: updated,
             cartCount: updated.reduce((sum, item) => sum + item.count, 0),
             popUp: { show: true, message: '장바구니에 담겼습니다! 🛒' },
         });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         return true;
     },
 
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
 
     // addToCart: (product, count = 1) => {
@@ -262,7 +312,10 @@ export const wishListStore = create((set, get) => ({
     //     get().addToCart(product, count);
     // },
 
+<<<<<<< HEAD
 >>>>>>> 669cad9 (2025-11-25(화) 초원 - feat: 상세페이지 지비츠 연결, 장바구니 팝업...)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     // 장바구니 추가 버튼 메서드(위시리스트 목록에서 지우기 )
     // onAddCartBtn: () => {
     //     console.log('장바구니 추가 버튼');

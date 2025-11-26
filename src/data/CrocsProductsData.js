@@ -1015,10 +1015,14 @@ export const Products = [
         product_img: ['/images/8_에코_웨이브_1.jpg', '/images/8_에코_웨이브_2.jpg'],
         subcategory: '에코',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['99,900', '59.900', '40%'],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '206340',
@@ -2214,17 +2218,24 @@ export const Products = [
         price_dc_2: '79,900',
 =======
         price_dc_2: '',
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         rating: '',
         review: '426',
         cate: '여성, 클로그, 플랫폼',
         product_img: '/images/11_클래식_플랫폼_클로그_우먼_1.jpg',
         subcategory: '클로그, 플랫폼',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['79,900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '211122',
@@ -2264,10 +2275,14 @@ export const Products = [
         product_img: '/images/22_산리오캐릭터즈_레드_클래식_클로그_1.jpg',
         subcategory: '클로그, 콜라보',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['79900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '206302',
@@ -2287,10 +2302,14 @@ export const Products = [
         product_img: '/images/23_베이_클로그_1.jpg',
         subcategory: '클로그',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['99,900', '79,900', '20%'],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '210927',
@@ -2587,10 +2606,14 @@ export const Products = [
         ],
         subcategory: '클로그, 콜라보',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['59, 900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '210451',
@@ -2639,10 +2662,14 @@ export const Products = [
         ],
         subcategory: '클로그, 퍼즈, 플랫폼',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['49900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '210933',
@@ -2659,10 +2686,14 @@ export const Products = [
         ],
         subcategory: '클로그, 퍼즈',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['49900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '211143',
@@ -2679,10 +2710,14 @@ export const Products = [
         ],
         subcategory: '클로그, 콜라보, 로퍼',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['59900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '210388',
@@ -2699,10 +2734,14 @@ export const Products = [
         ],
         subcategory: '클로그',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['49900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '210062',
@@ -2716,10 +2755,14 @@ export const Products = [
         product_img: ['/images/113_벨라_클로그_1.jpg', '/images/113_벨라_클로그_2.jpg'],
         subcategory: '클로그',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['49900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '211104',
@@ -2810,10 +2853,14 @@ export const Products = [
         product_img: ['/images/9_스톰프_메리제인_1.jpg', '/images/9_스톰프_메리제인_2.jpg'],
         subcategory: '플랫_스니커즈_로퍼',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['49900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '210668',
@@ -2946,10 +2993,14 @@ export const Products = [
         product_img: ['/images/20_베이_샌들_1.jpg', '/images/20_베이_샌들_2.jpg'],
         subcategory: '플랫폼',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['89,000', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '210108',
@@ -3498,10 +3549,14 @@ export const Products = [
         product_img: ['/images/1_클래식_클로그_키즈_1.jpg', '/images/1_클래식_클로그_키즈_2.jpg'],
         subcategory: '클로그',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['54,900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '206990',
@@ -3527,10 +3582,14 @@ export const Products = [
         ],
         subcategory: '클로그',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['49,900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '207500',
@@ -3590,10 +3649,14 @@ export const Products = [
         ],
         subcategory: '클로그, 퍼즈',
 <<<<<<< HEAD
+<<<<<<< HEAD
         prices: ['64,900', null, null],
 =======
         prices: [null, null, null],
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+        prices: [null, null, null],
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     },
     {
         id: '207019',

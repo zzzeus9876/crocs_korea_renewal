@@ -10,6 +10,7 @@ import { useLocation } from 'react-router-dom';
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const Header = ({ onCartClick, onRecentClick }) => {
 =======
 const Header = () => {
@@ -17,6 +18,9 @@ const Header = () => {
 =======
 const Header = ({ onCartClick, onRecentClick }) => {
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+const Header = ({ onCartClick, onRecentClick }) => {
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     const searchOpen = useCrocsProductStore((state) => state.searchOpen);
     const onOpenSearch = useCrocsProductStore((state) => state.onOpenSearch);
     const onCloseSearch = useCrocsProductStore((state) => state.onCloseSearch);
@@ -76,6 +80,7 @@ const Header = ({ onCartClick, onRecentClick }) => {
                         </div>
                         {/* 장바구니 최근본상품 슬라이드 버튼 */}
 <<<<<<< HEAD
+<<<<<<< HEAD
                         {/* <div className="header_slide_buttons">
                             <button className="cart-button" onClick={onCartClick}>
                                 <img src="./images/cart-slide-icon.svg" alt="" />
@@ -85,6 +90,8 @@ const Header = ({ onCartClick, onRecentClick }) => {
                             </button>
                         </div> */}
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         <div className='header_slide_buttons'>
                             <button className='cart-button' onClick={onCartClick}>
                                 <img src='./images/cart-slide-icon.svg' alt='' />
@@ -93,7 +100,10 @@ const Header = ({ onCartClick, onRecentClick }) => {
                                 <img src='./images/recently-slide-icon.svg' alt='' />
                             </button>
                         </div>
+<<<<<<< HEAD
 >>>>>>> ae3dd3a (2025-11-25(화) 지인 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                     </div>
                 </header>
 

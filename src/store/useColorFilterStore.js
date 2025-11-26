@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // export const useColorFilterStore = create((set) => ({
 //     selectedColors: [],
 
@@ -87,6 +88,8 @@ export const useColorFilterStore = create((set) => ({
         return set({ selectedColors: [] });
     },
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 export const useColorFilterStore = create((set) => ({
     selectedColors: [], // 선택된 컬러들
 
@@ -119,5 +122,8 @@ export const useColorFilterStore = create((set) => ({
 
     // 모든 컬러 초기화
     clearColors: () => set({ selectedColors: [] }),
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 }));

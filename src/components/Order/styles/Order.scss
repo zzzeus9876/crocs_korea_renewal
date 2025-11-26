@@ -5,6 +5,7 @@
     margin: 0 auto;
     padding: 4rem 2rem;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 
 .main-title {
@@ -969,6 +970,125 @@
         color: #000;
     }
 
+=======
+
+    .main-title {
+        text-align: center;
+    }
+
+    .order-content {
+        display: grid;
+        grid-template-columns: 1fr 500px;
+        gap: 4rem;
+    }
+
+    .order-left {
+        width: 100%;
+    }
+
+    .order-right {
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+    }
+
+    .order-progress {
+        max-width: 600px;
+        margin: 8rem auto;
+        padding: 1rem 0;
+    }
+
+    .progress-bar {
+        @include g.flex($jc: center, $ai: flex-start);
+        position: relative;
+    }
+
+    .progress-step {
+        @include g.flex($jc: center, $ai: center, $fd: column);
+        position: relative;
+        z-index: 2;
+        flex: 0 0 auto;
+
+        &.completed,
+        &.current {
+            .step-circle {
+                background-color: g.$mainColor;
+                border-color: g.$mainColor;
+            }
+
+            .step-label {
+                color: #000;
+                font-weight: 700;
+            }
+        }
+
+        &.pending {
+            .step-circle {
+                background-color: #fff;
+                border-color: #ccc;
+            }
+
+            .step-label {
+                color: #ccc;
+                font-weight: 400;
+            }
+        }
+    }
+
+    .step-circle {
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        border: 0.3rem solid g.$mainColor;
+        background-color: g.$mainColor;
+        transition: all 0.3s ease;
+    }
+
+    .step-label {
+        font-size: 1.4rem;
+        font-weight: bold;
+        white-space: nowrap;
+        margin-top: 0.8rem;
+    }
+
+    .progress-line {
+        flex: 0 0 18rem;
+        height: 0.3rem;
+        margin: 0 1rem;
+        margin-top: 0.6rem;
+
+        &.active {
+            background-color: g.$mainColor;
+        }
+
+        &.inactive {
+            background-color: #ccc;
+        }
+    }
+
+    .order-form {
+        width: 100%;
+    }
+
+    .form-section {
+        height: auto !important;
+        margin-bottom: 4rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid #e0e0e0;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        color: #000;
+    }
+
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     .section-description {
         font-size: 1.4rem;
         color: #666;
@@ -1656,6 +1776,9 @@
             height: 0.3rem;
             margin: 0 0.4rem;
         }
+<<<<<<< HEAD
 >>>>>>> 19a7efd (2025-11-25(화) 지인 - v03)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     }
 }

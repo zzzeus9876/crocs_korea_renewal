@@ -2,10 +2,14 @@
 
 .product_list_wrap {
 <<<<<<< HEAD
+<<<<<<< HEAD
     @include g.flex($ai: unset, $jc: unset);
 =======
     @include g.flex($ai: unset);
 >>>>>>> 4f06edf (2025-11-25(화) 초원 - 지비츠 리스트 페이지 연결 페이지 app.js 수정)
+=======
+    @include g.flex($ai: unset);
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
     .list_left {
         .left_nav_wrap {
             color: g.$subColor;
@@ -21,9 +25,12 @@
             background-color: #fafafd;
             .filter-menu__wrap {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 gap: 2rem;
 =======
 >>>>>>> 4f06edf (2025-11-25(화) 초원 - 지비츠 리스트 페이지 연결 페이지 app.js 수정)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             }
             .filter_list_menu {
                 width: 100%;
@@ -76,12 +83,17 @@
                 }
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
             // .pager {
             // }
 =======
             .pager {
             }
 >>>>>>> 4f06edf (2025-11-25(화) 초원 - 지비츠 리스트 페이지 연결 페이지 app.js 수정)
+=======
+            .pager {
+            }
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         }
     }
 }

@@ -3,7 +3,10 @@ import React from 'react';
 // import Title from '../components/Title';
 =======
 import Title from '../components/Title';
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 import './scss/brand.scss';
 
 const Brand = () => {
@@ -17,13 +20,17 @@ const Brand = () => {
                 {/* <Title title="brand" /> */}
 =======
                 <Title title="brand" />
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
 
                 <div className="about_crocs_wrap">
                     <div className="img_box">
                         <img src="/images/brand_img_02.png" alt="brand_img" />
                     </div>
                     <div className="text_box">
+<<<<<<< HEAD
 <<<<<<< HEAD
                         <h3 className="about_title">BRAND CROCS</h3>
                         <div className="about_text">
@@ -59,6 +66,9 @@ const Brand = () => {
 =======
                         <h4 className="about_title">BRAND CROCS</h4>
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+                        <h4 className="about_title">BRAND CROCS</h4>
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
                         <div className="about_text">
                             미국 콜로라도 볼더에서 소박하면서도 편안한 보트 슈즈로 시작한 크록스™
                             슈즈는 오늘날 수백스타일의 남성용, 여성용, 어린이용 스타일이 전세계에서
@@ -75,6 +85,7 @@ const Brand = () => {
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
                 <div className="about_crocs_wrap">
                     <div className="text_box">
@@ -116,6 +127,8 @@ const Brand = () => {
                 </div>
 =======
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
             </div>
         </div>
     );

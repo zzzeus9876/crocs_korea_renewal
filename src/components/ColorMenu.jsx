@@ -62,6 +62,7 @@ export default function ColorMenu() {
     const colors = [
         { name: '블랙', class: 'black', value: 'rgb(0, 0, 0)' },
 <<<<<<< HEAD
+<<<<<<< HEAD
         {
             name: '그레이',
             class: 'gray',
@@ -111,6 +112,8 @@ export default function ColorMenu() {
         },
         { name: '하늘', class: 'sky-blue', value: ['rgb(210, 244, 255)', 'rgb(164, 191, 200)'] },
 =======
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         { name: '그레이', class: 'gray', value: 'rgb(128, 128, 128)' },
         { name: '화이트', class: 'white', value: 'rgb(255, 255, 255)' },
         { name: '빨강', class: 'red', value: 'rgb(220, 43, 43)' },
@@ -123,7 +126,10 @@ export default function ColorMenu() {
         { name: '연두', class: 'light-green', value: 'rgba(142, 240, 50)' },
         { name: '녹색', class: 'green', value: 'rgb(34, 139, 34)' },
         { name: '하늘', class: 'sky-blue', value: 'rgb(210, 244, 255)' },
+<<<<<<< HEAD
 >>>>>>> da04fa9 (2025-11-25(화) 채아 - v01)
+=======
+>>>>>>> 780a81759eccba996f9bd1cc453c50c360e3b11f
         { name: '파랑', class: 'blue', value: 'rgb(0, 8, 255)' },
         { name: '네이비', class: 'navy', value: 'rgb(23, 29, 96)' },
     ];
