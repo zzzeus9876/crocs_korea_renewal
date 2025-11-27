@@ -1,15 +1,17 @@
-@use "../../../App.scss" as g;
+@use '../../../App.scss' as g;
 
 .order-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 2rem;
 
+    // Title
     .main-title {
         text-align: center;
         margin-top: 10rem;
     }
 
+    // Layout
     .order-content {
         display: grid;
         grid-template-columns: 1fr 540px;
@@ -26,6 +28,7 @@
         height: fit-content;
     }
 
+    // Progress Bar
     .order-progress {
         max-width: 600px;
         margin: 8rem auto;
@@ -100,6 +103,7 @@
         }
     }
 
+    // Order Form
     .order-form {
         width: 100%;
     }
@@ -145,7 +149,7 @@
         margin-bottom: 0.8rem;
 
         &.required::after {
-            content: " *";
+            content: ' *';
             color: g.$mainColor;
         }
     }
@@ -161,36 +165,48 @@
         }
     }
 
+    // Form Inputs
     .form-input {
-        width: 100%;
-        height: 4rem;
-        padding: 1.2rem 1.5rem;
-        font-size: 1.4rem;
-        border: 1px solid #ddd;
-        border-radius: 50px;
+        width: 100% !important;
+        height: 4rem !important;
+        padding: 1.2rem 1.5rem !important;
+        font-size: 1.4rem !important;
+        border: 1px solid #ddd !important;
+        border-radius: 50px !important;
+        background-color: #fff !important;
+        color: #333 !important;
+        box-sizing: border-box !important;
+        display: inline-block !important;
         transition: border-color 0.2s;
 
         &:focus {
-            outline: none;
-            border-color: g.$mainColor;
+            outline: none !important;
+            border-color: g.$mainColor !important;
         }
 
         &::placeholder {
-            color: #aaa;
+            color: #aaa !important;
+        }
+
+        &[readonly] {
+            background-color: #f5f5f5 !important;
+            cursor: default !important;
         }
     }
 
     .form-select {
-        padding: 1rem;
-        font-size: 1.3rem;
-        border: 1px solid #ddd;
-        border-radius: 50px;
-        background-color: white;
+        padding: 1rem !important;
+        font-size: 1.3rem !important;
+        border: 1px solid #ddd !important;
+        border-radius: 50px !important;
+        background-color: white !important;
+        color: #333 !important;
+        box-sizing: border-box !important;
         cursor: pointer;
 
         &:focus {
-            outline: none;
-            border-color: g.$mainColor;
+            outline: none !important;
+            border-color: g.$mainColor !important;
         }
     }
 
@@ -207,18 +223,26 @@
         font-weight: 500;
     }
 
-    // .email-select {
-    //   width: 12rem;
-    //   padding: 1.2rem 1.5rem;
-    // }
     .email-select {
-        width: 12rem;
-        padding: 1.2rem 3rem 1.2rem 1.5rem;
-        appearance: none; // 기본 화살표 제거
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 1.5rem center;
-        background-size: 1rem;
+        width: 12rem !important;
+        padding: 1.2rem 3rem 1.2rem 1.5rem !important;
+        appearance: none !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+        background-repeat: no-repeat !important;
+        background-position: right 1.5rem center !important;
+        background-size: 1rem !important;
+        background-color: white !important;
+        border: 1px solid #ddd !important;
+        border-radius: 50px !important;
+        font-size: 1.3rem !important;
+        color: #333 !important;
+        box-sizing: border-box !important;
+        cursor: pointer !important;
+
+        &:focus {
+            outline: none !important;
+            border-color: g.$mainColor !important;
+        }
     }
 
     // Phone
@@ -239,6 +263,7 @@
         font-weight: 500;
     }
 
+    // Delivery Type
     .delivery-type-group {
         @include g.flex($jc: flex-start, $ai: center, $gap: 3rem);
         margin-bottom: 2.5rem;
@@ -249,8 +274,13 @@
         cursor: pointer;
         font-size: 1.4rem;
 
-        input[type="radio"] {
-            cursor: pointer;
+        input[type='radio'] {
+            all: revert !important;
+            width: 1.6rem !important;
+            height: 1.6rem !important;
+            cursor: pointer !important;
+            margin: 0 !important;
+            accent-color: g.$mainColor;
         }
     }
 
@@ -267,19 +297,21 @@
     }
 
     .btn-postcode {
-        padding: 1.2rem 2rem;
-        font-size: 1.4rem;
-        font-weight: 500;
-        border-radius: 50px;
+        padding: 1.2rem 2rem !important;
+        font-size: 1.4rem !important;
+        font-weight: 500 !important;
+        border-radius: 50px !important;
         cursor: pointer;
         transition: all 0.2s;
-        border: 1px solid #ddd;
-        background-color: #fff;
+        border: 1px solid #ddd !important;
+        background-color: #fff !important;
+        color: #333 !important;
         white-space: nowrap;
+        box-sizing: border-box !important;
 
         &:hover {
-            background-color: #333;
-            color: #fff;
+            background-color: #333 !important;
+            color: #fff !important;
         }
     }
 
@@ -321,19 +353,21 @@
     }
 
     .btn-coupon {
-        padding: 1.2rem 2rem;
-        font-size: 1.4rem;
-        font-weight: 500;
-        border-radius: 50px;
+        padding: 1.2rem 2rem !important;
+        font-size: 1.4rem !important;
+        font-weight: 500 !important;
+        border-radius: 50px !important;
         cursor: pointer;
         transition: all 0.2s;
-        border: 1px solid #ddd;
-        background-color: #fff;
+        border: 1px solid #ddd !important;
+        background-color: #fff !important;
+        color: #333 !important;
         white-space: nowrap;
+        box-sizing: border-box !important;
 
         &:hover {
-            background-color: #333;
-            color: #fff;
+            background-color: #333 !important;
+            color: #fff !important;
         }
     }
 
@@ -360,7 +394,7 @@
         color: #e74c3c;
     }
 
-    // Pay
+    // Payment
     .payment-methods {
         display: flex;
         gap: 1rem;
@@ -368,24 +402,20 @@
     }
 
     .payment-btn {
-        padding: 1.2rem 3rem;
-        font-size: 1.4rem;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 0.4rem;
+        padding: 1.2rem 3rem !important;
+        font-size: 1.4rem !important;
+        background-color: #fff !important;
+        border: 1px solid #ddd !important;
+        border-radius: 0.4rem !important;
         cursor: pointer;
         transition: all 0.2s;
-
-        // &:hover {
-        //     background-color: #333;
-        //     color: #fff;
-        //     border-color: #333;
-        // }
+        color: #333 !important;
+        box-sizing: border-box !important;
 
         &.active {
-            background-color: #333;
-            color: #fff;
-            border-color: #333;
+            background-color: #333 !important;
+            color: #fff !important;
+            border-color: #333 !important;
         }
     }
 
@@ -408,9 +438,13 @@
         cursor: pointer;
         margin-bottom: 1.5rem;
 
-        input[type="checkbox"] {
-            margin-top: 0.3rem;
-            cursor: pointer;
+        input[type='checkbox'] {
+            all: revert !important;
+            width: 1.8rem !important;
+            height: 1.8rem !important;
+            margin-top: 0.3rem !important;
+            cursor: pointer !important;
+            accent-color: g.$mainColor;
         }
     }
 
@@ -458,8 +492,7 @@
         }
     }
 
-    // order
-
+    // Order Summary
     .order-summary {
         background-color: #f8f9fa;
         padding: 2.5rem;
@@ -475,7 +508,7 @@
         color: #000;
     }
 
-    // Product
+    // Product List
     .product-list {
         margin-bottom: 2.5rem;
     }
@@ -521,8 +554,6 @@
         font-weight: 700;
         color: #000;
         margin-bottom: 0.5rem;
-
-        // 제품명을 한 줄로 제한하고 넘치면 말줄임표 표시
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -535,29 +566,30 @@
         margin-bottom: 0.3rem;
     }
 
-    // 수량조절
+    // Quantity Control
     .quantity-control {
         @include g.flex($jc: flex-start, $ai: center, $gap: 1rem);
         margin-top: 0.8rem;
     }
 
     .quantity-btn {
-        width: 2.8rem;
-        height: 2.8rem;
+        width: 2.8rem !important;
+        height: 2.8rem !important;
         @include g.flex($jc: center, $ai: center);
-        border: 1px solid #ddd;
-        background-color: #fff;
-        border-radius: 0.4rem;
+        border: 1px solid #ddd !important;
+        background-color: #fff !important;
+        border-radius: 0.4rem !important;
         cursor: pointer;
-        font-size: 1.6rem;
-        font-weight: 600;
-        color: #333;
+        font-size: 1.6rem !important;
+        font-weight: 600 !important;
+        color: #333 !important;
         transition: all 0.2s;
+        box-sizing: border-box !important;
 
         &:hover:not(:disabled) {
-            background-color: g.$mainColor;
-            color: white;
-            border-color: g.$mainColor;
+            background-color: g.$mainColor !important;
+            color: white !important;
+            border-color: g.$mainColor !important;
         }
 
         &:active:not(:disabled) {
@@ -565,10 +597,10 @@
         }
 
         &:disabled {
-            background-color: #f5f5f5;
-            color: #ccc;
+            background-color: #f5f5f5 !important;
+            color: #ccc !important;
             cursor: not-allowed;
-            border-color: #e0e0e0;
+            border-color: #e0e0e0 !important;
         }
     }
 
@@ -590,24 +622,25 @@
         white-space: nowrap;
     }
 
-    // 삭제버튼
+    // Remove Button
     .remove-btn {
-        width: 2.4rem;
-        height: 2.4rem;
+        width: 2.4rem !important;
+        height: 2.4rem !important;
         @include g.flex($jc: center, $ai: center);
-        border: 1px solid #ddd;
-        background-color: #fff;
-        border-radius: 0.4rem;
+        border: 1px solid #ddd !important;
+        background-color: #fff !important;
+        border-radius: 0.4rem !important;
         cursor: pointer;
-        font-size: 1.4rem;
-        color: #999;
+        font-size: 1.4rem !important;
+        color: #999 !important;
         transition: all 0.2s;
         margin-top: 0.8rem;
+        box-sizing: border-box !important;
 
         &:hover {
-            background-color: #e74c3c;
-            color: white;
-            border-color: #e74c3c;
+            background-color: #e74c3c !important;
+            color: white !important;
+            border-color: #e74c3c !important;
         }
 
         &:active {
@@ -615,7 +648,7 @@
         }
     }
 
-    // 가격
+    // Price Summary
     .price-summary {
         padding: 2rem;
         background-color: white;
@@ -679,23 +712,26 @@
         color: g.$mainColor;
     }
 
-    // Checkout
+    // Checkout Button
     .btn-checkout {
-        width: 100%;
-        padding: 1.8rem;
-        font-size: 1.6rem;
-        font-weight: 600;
-        color: white;
-        background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%);
-        border: none;
-        border-radius: 0.8rem;
-        box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3);
+        width: 100% !important;
+        padding: 1.8rem !important;
+        font-size: 1.6rem !important;
+        text-align: center !important;
+        font-weight: 600 !important;
+        color: white !important;
+        background: linear-gradient(135deg, g.$mainColor 0%, #b0d96e 100%) !important;
+        border: none !important;
+        border-radius: 0.8rem !important;
+        box-shadow: 0 4px 15px rgba(102, 222, 27, 0.3) !important;
         cursor: pointer;
         transition: all 0.2s;
+        box-sizing: border-box !important;
+        display: block !important;
 
         &:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 222, 27, 0.4);
+            box-shadow: 0 6px 20px rgba(102, 222, 27, 0.4) !important;
         }
 
         &:active {
@@ -703,7 +739,7 @@
         }
     }
 
-    // Order Complete Message - CustomerService 스타일
+    // Order Complete Message
     .order-complete-wrapper {
         max-width: 800px;
         margin: 4rem auto;
@@ -751,7 +787,7 @@
         }
     }
 
-    //반응형
+    // Responsive
     @media (max-width: 1024px) {
         .order-content {
             grid-template-columns: 1fr;
@@ -770,14 +806,12 @@
         }
 
         .email-select {
-            width: 100%;
+            width: 100% !important;
         }
     }
 
     @media (max-width: 768px) {
-        .order-container {
-            padding: 2rem 1.5rem;
-        }
+        padding: 2rem 1.5rem;
 
         .order-title {
             font-size: 2.4rem;
@@ -827,6 +861,7 @@
         .remove-btn {
             margin-top: 0;
         }
+
         .order-progress {
             margin: 4rem auto;
             padding: 0.5rem 0;
