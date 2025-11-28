@@ -4,7 +4,7 @@ import { auth, db, googleProvider } from '../firebase/firebase';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 export const joinStore = create((set, get) => ({
-    onJoin: async ({ name, phone, email, password, birthday, gender }) => {
+    onJoin: async ({ name, phone, email, password, birthday, gender, navigate }) => {
         try {
             // 1. Firebase Authentication으로 사용자 생성
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -45,9 +45,27 @@ export const joinStore = create((set, get) => ({
             set({ user: userData });
             console.log('회원가입 완료:', email);
             alert('회원가입 성공! 크록스 코리아 웰컴 쿠폰이 발급되었습니다.');
+            
+            // 4. /userinfo 페이지로 이동
+            if (navigate) {
+                navigate('/userinfo');
+            }
         } catch (err) {
             console.error('회원가입 오류:', err);
             alert(err.message);
         }
     },
+    // 이용약관 팝업창
+    popUp: {
+        show: false,
+        // message: '',
+    },
+
+    onPolicyPopup: () => {
+        set({ popUp: { show: true } });
+    },
+
+    // 이용약관 팝업창 끄기
+
+    hidePopup: () => set({ popUp: { show: false, message: '' } }),
 }));
