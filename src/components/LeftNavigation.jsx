@@ -6,8 +6,8 @@ import ColorMenu from './ColorMenu';
 import PriceMenu from './PriceMenu';
 import './scss/leftNavigation.scss';
 import { useCrocsSizeStore } from '../store/useCrocsSizeStore';
-import { useColorFilterStore } from '../store/useColorFilterStore';
 import { useParams } from 'react-router-dom';
+import { useColorFilterStore } from '../store/useColorFilterStore';
 
 export default function LeftNavigation({
     category,

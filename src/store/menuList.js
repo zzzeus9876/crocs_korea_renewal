@@ -29,6 +29,11 @@ export const menuList = [
             },
             { key: 'fuzz', label: 'FUZZ', imgUrl: '/images/13_클래식_언퍼게터블_클로그_1.png' },
             {
+                key: 'jibbitz',
+                label: 'JIBBITZ',
+                imgUrl: '/images/3_인디_럭스_실버_5개_세트.jpg',
+            },
+            {
                 key: 'collabs',
                 label: 'COLLABS',
                 imgUrl: '/images/6_시몬_로샤_x_크록스_발레리나_플랫폼_1.jpg',
@@ -105,6 +110,14 @@ export const menuList = [
                 label: 'Sandals / Flats',
                 imgUrl: '/images/5_인어공주_이사벨라_샌들_키즈_1.jpg',
             },
+        ],
+    },
+    {
+        key: 'jibbitz',
+        label: 'JIBBITZ',
+        submenu_list: [
+            { key: 'pack', label: 'PACK', imgUrl: '/images/1_화이트_펄_5개_세트.jpg' },
+            { key: 'single', label: 'SINGLE', imgUrl: '/images/9_허기츠_블랙_벨벳_캣_0.jpg' },
         ],
     },
     {
