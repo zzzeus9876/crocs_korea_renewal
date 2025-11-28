@@ -1,14 +1,13 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-// import { Products } from '../../data/CrocsProductsData.js';
 import OrderForm from './OrderForm.jsx';
 import OrderSummary from './OrderSummary.jsx';
 import OrderProgress from './OrderProgress.jsx';
 import Title from '../Title.jsx';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { loginAuthStore } from '../../store/loginStore';
+import { useProductStore } from '../../store/useProductStore';
 import { db } from '../../firebase/firebase';
 import { collection, addDoc, doc, updateDoc, arrayUnion } from 'firebase/firestore';
-
 import './styles/Order.scss';
 
 function Order() {
@@ -19,9 +18,14 @@ function Order() {
 
     // 로그인 사용자 정보 가져오기
     const { user } = loginAuthStore();
+    const applyCoupon = loginAuthStore((state) => state.applyCoupon);
 
     // 장바구니에서 받은 주문데이터
     const cartOrderData = location.state || null;
+
+    // 쿠폰 관련 상태 (OrderForm에서 전달받음)
+    const [selectedCoupon, setSelectedCoupon] = useState(null);
+    const [discountAmount, setDiscountAmount] = useState(0);
 
     // Cart에서 받은 데이터가 없으면 즉시 Cart로 리다이렉트
     useEffect(() => {
@@ -31,13 +35,12 @@ function Order() {
             cartOrderData.orderProducts.length === 0
         ) {
             alert('주문할 상품이 없습니다. 장바구니로 이동합니다.');
-            navigate('/cart', { replace: true }); // replace: true로 히스토리 교체
+            navigate('/cart', { replace: true });
         }
     }, [cartOrderData, navigate]);
 
     // 초기 상품 데이터 생성 (useMemo로 한 번만 생성)
     const initialProducts = useMemo(() => {
-        // Cart에서 전달받은 데이터가 있으면 사용
         if (cartOrderData && cartOrderData.orderProducts) {
             return cartOrderData.orderProducts.map((item, index) => ({
                 id: item.id || index + 1,
@@ -50,7 +53,6 @@ function Order() {
                 category: item.cate || '일반',
             }));
         }
-
         return [];
     }, [cartOrderData]);
 
@@ -62,13 +64,15 @@ function Order() {
         shippingFee: 2500,
     };
 
-    // ⭐ 자동 리다이렉트 제거 (handleRemoveProduct에서 수동으로 처리)
-    // 사용자가 마지막 상품 삭제 시 확인 메시지로 제어
-
     // 총 상품 금액 계산
     const calculateSubtotal = () => {
-        if (!products || products.length === 0) return 0;
-        return products.reduce((sum, product) => sum + product.price * product.quantity, 0);
+        if (!products || products.length === 0) {
+            console.log('⚠️ calculateSubtotal: products 없음');
+            return 0;
+        }
+        const subtotal = products.reduce((sum, product) => sum + product.price * product.quantity, 0);
+        console.log('✅ calculateSubtotal:', subtotal, 'products:', products.length);
+        return subtotal;
     };
 
     // 배송비 계산
@@ -77,30 +81,34 @@ function Order() {
         return subtotal >= shippingInfo.freeShippingThreshold ? 0 : shippingInfo.shippingFee;
     };
 
-    // 최종 결제 금액
+    // 최종 결제 금액 (쿠폰 할인 적용)
     const calculateTotal = () => {
-        return calculateSubtotal() + calculateShipping();
+        const subtotal = calculateSubtotal();
+        const shipping = calculateShipping();
+        return Math.max(0, subtotal + shipping - discountAmount);
+    };
+
+    // OrderForm에서 쿠폰 정보 업데이트 받기
+    const handleCouponUpdate = (coupon, discount) => {
+        setSelectedCoupon(coupon);
+        setDiscountAmount(discount);
     };
 
     // 상품 삭제
     const handleRemoveProduct = (productId) => {
         if (!products) return;
 
-        // ⭐ 마지막 상품 삭제 시 확인
         if (products.length === 1) {
             const confirmed = window.confirm(
                 '모든 상품을 삭제하면 주문이 취소됩니다.\n장바구니로 이동하시겠습니까?'
             );
 
             if (confirmed) {
-                // 확인 → 장바구니로 이동
                 navigate('/cart', { replace: true });
             }
-            // 취소 → 아무것도 안 함 (삭제하지 않음)
             return;
         }
 
-        // 마지막 상품이 아니면 정상 삭제
         setProducts(products.filter((product) => product.id !== productId));
     };
 
@@ -124,52 +132,25 @@ function Order() {
         );
     };
 
-    // // 주문 완료
-    // const handleOrderComplete = () => {
-    //     if (orderFormRef.current && !orderFormRef.current.validateForm()) {
-    //         return;
-    //     }
-
-    //     // 페이지 최상단으로 스크롤
-    //     window.scrollTo({ top: 0, behavior: 'smooth' });
-
-    //     setIsOrderComplete(true);
-
-    //     // 주문 완료 후 장바구니 비우기
-    //     if (cartOrderData) {
-    //         localStorage.setItem('cartIds', JSON.stringify([]));
-
-    //         // Zustand store의 장바구니도 비우기 (store가 있다면)
-    //         // useCartStore.getState().clearCart(); // 이 부분은 store 구조에 따라 조정
-    //     }
-
-    //     // 회원/비회원에 따라 다른 페이지로 이동
-    //     setTimeout(() => {
-    //         if (user) {
-    //             // 회원: UserInfo 페이지로 이동
-    //             navigate('/userinfo', { replace: true });
-    //         } else {
-    //             // 비회원: 메인 페이지로 이동
-    //             navigate('/', { replace: true });
-    //         }
-    //     }, 3000);
-    // };
-
     // 주문 완료
     const handleOrderComplete = async () => {
         if (orderFormRef.current && !orderFormRef.current.validateForm()) {
             return;
         }
 
-        // 페이지 최상단으로 스크롤
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         try {
+            // 쿠폰이 선택되어 있으면 사용 처리
+            if (selectedCoupon && user) {
+                await applyCoupon(selectedCoupon.id);
+            }
+
             // 주문 데이터 생성
             const orderData = {
                 orderId: `ORDER_${Date.now()}`,
                 orderDate: new Date(),
-                status: 'pending', // pending, processing, shipped, delivered, cancelled
+                status: 'pending',
                 products: products.map((p) => ({
                     id: p.id,
                     name: p.name,
@@ -181,33 +162,39 @@ function Order() {
                 })),
                 subtotal: calculateSubtotal(),
                 shipping: calculateShipping(),
+                discount: discountAmount,
                 total: calculateTotal(),
+                usedCoupon: selectedCoupon
+                    ? {
+                          id: selectedCoupon.id,
+                          name: selectedCoupon.name,
+                          code: selectedCoupon.code,
+                          discount: selectedCoupon.discount,
+                          type: selectedCoupon.type,
+                      }
+                    : null,
                 userId: user?.uid || null,
                 userEmail: user?.email || null,
                 userName: user?.name || null,
             };
 
             if (user) {
-                // 로그인 사용자: users 컬렉션에 주문 내역 추가
                 const userRef = doc(db, 'users', user.uid);
                 await updateDoc(userRef, {
                     orders: arrayUnion(orderData),
                 });
                 console.log('주문 내역이 사용자 정보에 저장되었습니다.');
             } else {
-                // 비회원: orders 컬렉션에 별도 저장
                 await addDoc(collection(db, 'orders'), orderData);
                 console.log('비회원 주문 내역이 저장되었습니다.');
             }
 
             setIsOrderComplete(true);
 
-            // 주문 완료 후 장바구니 비우기
             if (cartOrderData) {
                 localStorage.setItem('cartIds', JSON.stringify([]));
             }
 
-            // 회원/비회원에 따라 다른 페이지로 이동
             setTimeout(() => {
                 if (user) {
                     navigate('/userinfo', { replace: true });
@@ -231,7 +218,11 @@ function Order() {
             {!isOrderComplete ? (
                 <div className="order-content">
                     <div className="order-left">
-                        <OrderForm ref={orderFormRef} />
+                        <OrderForm 
+                            ref={orderFormRef} 
+                            subtotal={calculateSubtotal()}
+                            onCouponUpdate={handleCouponUpdate}
+                        />
                     </div>
 
                     <div className="order-right">
@@ -239,6 +230,7 @@ function Order() {
                             products={products}
                             subtotal={calculateSubtotal()}
                             shipping={calculateShipping()}
+                            discount={discountAmount}
                             total={calculateTotal()}
                             freeShippingThreshold={shippingInfo.freeShippingThreshold}
                             isOrderComplete={isOrderComplete}
