@@ -92,8 +92,10 @@ function App() {
                 <Route path="/product/:id" element={<CrocsProductDetail />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/wishlist" element={<WishList />} />
+                 <Route path="/jibbitz/detail/:id" element={<JibbitzProductDetail />} />
+                <Route path="/jibbitz/:filter" element={<JibbitzProductListPage />} />
                 <Route path="/jibbitz" element={<JibbitzProductListPage />} />
-                <Route path="/jibbitz/:id" element={<JibbitzProductDetail />} />
+                <Route path="/all/jibbitz" element={<JibbitzProductListPage />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/order" element={<Order />} />
                 <Route path="/coupons" element={<Coupons />} />
