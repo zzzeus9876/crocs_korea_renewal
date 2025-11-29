@@ -20,10 +20,10 @@ const SlideCircle = ({ showDot }) => {
 
   // 상품디테일페이지이동
   const navigate = useNavigate();
-  console.log("확인2", items);
+  // console.log("확인2", items);
 
   const onOpenProductMore = (id) => {
-    console.log("확인1", id);
+    // console.log("확인1", id);
     navigate(`/product/${id}`);
     // e.preventDefault();
   };

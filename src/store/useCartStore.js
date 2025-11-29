@@ -24,40 +24,45 @@ export const useCartStore = create(
         }
 
         set((state) => {
-  const merged = [...state.cartProducts];
+          const merged = [...state.cartProducts];
 
-  cartItems.forEach((item) => {
-    const existingIndex = merged.findIndex(
-      (p) => p.id === item.id && p.size === (item.size || null)
-    );
+          cartItems.forEach((item) => {
+            const existingIndex = merged.findIndex(
+              (p) => p.id === item.id && p.size === (item.size || null)
+            );
 
-    const p = item.price
-      ? Number(String(item.price).replace(/,/g, ""))
-      : item.prices?.length > 0
-      ? Number(String(item.prices[1] || item.prices[0] || "0").replace(/,/g, ""))
-      : 0;
+            const p = item.price
+              ? Number(String(item.price).replace(/,/g, ""))
+              : item.prices?.length > 0
+              ? Number(
+                  String(item.prices[1] || item.prices[0] || "0").replace(
+                    /,/g,
+                    ""
+                  )
+                )
+              : 0;
 
-    if (existingIndex === -1) {
-      merged.push({
-        id: item.id,
-        name: item.title || item.name,
-        price: p,
-        product_img:
-          Array.isArray(item.imageUrl) ? item.imageUrl[0] :
-          Array.isArray(item.product_img) ? item.product_img[0] :
-          item.product_img || "",
-        quantity: item.count || item.quantity || 1,
-        size: item.size || null,
-      });
-    }
-  });
+            if (existingIndex === -1) {
+              merged.push({
+                id: item.id,
+                name: item.title || item.name,
+                price: p,
+                product_img: Array.isArray(item.imageUrl)
+                  ? item.imageUrl[0]
+                  : Array.isArray(item.product_img)
+                  ? item.product_img[0]
+                  : item.product_img || "",
+                quantity: item.count || item.quantity || 1,
+                size: item.size || null,
+              });
+            }
+          });
 
-  return {
-    cartProducts: merged,
-    selectedProducts: new Set(merged.map((p) => p.id)),
-  };
-});
-
+          return {
+            cartProducts: merged,
+            selectedProducts: new Set(merged.map((p) => p.id)),
+          };
+        });
       },
 
       // 초기화 - localstorage에서 불러오기
@@ -237,7 +242,6 @@ export const useCartStore = create(
           };
         });
       },
-
 
       // 개별 선택
       handleSelectProduct: (id) => {
@@ -444,6 +448,7 @@ export const useCartStore = create(
       // 장바구니 전체 비우기
       clearCart: () => {
         localStorage.setItem("cartIds", JSON.stringify([]));
+        console.log("clearCart 함수 실행");
 
         set({
           cartProducts: [],
@@ -476,6 +481,5 @@ export const useCartStore = create(
         );
       },
     }
-
   )
 );
