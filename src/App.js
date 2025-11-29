@@ -84,6 +84,7 @@ function App() {
                 <Route path="/Brand" element={<Brand />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/join" element={<Join />} />
+                <Route path="/all" element={<ProductListPage />} />
                 <Route path="/:cate/:subcategory?" element={<ProductListPage />} />
                 <Route path="/crocsclub" element={<CrocsClubPopup />} />
                 <Route path="/userinfo" element={<UserInfo />} />
@@ -92,7 +93,7 @@ function App() {
                 <Route path="/product/:id" element={<CrocsProductDetail />} />
                 <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path="/wishlist" element={<WishList />} />
-                 <Route path="/jibbitz/detail/:id" element={<JibbitzProductDetail />} />
+                <Route path="/jibbitz/detail/:id" element={<JibbitzProductDetail />} />
                 <Route path="/jibbitz/:filter" element={<JibbitzProductListPage />} />
                 <Route path="/jibbitz" element={<JibbitzProductListPage />} />
                 <Route path="/all/jibbitz" element={<JibbitzProductListPage />} />
