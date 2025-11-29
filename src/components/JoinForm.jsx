@@ -128,6 +128,10 @@ const JoinForm = () => {
     // 유효성 검사
     const validateForm = () => {
         if (!formData.ID) return alert('ID를 입력해주세요.');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.ID)) {
+            return alert('ID는 이메일 형식으로 입력해주세요.');
+        }
         if (!password) return alert('비밀번호를 입력해주세요.');
         if (!passwordValid) return alert('비밀번호 형식이 올바르지 않습니다.');
         if (!passwordMatch) return alert('비밀번호가 일치하지 않습니다.');
@@ -174,8 +178,9 @@ const JoinForm = () => {
                         필수정보<span>*</span>
                     </p>
                     <input
-                        type="text"
+                        type="email"
                         name="ID"
+                        required
                         placeholder="ID"
                         onChange={handleChange}
                         className="required_input"
@@ -198,7 +203,7 @@ const JoinForm = () => {
                                 : '✗ 사용할 수 없는 비밀번호입니다.'}
                         </p>
                     )}
-                    <p className="required_content">영문소문자/숫자, 4-16자</p>
+                    <p className="required_content">영문소문자/숫자, 6-16자</p>
                     <input
                         type="password"
                         name="passwordConfirm"
@@ -213,12 +218,12 @@ const JoinForm = () => {
                                 : '✗ 비밀번호가 일치하지 않습니다.'}
                         </p>
                     )}
-                    <p className="required_content">영문소문자/숫자, 4-16자</p>
+                    <p className="required_content">영문소문자/숫자, 6-16자</p>
                     <div className="email-input-group">
                         <input
-                            type="email"
+                            type="text"
                             name="email"
-                            placeholder="email"
+                            placeholder=""
                             onChange={(e) => setEmailLocal(e.target.value)}
                             className="required_input"
                         />
@@ -226,7 +231,7 @@ const JoinForm = () => {
                         {emailDomain === '직접입력' ? (
                             <input
                                 type="text"
-                                placeholder="도메인 입력"
+                                placeholder=""
                                 value={customEmailDomain}
                                 onChange={(e) => setCustomEmailDomain(e.target.value)}
                                 className="required_input"
@@ -271,7 +276,7 @@ const JoinForm = () => {
                 </div>
             </form>
             <Policy agreeTerms={agreeTerms} setAgreeTerms={setAgreeTerms} />
-            <button type="submit" form="join_form_id" className="join_btn" onClick={handleSubmit}>
+            <button type="submit" form="join_form_id" className="join_btn">
                 Join
             </button>
         </div>
