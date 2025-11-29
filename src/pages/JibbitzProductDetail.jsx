@@ -15,10 +15,10 @@ const JibbitzProductDetail = () => {
   const [JibbitzProduct, setJibbitzProduct] = useState(null);
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
 
-  // ⭐ 선택된 상품 리스트 (배열로 관리)
+  // 선택된 상품 리스트 (배열로 관리)
   const [selectedProducts, setSelectedProducts] = useState([]);
 
-  // ⭐ localStorage에서 불러오기 또는 기본 상품 추가
+  // localStorage에서 불러오기 또는 기본 상품 추가
   useEffect(() => {
     const savedProducts = localStorage.getItem(`selectedProducts_${id}`);
     if (savedProducts) {
@@ -31,7 +31,7 @@ const JibbitzProductDetail = () => {
     }
   }, [id]);
 
-  // ⭐ 상품 정보 로드 시 기본 수량 1개 자동 추가
+  // 상품 정보 로드 시 기본 수량 1개 자동 추가
   useEffect(() => {
     if (!JibbitzProduct) return;
 
@@ -49,7 +49,7 @@ const JibbitzProductDetail = () => {
     }
   }, [JibbitzProduct, id]);
 
-  // ⭐ selectedProducts 변경 시 localStorage에 저장
+  // selectedProducts 변경 시 localStorage에 저장
   useEffect(() => {
     if (selectedProducts.length > 0) {
       localStorage.setItem(
@@ -104,7 +104,7 @@ const JibbitzProductDetail = () => {
     ? Math.round(((originalPrice - detailPrice) / originalPrice) * 100)
     : null;
 
-  // ⭐ 상품 추가 (지비츠는 사이즈/색상 없음)
+  // 상품 추가 (지비츠는 사이즈/색상 없음)
   const handleAddProduct = () => {
     // 이미 추가된 상품이 있는지 확인
     const existingIndex = selectedProducts.findIndex(
@@ -129,7 +129,7 @@ const JibbitzProductDetail = () => {
     }
   };
 
-  // ⭐ 수량 증가
+  // 수량 증가
   const increaseQty = (productId) => {
     setSelectedProducts(
       selectedProducts.map((p) =>
@@ -138,7 +138,7 @@ const JibbitzProductDetail = () => {
     );
   };
 
-  // ⭐ 수량 감소
+  // 수량 감소
   const decreaseQty = (productId) => {
     setSelectedProducts(
       selectedProducts.map((p) =>
@@ -149,18 +149,18 @@ const JibbitzProductDetail = () => {
     );
   };
 
-  // ⭐ 상품 삭제
+  // 상품 삭제
   const removeProduct = (productId) => {
     setSelectedProducts(selectedProducts.filter((p) => p.id !== productId));
   };
 
-  // ⭐ 총 수량 계산
+  // 총 수량 계산
   const totalQuantity = selectedProducts.reduce(
     (sum, p) => sum + p.quantity,
     0
   );
 
-  // ⭐ 총 가격 계산
+  // 총 가격 계산
   const totalPrice = selectedProducts.reduce(
     (sum, p) => sum + p.price * p.quantity,
     0

@@ -6,7 +6,7 @@ const UserInfoTop = () => {
   const { user } = loginAuthStore();
   const navigate = useNavigate();
 
-  if (!user) return null; // ⭐ 중요! user 준비가 안 되면 렌더링 X
+  if (!user) return null; //  중요! user 준비가 안 되면 렌더링 X
 
   const isClubMember = user.isClubMember === true;
 

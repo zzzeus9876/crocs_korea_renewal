@@ -94,7 +94,7 @@ const CrocsProductDetail = () => {
     0
   );
 
-  // ⭐ 상품 ID가 변경되면 localStorage 초기화 (다른 상품으로 이동 시)
+  // 상품 ID가 변경되면 localStorage 초기화 (다른 상품으로 이동 시)
   useEffect(() => {
     // 이전 상품의 localStorage 정리 (선택사항)
     setSelectedProducts([]);
@@ -124,7 +124,7 @@ const CrocsProductDetail = () => {
     }
   }, [selectedProducts, id]);
 
-  // ⭐ 컴포넌트 언마운트 시 localStorage 정리 (페이지를 떠날 때)
+  // 컴포넌트 언마운트 시 localStorage 정리 (페이지를 떠날 때)
   useEffect(() => {
     return () => {
       // 페이지를 떠날 때 localStorage 정리
@@ -263,7 +263,7 @@ const CrocsProductDetail = () => {
     onAddWishList(wishProduct);
   };
 
-  // ⭐ 장바구니에 담기 (기존 코드 유지 + 초기화 추가)
+  // 장바구니에 담기 (기존 코드 유지 + 초기화 추가)
   const handleAddToCart = () => {
     if (selectedProducts.length === 0) {
       alert("사이즈를 선택해주세요.");
@@ -284,13 +284,13 @@ const CrocsProductDetail = () => {
       });
     });
 
-    // ⭐ 장바구니 담기 후 선택 상품 초기화
+    // 장바구니 담기 후 선택 상품 초기화
     setSelectedProducts([]);
     localStorage.removeItem(`selectedProducts_${id}`);
     // alert는 제거 (onProductAddCart에서 처리할 수 있음)
   };
 
-  // ⭐ 바로 구매하기 (기존 코드 유지)
+  // 바로 구매하기 (기존 코드 유지)
   const handleBuyNow = () => {
     if (selectedProducts.length === 0) {
       alert("사이즈를 선택해주세요.");
@@ -326,7 +326,7 @@ const CrocsProductDetail = () => {
       );
     });
 
-    // ⭐ 구매 페이지로 이동하기 전 localStorage 정리
+    // 구매 페이지로 이동하기 전 localStorage 정리
     localStorage.removeItem(`selectedProducts_${id}`);
 
     navigate("/order", {

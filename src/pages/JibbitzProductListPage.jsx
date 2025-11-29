@@ -28,7 +28,7 @@ const JibbitzProductListPage = () => {
   // Crocs store (검색용)
   const { searchWord, setSearchWord } = useCrocsProductStore();
 
-  // ⭐ 페이징 상태
+  // 페이징 상태
   const [currentPage, setCurrentPage] = useState(1);
 
   // 상품 불러오기
@@ -54,7 +54,7 @@ const JibbitzProductListPage = () => {
     navigate(`/jibbitz/detail/${product.id}`);
   };
 
-  // ⭐ URL filter 파라미터가 변경되면 store의 selectFilter 업데이트
+  // URL filter 파라미터가 변경되면 store의 selectFilter 업데이트
   useEffect(() => {
     if (filter) {
       const filterMap = {

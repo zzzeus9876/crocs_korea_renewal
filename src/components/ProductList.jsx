@@ -4,7 +4,7 @@ import { useCrocsProductStore } from "../store/CrocsProductStore";
 import "./scss/WomenComponents.scss";
 
 export default function ProductList() {
-  // ⭐ store에서 컬러 필터 포함된 최종 필터링 결과 가져오기
+  //  store에서 컬러 필터 포함된 최종 필터링 결과 가져오기
   const products = useCrocsProductStore((s) => s.filteredItems());
 
   return (
