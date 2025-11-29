@@ -6,6 +6,7 @@ import { loginAuthStore } from "../store/loginStore";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import "./scss/orderhistory.scss";
+import Title from "../components/Title";
 
 const OrderHistory = () => {
   const navigate = useNavigate();
@@ -68,19 +69,16 @@ const OrderHistory = () => {
       </div>
     );
   }
-
   return (
-    <div className="sub_page">
+    <div className="sub_page orderhistory_page">
       <div className="inner">
-        <div className="user_btn_wrap">
-          <button
-            className="user_home_btn"
-            onClick={() => navigate("/userinfo")}
-          >
-            <img src="" alt="" />
-            <span>마이페이지 홈으로 이동하기</span>
-          </button>
-        </div>
+        <Title title="Order History" />
+        {/* <div className="user_btn_wrap">
+                    <button className="user_home_btn" onClick={() => navigate('/userinfo')}>
+                        <img src="" alt="" />
+                        <span>마이페이지 홈으로 이동하기</span>
+                    </button>
+                </div> */}
 
         <div className="userinfo_current_order_wrap">
           <div className="user_menu_top">
