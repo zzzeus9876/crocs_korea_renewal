@@ -6,6 +6,7 @@ import CartProgress from "../components/CartProgress";
 import { useCartStore } from "../store/useCartStore";
 import { wishListStore } from "../store/wishListStore";
 import { useNavigate } from "react-router-dom";
+import { collaboAuthStore } from "../store/collaboAuthStore.js";
 
 function Cart() {
   const cartStore = useCartStore();
@@ -42,14 +43,14 @@ function Cart() {
   // wishListStore에서 cartWishItems와 cartItems 가져오기
   const { cartItems = [], cartWishItems = [] } = wishStore || {};
 
-  console.log("Cart 렌더링:", {
-    cartProducts,
-    cartItems,
-    cartWishItems,
-    cartProductsLength: cartProducts?.length,
-    cartItemsLength: cartItems?.length,
-    cartWishItemsLength: cartWishItems?.length,
-  });
+  // console.log("Cart 렌더링:", {
+  //   cartProducts,
+  //   cartItems,
+  //   cartWishItems,
+  //   cartProductsLength: cartProducts?.length,
+  //   cartItemsLength: cartItems?.length,
+  //   cartWishItemsLength: cartWishItems?.length,
+  // });
 
   // 장바구니 초기화 및 동기화
   useEffect(() => {
@@ -86,6 +87,26 @@ function Cart() {
       wishListStore.setState({ cartWishItems: [] });
     }
   }, [cartItems, cartWishItems]);
+
+  //지비츠 데이터 로드하고 이동
+  const handleNavigate = (product) => {
+    if (product.link.includes("/jibbitz/")) {
+      // 지비츠 데이터가 store에 없으면 fetch
+      const jibbitzStore = collaboAuthStore.getState();
+      const exists = jibbitzStore.jibbitzItems.find(
+        (item) => String(item.id) === String(product.id)
+      );
+
+      if (!exists) {
+        // 지비츠 데이터를 아직 로드하지 않았다면 fetch 후 navigate
+        jibbitzStore.onFetchJibbitz().then(() => {
+          navigate(product.link);
+        });
+        return;
+      }
+    }
+    navigate(product.link);
+  };
 
   // 가격 계산
   const subtotal = getSubtotal();
@@ -180,7 +201,15 @@ function Cart() {
                       onChange={() => handleSelectProduct(product.id)}
                     />
                     <div className="product-item">
-                      <div className="product-image">
+                      <div
+                        key={product.id}
+                        className="product-image"
+                        onClick={() => {
+                          console.log("product.link:", product.link);
+                          handleNavigate(product);
+                        }} // 링크 이동추가
+                        style={{ cursor: "pointer" }}
+                      >
                         <img src={product.product_img} alt={product.name} />
                       </div>
 

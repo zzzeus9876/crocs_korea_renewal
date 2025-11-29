@@ -54,6 +54,7 @@ export const useCartStore = create(
                   : item.product_img || "",
                 quantity: item.count || item.quantity || 1,
                 size: item.size || null,
+                link: item.link,
               });
             }
           });
@@ -168,8 +169,8 @@ export const useCartStore = create(
       },
 
       // 상품 직접 추가 (size 옵션 포함)
-      addProduct: (product, quantity = 1, size = null) => {
-        console.log("addProduct 호출:", { product, quantity, size });
+      addRecent: (product, quantity = 1, size = null) => {
+        console.log("addRecent 호출:", { product, quantity, size });
 
         set((state) => {
           const cartProducts = state.cartProducts;

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCrocsProductStore } from "../store/useCrocsProductStore";
 import { wishListStore } from "../store/wishListStore";
-import { useRecentProductsStore } from "../store/recentProductsStore";
 import WishAddPopup from "../components/WishAddPopup";
 import { useCrocsSizeStore } from "../store/useCrocsSizeStore";
 import { jibbitzs } from "../data/jibbitzs";
@@ -17,7 +16,6 @@ const CrocsProductDetail = () => {
   const { crocsItems, onFetchItems } = useCrocsProductStore();
   const { crocsSizesByCategory, onFetchSize } = useCrocsSizeStore();
   const { onAddWishList, onProductAddCart } = wishListStore();
-  const { addProduct } = useRecentProductsStore();
 
   const [CrocsProduct, setCrocsProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
@@ -156,36 +154,6 @@ const CrocsProductDetail = () => {
     setCrocsProduct(findCrocsItem);
   }, [id, crocsItems]);
 
-  // 최근 본 상품에 추가
-  useEffect(() => {
-    if (!CrocsProduct) return;
-
-    let productImages = [];
-    if (Array.isArray(CrocsProduct.product_img)) {
-      productImages = CrocsProduct.product_img
-        .flatMap((item) => String(item).split(","))
-        .map((v) => v.trim())
-        .filter(Boolean);
-    } else {
-      productImages = String(CrocsProduct.product_img)
-        .split(",")
-        .map((v) => v.trim())
-        .filter(Boolean);
-    }
-
-    addProduct({
-      id: CrocsProduct.id,
-      name: CrocsProduct.product,
-      image: productImages[0] || "",
-      price: detailPrice.toLocaleString(),
-      discountPrice: hasOriginal ? detailPrice.toLocaleString() : "",
-      originPrice: hasOriginal ? originalPrice.toLocaleString() : "",
-      discount: discountPercent || "",
-    });
-
-    console.log(" 최근 본 상품에 추가:", CrocsProduct.product);
-  }, [CrocsProduct]);
-
   if (!CrocsProduct) {
     return (
       <div className="product-detail-container">
@@ -271,6 +239,7 @@ const CrocsProductDetail = () => {
     }
 
     selectedProducts.forEach((product) => {
+      console.log("Adding product to cart:", product.id, product.link);
       onProductAddCart({
         id: product.productId,
         name: product.name,
@@ -281,6 +250,7 @@ const CrocsProductDetail = () => {
         color: product.color,
         product_img: images[0],
         cate: CrocsProduct.cate,
+        link: product.link || `/product/${product.productId}`,
       });
     });
 
@@ -468,7 +438,7 @@ const CrocsProductDetail = () => {
             {selectedProducts.length > 0 && (
               <div className="selected-products">
                 {selectedProducts.map((product) => (
-                  <div key={product.id} className="selected-item">
+                  <div className="selected-item">
                     <div className="item-info">
                       <span className={`color-badge ${product.color}`}></span>
                       <span className="item-name">{product.name}</span>

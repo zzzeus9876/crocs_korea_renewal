@@ -106,7 +106,10 @@ function CartSidebar({ isOpen, onClose }) {
 
   return (
     <>
-      <div className={`cart-side-container ${isOpen ? "open" : ""}`}>
+      <div
+        className={`cart-side-container ${isOpen ? "open" : ""}`}
+        style={{ zIndex: isOpen ? 1001 : 1000 }}
+      >
         <div className="cart-inner">
           <Title title="Cart" />
           <button className="close-btn" onClick={onClose}>
@@ -156,7 +159,12 @@ function CartSidebar({ isOpen, onClose }) {
                         checked={selectedProducts.has(product.id)}
                         onChange={() => handleSelectProduct(product.id)}
                       />
-                      <div className="product-item">
+                      <div
+                        key={product.id}
+                        className="product-item"
+                        onClick={() => navigate(product.link)} // 링크 이동추가
+                        style={{ cursor: "pointer" }} // 클릭 표시
+                      >
                         <div className="product-image">
                           <img src={product.product_img} alt={product.name} />
                         </div>

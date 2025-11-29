@@ -23,7 +23,7 @@ const JibbitzProductListPage = () => {
 
   const navigate = useNavigate();
   const { filter } = useParams();
-  const { addProduct } = useRecentProductsStore();
+  const { addRecent } = useRecentProductsStore();
 
   // Crocs store (검색용)
   const { searchWord, setSearchWord } = useCrocsProductStore();
@@ -38,10 +38,10 @@ const JibbitzProductListPage = () => {
 
   // 상품 클릭 시 최근 본 상품에 추가
   const onOpenProductDetail = (product) => {
-    console.log("전체 product 객체:", product); // 먼저 전체 객체 확인
-    console.log("확인1", product.id);
+    // console.log("전체 product 객체:", product); // 먼저 전체 객체 확인
+    // console.log("확인1", product.id);
     // 최근 본 상품에 추가
-    addProduct({
+    addRecent({
       id: product.id,
       name: product.title,
       image: product.imageUrl,
@@ -49,6 +49,7 @@ const JibbitzProductListPage = () => {
       discountPrice: product.discountPrice || "",
       originPrice: product.originPrice || "",
       discount: product.discount || "",
+      link: `/jibbitz/detail/${product.id}`,
     });
 
     navigate(`/jibbitz/detail/${product.id}`);

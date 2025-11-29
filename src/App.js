@@ -43,6 +43,18 @@ function App() {
     setIsRecentOpen(false);
   }, [location.pathname]);
 
+  // 장바구니 클릭
+  const handleCartClick = () => {
+    setIsCartOpen((prev) => !prev);
+    if (!isCartOpen && isRecentOpen) setIsRecentOpen(false); // recent 닫기
+  };
+
+  // 최근본상품 클릭
+  const handleRecentClick = () => {
+    setIsRecentOpen((prev) => !prev);
+    if (!isRecentOpen && isCartOpen) setIsCartOpen(false); // cart 닫기
+  };
+
   // CS 센터 모달 열기
   const openCS = () => {
     setIsCSOpen(true);
@@ -73,8 +85,8 @@ function App() {
   return (
     <div className="App">
       <Header
-        onCartClick={() => setIsCartOpen(true)}
-        onRecentClick={() => setIsRecentOpen(true)}
+        onCartClick={() => handleCartClick(true)}
+        onRecentClick={() => handleRecentClick(true)}
       />
       <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <RecentSidebar

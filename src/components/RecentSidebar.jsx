@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { useRecentProductsStore } from "../store/recentProductsStore";
 import Title from "../components/Title";
 import "./scss/RecentSidebar.scss";
+import { useNavigate } from "react-router-dom";
 
 const RecentSidebar = ({ isOpen, onClose }) => {
-  const { recentProducts, removeProduct, clearAll } = useRecentProductsStore();
-
+  const { recentProducts, clearAll } = useRecentProductsStore();
+  const navigate = useNavigate();
   const formatPrice = (price, discountPrice) => {
     return new Intl.NumberFormat("ko-KR").format(price);
   };
@@ -62,11 +63,14 @@ const RecentSidebar = ({ isOpen, onClose }) => {
       {/* 배경 오버레이 */}
       {isOpen && <div className="sidebar-overlay" onClick={onClose} />}
 
-      <div className={`recent-side-container ${isOpen ? "open" : ""}`}>
+      <div
+        className={`recent-side-container ${isOpen ? "open" : ""}`}
+        style={{ zIndex: isOpen ? 1001 : 1000 }}
+      >
         <div className="recent-inner">
           <div className="recent-side-products-wrap">
             <div className="recent-side-product">
-              <Title title="최근 본 상품" />
+              <Title title="Recent" />
               <button className="close-btn" onClick={onClose}>
                 ✕
               </button>
@@ -88,7 +92,12 @@ const RecentSidebar = ({ isOpen, onClose }) => {
             ) : (
               <div className="recent-side-products__list">
                 {recentProducts.map((item) => (
-                  <div key={item.id} className="product-item">
+                  <div
+                    key={item.id}
+                    className="product-item"
+                    onClick={() => navigate(item.link)} // 링크 이동추가
+                    style={{ cursor: "pointer" }} // 클릭 표시
+                  >
                     <div className="product-meta">
                       <span className="viewed-time">
                         {formatDate(item.viewedAt)}

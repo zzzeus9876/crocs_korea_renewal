@@ -119,11 +119,12 @@ const JibbitzProductDetail = () => {
     } else {
       // 없으면 새로 추가
       const newProduct = {
-        id: Date.now(),
+        id: JibbitzProduct.id,
         productId: JibbitzProduct.id,
         name: JibbitzProduct.title,
         quantity: 1,
         price: detailPrice,
+        link: `/jibbitz/detail/${id}`,
       };
       setSelectedProducts([...selectedProducts, newProduct]);
     }
@@ -319,6 +320,7 @@ const JibbitzProductDetail = () => {
                       price: product.price,
                       quantity: product.quantity,
                       product_img: images[0],
+                      link: `/jibbitz/detail/${id}`,
                     });
                   });
                 }}
@@ -352,6 +354,7 @@ const JibbitzProductDetail = () => {
                       price: product.price,
                       quantity: product.quantity,
                       product_img: images[0],
+                      link: `/jibbitz/detail/${product.id}`,
                     });
                   });
 

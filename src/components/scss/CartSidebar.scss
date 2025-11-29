@@ -8,8 +8,7 @@ $danger-color: #d32f2f;
   position: fixed;
   top: 90px;
   right: -40px;
-  // right: -40px;
-  z-index: 100000;
+  z-index: 1002;
   display: flex;
   flex-direction: column;
   // gap: 1px;
@@ -44,21 +43,22 @@ $danger-color: #d32f2f;
 .cart-side-container {
   position: fixed;
   top: 0;
-  right: -800px; // 오른쪽에서 나옴
-  // width: 600px;
+  right: -600px; // 오른쪽에서 나옴
+  width: 600px;
   height: 100vh;
-  background: white;
+  background: #fff;
   transition: right 0.3s ease;
-  z-index: 1000;
+  // z-index: 1000;
 
   &.open {
     right: 0;
-    width: 600px;
+    // width: 600px;
   }
 
   .cart-inner {
-    position: absolute;
-    // top: 0;
+    position: relative;
+    // position: absolute;
+    top: 0;
     right: 0;
     max-width: 600px;
     width: 100%;
@@ -68,11 +68,9 @@ $danger-color: #d32f2f;
     font-weight: bold;
     color: g.$subColor;
     text-align: center;
-    background: #fff;
-    // background-color: rgba(102, 222, 27, 0.4);
-    // border:1px solid #777;
-    border: none;
     box-shadow: 0 4px 20px rgba(68, 68, 68, 0.3);
+    overflow-y: hidden;
+
     @media (max-width: 758px) {
       width: 100%;
       min-width: 500px;

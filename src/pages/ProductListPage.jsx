@@ -13,11 +13,15 @@ import { menuList } from "../store/menuList";
 import Title from "../components/Title";
 import { useCrocsSizeStore } from "../store/useCrocsSizeStore";
 import { useColorFilterStore } from "../store/useColorFilterStore";
+import { useRecentProductsStore } from "../store/recentProductsStore";
 
 const ProductListPage = () => {
   const [searchParams] = useSearchParams();
   const searchQuery = searchParams.get("search");
   const categoryQuery = searchParams.get("category"); // "Classic"
+
+  // 최근 본 상품
+  const { addRecent } = useRecentProductsStore();
 
   const location = useLocation();
 
@@ -300,7 +304,24 @@ const ProductListPage = () => {
                       <ProductCard
                         key={p.id}
                         product={p}
-                        onClick={() => navigate(`/product/${p.id}`)}
+                        onClick={() => {
+                          // 최근 본 상품으로 보내기
+                          addRecent({
+                            id: p.id,
+                            name: p.product,
+                            image: Array.isArray(p.product_img)
+                              ? String(p.product_img[0])
+                              : String(p.product_img).split(",")[0],
+                            price: p.price?.toLocaleString() || "",
+                            discountPrice:
+                              p.discountPrice?.toLocaleString() || "",
+                            originPrice: p.originPrice?.toLocaleString() || "",
+                            discount: p.discount || "",
+                            link: `/product/${p.id}`, // 리스트 페이지는 항상 일반 상품
+                            viewedAt: new Date(),
+                          });
+                          navigate(`/product/${p.id}`);
+                        }}
                         onSizeSelect={setSelectedSize}
                       />
                     ))}
