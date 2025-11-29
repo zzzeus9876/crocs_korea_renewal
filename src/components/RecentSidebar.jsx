@@ -60,20 +60,20 @@ const RecentSidebar = ({ isOpen, onClose }) => {
   return (
     <>
       {/* 배경 오버레이 */}
-      {isOpen && <div className='sidebar-overlay' onClick={onClose} />}
+      {isOpen && <div className="sidebar-overlay" onClick={onClose} />}
 
       <div className={`recent-side-container ${isOpen ? "open" : ""}`}>
-        <div className='recent-inner'>
-          <div className='recent-side-products-wrap'>
-            <div className='recent-side-product'>
-              <Title title='최근 본 상품' />
-              <button className='close-btn' onClick={onClose}>
+        <div className="recent-inner">
+          <div className="recent-side-products-wrap">
+            <div className="recent-side-product">
+              <Title title="최근 본 상품" />
+              <button className="close-btn" onClick={onClose}>
                 ✕
               </button>
               {recentProducts.length > 0 && (
-                <div className='header-info'>
-                  <span className='count'>{recentProducts.length}개</span>
-                  <button className='clear-btn' onClick={clearAll}>
+                <div className="header-info">
+                  <span className="count">{recentProducts.length}개</span>
+                  <button className="clear-btn" onClick={clearAll}>
                     전체 삭제
                   </button>
                 </div>
@@ -81,16 +81,16 @@ const RecentSidebar = ({ isOpen, onClose }) => {
             </div>
 
             {recentProducts.length == 0 ? (
-              <div className='recent-side-products__empty'>
-                <div className='empty-icon'>👀</div>
+              <div className="recent-side-products__empty">
+                <div className="empty-icon">👀</div>
                 <p>최근 본 상품이 없습니다</p>
               </div>
             ) : (
-              <div className='recent-side-products__list'>
+              <div className="recent-side-products__list">
                 {recentProducts.map((item) => (
-                  <div key={item.id} className='product-item'>
-                    <div className='product-meta'>
-                      <span className='viewed-time'>
+                  <div key={item.id} className="product-item">
+                    <div className="product-meta">
+                      <span className="viewed-time">
                         {formatDate(item.viewedAt)}
                       </span>
                       {/* 리뷰별점표시 */}
@@ -100,12 +100,12 @@ const RecentSidebar = ({ isOpen, onClose }) => {
                                 </span>
                             )} */}
                     </div>
-                    <div className='product_imgbox'>
+                    <div className="product_imgbox">
                       <img src={item.image} alt={item.name} />
                     </div>
 
-                    <div className='product_textbox'>
-                      <h3 className='product-name'>{item.name}</h3>
+                    <div className="product_textbox">
+                      <h3 className="product-name">{item.name}</h3>
                       {/* <p className='product-category'>{item.category}</p> */}
                       {/* <div className='product-price-wrap'>
                         <span className='price-text'>
@@ -122,7 +122,7 @@ const RecentSidebar = ({ isOpen, onClose }) => {
                       </div> */}
                     </div>
 
-                    <div className='product-actions'>
+                    <div className="product-actions">
                       {/* <button  className="remove-btn"
                 onClick={() => removeProduct(product.id)}
                 aria-label="삭제"

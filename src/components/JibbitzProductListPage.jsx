@@ -81,103 +81,94 @@ const JibbitzProductListPage = () => {
   };
 
   return (
-    <div className='sub_page'>
-    <div className="inner">
-
-    <div className='product_list_wrap'>
-      <div className='list_left'>
-        <div className='left_nav_wrap'>
-          <Breadcrumbs
-            category={JibbitzLeftNavigation.category}
-            subcategory={JibbitzLeftNavigation.subcategory}
-          />
-          <nav className='left_nav'>
-            <div className='filter-menu'>
-              <div className='filter-menu__wrap menu_wrap-style'>
-                <div className='filter-menu__wrap--title_wrap title--wrap'>
-                  <h3 className='filter-menu__wrap--title title'>필터</h3>
-                  {/* <a
-                                        href="#"
-                                        className="filter-menu--title__toggle title--toggle"
-                                    >
-                                        <button>
-                                            <img
-                                                src="/images/Sub_Women_Images/icon-minus.svg"
-                                                alt=""
-                                            />
-                                        </button>
-                                    </a> */}
+    <div className="sub_page">
+      <div className="inner">
+        <div className="product_list_wrap">
+          <div className="list_left">
+            <div className="left_nav_wrap">
+              <Breadcrumbs
+                category={JibbitzLeftNavigation.category}
+                subcategory={JibbitzLeftNavigation.subcategory}
+              />
+              <nav className="left_nav">
+                <div className="filter-menu">
+                  <div className="filter-menu__wrap menu_wrap-style">
+                    <div className="filter-menu__wrap--title_wrap title--wrap">
+                      <h3 className="filter-menu__wrap--title title">필터</h3>
+                    </div>
+                    <div className="filter_list_menu">
+                      <button className="filter_menu_btn">
+                        {selectFilter}
+                        <img
+                          src="/images/Sub_Women_Images/icon-close_cross.svg"
+                          alt="필터 닫기 버튼"
+                          className="close-btn"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div className='filter_list_menu'>
-                  {/* <ul className="filter-menu__wrap filter-menu__wrap--color"> */}
-                  {/* <li className="filter-menu__item filter_list_menu"> */}
-                  <button className='filter_menu_btn'>
-                    {selectFilter}
-                    <img
-                      src='/images/Sub_Women_Images/icon-close_cross.svg'
-                      alt='필터 닫기 버튼'
-                      className='close-btn'
-                    />
-                  </button>
-                  {/* </li> */}
-                  {/* </ul> */}
+                <div className="breadcrumbs__line"></div>
+                <div className="filter-menu__wrap--title_wrap title--wrap">
+                  <h3 className="filter-menu__wrap--title title">메뉴</h3>
                 </div>
+                <ul className="jibbitz-menu__wrap">
+                  {jibbitzFilterList.map((filter, id) => (
+                    <li
+                      key={id}
+                      className="jibbitz-menu__item jibbitz_list_menu"
+                    >
+                      <button onClick={() => onFilterBtn(filter)}>
+                        {filter} 지비츠 참
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div className="list_right">
+            <div className="product_list_card_wrap">
+              <ul className="product_list_card_list">
+                {currentItems.map((product) => (
+                  <li
+                    className="product_list_card"
+                    onClick={() => onOpenProductDetail(product)}
+                  >
+                    <div className="product_list_card_imgbox" key={product.id}>
+                      <img
+                        src={product.imageUrl}
+                        alt={product.title}
+                        className="product_list_card_img"
+                      />
+                    </div>
+                    <div className="product_list_card_name_wrap">
+                      <p>{product.title}</p>
+                    </div>
+                    <div className="product_list_card_price_wrap">
+                      <span className="product_list_card_price">
+                        {product.price}
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              {/* 페이징 버튼 */}
+              <div className="pager">
+                <button onClick={() => handleGoPage(currentPage - 1)}>
+                  이전
+                </button>
+                <span>
+                  {currentPage} / {totalPage}
+                </span>
+                <button onClick={() => handleGoPage(currentPage + 1)}>
+                  다음
+                </button>
               </div>
             </div>
-            <div className='breadcrumbs__line'></div>
-            <div className='filter-menu__wrap--title_wrap title--wrap'>
-              <h3 className='filter-menu__wrap--title title'>메뉴</h3>
-            </div>
-            <ul className='jibbitz-menu__wrap'>
-              {jibbitzFilterList.map((filter, id) => (
-                <li key={id} className='jibbitz-menu__item jibbitz_list_menu'>
-                  <button onClick={() => onFilterBtn(filter)}>
-                    {filter} 지비츠 참
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        </div>
-      </div>
-      <div className='list_right'>
-        <div className='product_list_card_wrap'>
-          <ul className='product_list_card_list'>
-            {currentItems.map((product) => (
-              <li
-                className='product_list_card'
-                onClick={() => onOpenProductDetail(product)}
-              >
-                <div className='product_list_card_imgbox' key={product.id}>
-                  <img
-                    src={product.imageUrl}
-                    alt={product.title}
-                    className='product_list_card_img'
-                  />
-                </div>
-                <div className='product_list_card_name_wrap'>
-                  <p>{product.title}</p>
-                </div>
-                <div className='product_list_card_price_wrap'>
-                  <span className='product_list_card_price'>
-                    {product.price}
-                  </span>
-                </div>
-              </li>
-            ))}
-          </ul>
-          {/* 페이징 버튼 */}
-          <div className='pager'>
-            <button onClick={() => handleGoPage(currentPage - 1)}>이전</button>
-            <span>
-              {currentPage} / {totalPage}
-            </span>
-            <button onClick={() => handleGoPage(currentPage + 1)}>다음</button>
           </div>
         </div>
       </div>
-    </div>
-    </div>
     </div>
   );
 };

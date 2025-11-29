@@ -1,4 +1,4 @@
-@use '../../App.scss' as g;
+@use "../../App.scss" as g;
 
 .crocs_kid_size_table {
   max-width: 700px;
@@ -45,7 +45,7 @@
       transition: color 0.2s ease;
 
       &:hover {
-        color:black;
+        color: black;
       }
     }
   }
@@ -125,7 +125,7 @@
         }
         &.kids_header {
           // color: g.$mainColor;
-          background-color: #97C24E;
+          background-color: #97c24e;
         }
       }
     }
@@ -234,7 +234,7 @@
     .measure_steps {
       // display: flex;
       // flex-direction: column;
-      @include g.flex($fd:column);
+      @include g.flex($fd: column);
       gap: 2.4rem;
 
       .step_item {

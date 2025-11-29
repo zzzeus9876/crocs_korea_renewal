@@ -183,7 +183,7 @@ const CrocsProductDetail = () => {
       discount: discountPercent || "",
     });
 
-    console.log("✅ 최근 본 상품에 추가:", CrocsProduct.product);
+    console.log(" 최근 본 상품에 추가:", CrocsProduct.product);
   }, [CrocsProduct]);
 
   if (!CrocsProduct) {
@@ -259,7 +259,7 @@ const CrocsProductDetail = () => {
       selectedColor: firstProduct.color,
     };
 
-    console.log("✅ 위시리스트에 담을 상품:", wishProduct);
+    console.log(" 위시리스트에 담을 상품:", wishProduct);
     onAddWishList(wishProduct);
   };
 

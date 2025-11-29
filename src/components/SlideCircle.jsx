@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 const SlideCircle = ({ showDot }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
+  // const [touchStart, setTouchStart] = useState(0);
+  // const [touchEnd, setTouchEnd] = useState(0);
   const intervalRef = useRef(null);
   const { items, onFetchItem } = useNewProductStore();
 
