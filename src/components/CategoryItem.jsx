@@ -1,16 +1,15 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const CategoryItem = ({ category, onClick }) => {
+const CategoryItem = ({ category }) => {
     return (
         <li className={`category__list-item ${category.backgroundColor}`}>
             <Link
-                className='category__link'
-                onClick={(e) => onClick(e, category.link)}
-                aria-label={`${category.name} 카테고리 보기`}
+                to={`/all?category=${encodeURIComponent(category.name)}`}
+                className="category__link"
             >
-                <img src={category.image} alt={category.alt} className='category__image' />
-                <p className='category__label'>{category.name}</p>
+                <img src={category.image} alt={category.alt} className="category__image" />
+                <p className="category__label">{category.name}</p>
             </Link>
         </li>
     );
