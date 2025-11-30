@@ -13,7 +13,6 @@ const JibbitzProductListPage = () => {
 
   const {
     jibbitzItems,
-    jibbitzFilterList,
     onFetchJibbitz,
     disneyItems,
     selectFilter,
@@ -34,6 +33,7 @@ const JibbitzProductListPage = () => {
   // 상품 불러오기
   useEffect(() => {
     onFetchJibbitz();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 상품 클릭 시 최근 본 상품에 추가
