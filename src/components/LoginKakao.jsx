@@ -11,7 +11,7 @@ const LoginKakao = () => {
     const handleKakaoLogin = async () => {
         console.log('카카오');
         await onKakaoLogin();
-        navigate('/');
+        navigate('/userinfo');
     };
     return (
         <div className="kakao_wrap">
