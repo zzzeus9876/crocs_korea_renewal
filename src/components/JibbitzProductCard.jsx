@@ -5,7 +5,7 @@ const JibbitzProductCard = ({ sendItem }) => {
     const navigate = useNavigate();
 
     const onOpenProductDetail = () => {
-        navigate(`/jibbitz/${sendItem.id}`);
+        navigate(`/jibbitz/detail/${sendItem.id}`);
     };
 
     return (
