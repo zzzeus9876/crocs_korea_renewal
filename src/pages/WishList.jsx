@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import { wishListStore } from '../store/wishListStore';
+import React from 'react';
 import WishListCard from '../components/WishListCard';
 import Title from '../components/Title';
+import './scss/wishlist.scss';
 
 const WishList = () => {
-    const { wishLists, onRemoveWish } = wishListStore();
-
     return (
-        <div className="sub_page">
+        <div className="sub_page wishlist_page">
             <div className="inner">
                 <Title title="WishList" />
                 <WishListCard />
