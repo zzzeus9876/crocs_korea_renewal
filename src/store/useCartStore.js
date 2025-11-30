@@ -476,7 +476,7 @@ export const useCartStore = create(
           }
         }
         console.log(
-          "🔄 Zustand persist 복원:",
+          " Zustand persist 복원:",
           state?.cartProducts?.length || 0,
           "개 상품"
         );

@@ -38,6 +38,7 @@ function Cart() {
     handleOrderAll,
     handleOrderSelected,
     handleGiftSelected,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   } = cartStore || {};
 
   // wishListStore에서 cartWishItems와 cartItems 가져오기
@@ -62,7 +63,7 @@ function Cart() {
 
     // 초기 로드 시 한 번만 초기화
     if (!isInitialized.current) {
-      console.log("🔄 장바구니 초기화 실행");
+      console.log(" 장바구니 초기화 실행");
       initializeCart(Products, cartWishItems);
       isInitialized.current = true;
     }
@@ -110,10 +111,11 @@ function Cart() {
 
   // 가격 계산
   const subtotal = getSubtotal();
-  const selectedSubtotal = getSelectedSubtotal();
   const shipping = getShipping();
   const total = getTotal();
-  const selectedTotal = getSelectedTotal();
+
+  // const selectedSubtotal = getSelectedSubtotal();
+  // const selectedTotal = getSelectedTotal();
 
   // 금액 포맷팅
   const formatPrice = (price) => {
