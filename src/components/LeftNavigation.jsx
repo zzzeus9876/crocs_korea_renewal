@@ -38,6 +38,12 @@ export default function LeftNavigation({
           selectedSize={selectedSize}
           onRemoveColor={handleRemoveColor}
           onRemoveSize={handleRemoveSize}
+          onRemoveAll={() => {
+            // 모든 색상 초기화
+            selectedColors.forEach((color) => toggleColor(color));
+            // 사이즈 초기화
+            onSizeSelect?.(null);
+          }}
         />
 
         <div className="breadcrumbs__line" />
