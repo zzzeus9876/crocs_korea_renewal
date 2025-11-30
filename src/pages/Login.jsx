@@ -58,7 +58,7 @@ const Login = () => {
   const handleKakaoLogin = async () => {
     console.log("카카오");
     await onKakaoLogin();
-    navigate("/");
+    navigate("/userinfo");
   };
 
   return (
