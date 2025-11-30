@@ -67,7 +67,7 @@ const UserInfo = () => {
         <Title title="My Page" />
         <UserInfoTop />
         <div className="user_btn_wrap">
-          <button>나의 정보</button>
+          <button onClick={() => navigate("/mypage")}>나의 정보</button>
           <button onClick={() => navigate("/orderhistory")}>주문 정보</button>
           <button onClick={() => navigate("/coupons")}>혜택 정보</button>
           <button>1 : 1 문의</button>

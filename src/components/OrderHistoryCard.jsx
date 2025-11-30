@@ -1,7 +1,10 @@
 import React from "react";
 import "./scss/orderhistory.scss";
+import { useNavigate } from "react-router-dom";
 
 const OrderHistoryCard = ({ order }) => {
+  const navigate = useNavigate();
+
   // 날짜 포맷팅
   const formatDate = (date) => {
     if (!date) return "";
@@ -42,7 +45,11 @@ const OrderHistoryCard = ({ order }) => {
           <p>({order.orderId})</p>
         </div>
         <div className="order_list_top_right">
-          <button onClick={() => alert("상세보기 기능은 준비 중입니다.")}>
+          <button
+            onClick={() =>
+              navigate(`/orderInfoDetail?orordNo=${order.orderId}`)
+            }
+          >
             상세보기
           </button>
         </div>
