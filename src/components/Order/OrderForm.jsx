@@ -98,6 +98,7 @@ const OrderForm = forwardRef((props, ref) => {
                 }
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
 
     // 쿠폰 할인 금액 계산
@@ -109,20 +110,6 @@ const OrderForm = forwardRef((props, ref) => {
             return Math.floor(subtotal * (selectedCoupon.discount / 100));
         } else if (selectedCoupon.type === 'fixed') {
             return Math.min(selectedCoupon.discount, subtotal);
-        }
-
-        return 0;
-    };
-
-    // 특정 쿠폰의 할인 금액 미리보기 계산
-    const calculateCouponDiscount = (coupon) => {
-        if (!coupon) return 0;
-        if (!subtotal || subtotal <= 0) return 0;
-
-        if (coupon.type === 'percentage') {
-            return Math.floor(subtotal * (coupon.discount / 100));
-        } else if (coupon.type === 'fixed') {
-            return Math.min(coupon.discount, subtotal);
         }
 
         return 0;
@@ -142,6 +129,7 @@ const OrderForm = forwardRef((props, ref) => {
         if (onCouponUpdate) {
             onCouponUpdate(selectedCoupon, discount);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [selectedCoupon, subtotal, onCouponUpdate]);
 
     // 날짜 포맷 함수

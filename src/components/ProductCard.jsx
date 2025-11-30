@@ -1,17 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Swiper from 'swiper';
 import { Navigation, Pagination } from 'swiper/modules';
-import { useCrocsSizeStore } from '../store/useCrocsSizeStore';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-// import './scss/WomenComponents.scss';
 import './scss/leftNavigation.scss';
 
 // 이미지 슬라이더
 const ProductCardSwiper = ({ images }) => {
     const swiperRef = useRef(null);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const imgList = Array.isArray(images)
         ? images
         : images
@@ -88,15 +86,6 @@ const ProductPrice = ({ prices }) => {
             )}
         </div>
     );
-};
-
-// ---------- 색상 ----------
-const normalizeColor = (c) => {
-    if (!c) return null;
-    if (c.startsWith('rgb')) return c;
-    if (c.match(/^\d+\s*,/)) return `rgb(${c})`;
-    if (c.startsWith('#')) return c;
-    return null;
 };
 
 // const ProductColorBadges = ({ colors = [], onColorClick }) => {

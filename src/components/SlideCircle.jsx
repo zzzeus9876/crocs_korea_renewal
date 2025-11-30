@@ -16,6 +16,7 @@ const SlideCircle = ({ showDot }) => {
     // 상품 불러오기
     useEffect(() => {
         onFetchItem();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // 상품디테일페이지이동

@@ -31,6 +31,7 @@ function CartSidebar({ isOpen, onClose }) {
     // 장바구니 초기화
     useEffect(() => {
         initializeCart(Products);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // 가격 계산

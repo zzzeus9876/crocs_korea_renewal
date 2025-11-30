@@ -27,6 +27,7 @@ export default function LeftNavigation({
 
     useEffect(() => {
         onFetchSize();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     // 색상 제거 핸들러

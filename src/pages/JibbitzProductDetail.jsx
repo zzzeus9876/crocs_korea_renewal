@@ -47,6 +47,7 @@ const JibbitzProductDetail = () => {
             };
             setSelectedProducts([defaultProduct]);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [JibbitzProduct, id]);
 
     // selectedProducts 변경 시 localStorage에 저장
@@ -130,6 +131,7 @@ const JibbitzProductDetail = () => {
     // 상품 불러오기
     useEffect(() => {
         onFetchJibbitz();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {

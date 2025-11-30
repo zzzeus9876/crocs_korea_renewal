@@ -87,6 +87,7 @@ function Cart() {
             // 병합 후 cartWishItems 초기화!
             wishListStore.setState({ cartWishItems: [] });
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [cartItems, cartWishItems]);
 
     //지비츠 데이터 로드하고 이동
