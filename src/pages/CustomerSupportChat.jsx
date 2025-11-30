@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Title from "../components/Title";
-import { loginAuthStore } from "../store/loginStore";
+// import { loginAuthStore } from "../store/loginStore";
 import "../pages/scss/CustomerChat.scss";
 
 function CustomerSupportChat() {
   const navigate = useNavigate();
-  const { user } = loginAuthStore();
+  // const { user } = loginAuthStore();
   const messagesEndRef = useRef(null);
 
   const [input, setInput] = useState("");

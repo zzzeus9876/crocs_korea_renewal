@@ -263,7 +263,7 @@ const MyPage = () => {
   return (
     <div className="sub_page mypage_page">
       <div className="inner">
-        <Title title="나의 정보" />
+        <Title title="My Info" />
 
         <div className="edit_form">
           {/* 회원정보 수정 */}
