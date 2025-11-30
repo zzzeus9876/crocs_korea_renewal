@@ -133,6 +133,17 @@
   color: g.$subColor;
 }
 
+// .filter_clear_btn {
+//   font-size: 1.2rem;
+//   color: g.$subColor;
+//   transition: all 0.2s;
+//   background-color: #ccc;
+
+//   &:hover {
+//     color: #c82333;
+//   }
+// }
+
 .left_nav {
   width: 32.4rem;
   height: fit-content;
@@ -545,13 +556,11 @@
       }
     }
 
-    .filter-clear-btn {
-      font-size: 14px;
-      color: #dc3545;
-      text-decoration: none;
-      padding: 5px 10px;
-      border-radius: 4px;
+    .filter_clear_btn {
+      font-size: 1.2rem;
+      color: g.$subColor;
       transition: all 0.2s;
+      background-color: #ccc;
 
       &:hover {
         background-color: #fee;
