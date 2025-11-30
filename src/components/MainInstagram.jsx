@@ -31,13 +31,6 @@ const MainInstagram = () => {
         setPlayStates(newPlayStates);
     };
 
-    // 이전 버튼 클릭 핸들러
-    const handlePrevClick = (e) => {
-        e.preventDefault();
-        console.log('Previous video clicked');
-        // 이전 비디오 로직 구현
-    };
-
     return (
         <main>
             <section className="instagram">
@@ -46,8 +39,6 @@ const MainInstagram = () => {
                         title="Your Crocs. Your Splash."
                         subTitle="스타들의 일상 속, 크록스를 만나보세요."
                     />
-
-                    {/* <InstagramPrevButton onClick={handlePrevClick} /> */}
 
                     <InstagramVideoList
                         videos={instagramData}

@@ -1,15 +1,11 @@
 import React from 'react';
-import { collaboAuthStore } from '../store/collaboAuthStore';
 import { useNavigate } from 'react-router-dom';
 
 const JibbitzProductCard = ({ sendItem }) => {
     const navigate = useNavigate();
-    // console.log('확인2', sendItem);
 
     const onOpenProductDetail = () => {
-        // console.log('확인1', sendItem.id);
         navigate(`/jibbitz/${sendItem.id}`);
-        // e.preventDefault();
     };
 
     return (
