@@ -9,7 +9,9 @@ import Login from "./pages/Login";
 import Join from "./pages/Join";
 import Coupons from "./components/Coupons";
 import UserInfo from "./pages/UserInfo";
+import MyPage from "./pages/MyPage";
 import OrderHistory from "./pages/OrderHistory";
+import OrderInfoDetail from "./pages/OrderInfoDetail";
 import CrocsClubPopup from "./components/CrocsClubPopup";
 import Nonmember from "./pages/Nonmember";
 import ComeAsPopup from "./components/ComeAsPopup";
@@ -114,8 +116,10 @@ function App() {
         <Route path="/all/jibbitz" element={<JibbitzProductListPage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/order" element={<Order />} />
+        <Route path="/orderInfoDetail" element={<OrderInfoDetail />} />
         <Route path="/coupons" element={<Coupons />} />
         <Route path="/recent" element={<RecentProducts />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
       {/* Main 페이지가 아닐 때만 Footer 표시 */}
       {!isMainPage && <Footer onOpenCS={openCS} />}

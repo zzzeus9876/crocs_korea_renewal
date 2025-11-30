@@ -215,19 +215,29 @@ function Order() {
         userId: user?.uid || null,
         userEmail: user?.email || formData?.email || null,
         userName: user?.name || formData?.ordererName || null,
-        // 비회원 주문인 경우 추가 정보 저장
-        ...(!user && formData
-          ? {
-              password: formData.password,
-              phone: formData.phone,
-              receiverName: formData.receiverName,
-              address: `${formData.postcode || ""} ${formData.address || ""} ${
-                formData.detailAddress || ""
-              }`,
-              deliveryPhone: formData.deliveryPhone,
-            }
-          : {}),
+        // 배송 정보 (로그인 / 비회원 모두 저장)
+        receiverName:
+          formData?.receiverName ||
+          user?.name ||
+          formData?.ordererName ||
+          "이름 없음",
+        recipientName:
+          formData?.receiverName ||
+          user?.name ||
+          formData?.ordererName ||
+          "이름 없음",
+        deliveryPhone: formData?.deliveryPhone || formData?.phone || null,
+        recipientPhone: formData?.deliveryPhone || formData?.phone || null,
+        postcode: formData?.postcode || "",
+        address: formData?.address || "",
+        detailAddress: formData?.detailAddress || "",
+        deliveryRequest: formData?.deliveryRequest || "",
       };
+
+      // 비회원 추가 데이터
+      if (!user && formData) {
+        orderData.password = formData.password;
+      }
 
       if (user) {
         // 로그인 사용자: users 컬렉션에 주문 내역 추가
