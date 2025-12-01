@@ -24,10 +24,10 @@ const FooterContents = () => {
                         <img src="/images/icon-youtube.png" alt="" />
                     </p>
                     <p>
-                        <img src="/images/icon-facebook.png" alt="" />
+                        <img src="/images/icon-kakao.png" alt="" />
                     </p>
                     <p>
-                        <img src="/images/icon-earth.png" alt="" />
+                        <img src="/images/icon-tiktok.png" alt="" />
                     </p>
                 </div>
                 <div className="copy-text">© 2025 Crocs Retail, LLC</div>
