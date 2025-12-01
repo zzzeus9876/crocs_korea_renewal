@@ -236,8 +236,8 @@ const ProductListPage = () => {
   const mainCategory = isAllPage
     ? categoryQuery
     : mainItem
-    ? mainItem.cate
-    : cate;
+      ? mainItem.cate
+      : cate;
   const mainSubcategory =
     subcategory || (mainItem?.subcategory?.split(",")[0] ?? null);
 
@@ -275,9 +275,8 @@ const ProductListPage = () => {
                 {currentMenu.submenu_list.map((sub) => (
                   <div
                     key={sub.key}
-                    className={`btn_menu_item ${
-                      subcategory === sub.key ? "active" : ""
-                    }`}
+                    className={`btn_menu_item ${subcategory === sub.key ? "active" : ""
+                      }`}
                     onClick={() => navigate(`/${cate}/${sub.key}`)}
                   >
                     <button className="sub_menu_btn">{sub.label}</button>

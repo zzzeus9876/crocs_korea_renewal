@@ -156,9 +156,9 @@ const CrocsProductDetail = () => {
     const images = Array.isArray(CrocsProduct.product_img)
         ? CrocsProduct.product_img
         : String(CrocsProduct.product_img)
-              .split(',')
-              .map((v) => v.trim())
-              .filter(Boolean);
+            .split(',')
+            .map((v) => v.trim())
+            .filter(Boolean);
 
     // 색상 선택
     const handleColorSelect = (c) => setSelectedColor(c);
@@ -305,9 +305,8 @@ const CrocsProductDetail = () => {
                                 {images.map((img, idx) => (
                                     <div
                                         key={idx}
-                                        className={`thumbnail-item ${
-                                            idx === selectedImageIdx ? 'active' : ''
-                                        }`}
+                                        className={`thumbnail-item ${idx === selectedImageIdx ? 'active' : ''
+                                            }`}
                                         onClick={() => setSelectedImageIdx(idx)}
                                     >
                                         <img src={img} alt={`썸네일 ${idx + 1}`} />
@@ -347,9 +346,8 @@ const CrocsProductDetail = () => {
                                 {colorOptions.map((color) => (
                                     <div
                                         key={color.key}
-                                        className={`color-badge ${color.key} ${
-                                            selectedColor === color.key ? 'active' : ''
-                                        }`}
+                                        className={`color-badge ${color.key} ${selectedColor === color.key ? 'active' : ''
+                                            }`}
                                         onClick={() => handleColorSelect(color.key)}
                                     />
                                 ))}
@@ -374,9 +372,8 @@ const CrocsProductDetail = () => {
                                 {categorySizes.map((size) => (
                                     <button
                                         key={size}
-                                        className={`size-button ${
-                                            selectedSize === size ? 'active' : ''
-                                        }`}
+                                        className={`size-button ${selectedSize === size ? 'active' : ''
+                                            }`}
                                         onClick={() => {
                                             setSelectedSize(size);
                                             setTimeout(() => {
@@ -646,7 +643,7 @@ const CrocsProductDetail = () => {
                 <div className="size-chart-modal" onClick={() => setShowSizeChart(false)}>
                     <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                         {CrocsProduct?.cate?.toLowerCase().includes('kid') ||
-                        CrocsProduct?.cate?.includes('키즈') ? (
+                            CrocsProduct?.cate?.includes('키즈') ? (
                             <KidSize onClose={() => setShowSizeChart(false)} />
                         ) : (
                             <AdultSize onClose={() => setShowSizeChart(false)} />
