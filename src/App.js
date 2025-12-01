@@ -28,6 +28,7 @@ import JibbitzProductDetail from "./pages/JibbitzProductDetail";
 import JibbitzProductListPage from "./pages/JibbitzProductListPage";
 import Footer from "./components/Footer";
 import CustomerService from "./components/CustomerService";
+import CustomerSupportChat from "./pages/CustomerSupportChat";
 
 function App() {
   const { loading, checkSession, initAuthListener } = loginAuthStore();
@@ -120,6 +121,7 @@ function App() {
         <Route path="/coupons" element={<Coupons />} />
         <Route path="/recent" element={<RecentProducts />} />
         <Route path="/mypage" element={<MyPage />} />
+        <Route path="/customer-support" element={<CustomerSupportChat />} />
       </Routes>
       {/* Main 페이지가 아닐 때만 Footer 표시 */}
       {!isMainPage && <Footer onOpenCS={openCS} />}

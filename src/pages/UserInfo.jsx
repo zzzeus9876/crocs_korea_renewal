@@ -70,7 +70,9 @@ const UserInfo = () => {
           <button onClick={() => navigate("/mypage")}>나의 정보</button>
           <button onClick={() => navigate("/orderhistory")}>주문 정보</button>
           <button onClick={() => navigate("/coupons")}>혜택 정보</button>
-          <button>1 : 1 문의</button>
+          <button onClick={() => navigate("/customer-support")}>
+            1 : 1 문의
+          </button>
         </div>
         <div className="userinfo_current_order_wrap">
           <div className="user_menu_top">
