@@ -21,6 +21,19 @@ footer {
                 padding: 4rem 0;
                 .sns_img_box {
                     @include g.flex();
+                    p {
+                        width: 4rem;
+                        height: 4rem;
+                        img {
+                            // background: white;
+                            border: 3px solid black;
+                            border-radius: 50%;
+                            padding: 8px;
+                            text-align: center;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
                 }
                 .copy-text {
                     text-align: center;
